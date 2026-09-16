@@ -1,0 +1,33 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "OdlyzkoPoonen.mem_binaryFamily_iff",
+    "OdlyzkoPoonen.card_binaryFamily",
+    "OdlyzkoPoonen.binaryProbability_eq_count",
+    "OdlyzkoPoonen.odlyzko_poonen_irreducibility",
+    "OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO",
+    "OdlyzkoPoonen.exists_reducible_probability_excess_bound",
+    "OdlyzkoPoonen.binaryProbability_reducible_asymptotic",
+    "OdlyzkoPoonen.mod_four_companion_probability",
+    "OdlyzkoPoonen.factor_pair_congruence_probability",
+    "OdlyzkoPoonen.binary_factor_reversal",
+    "OdlyzkoPoonen.reciprocal_gcd_probability",
+    "OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound",
+    "OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_minus_one_odd",
+    "OdlyzkoPoonen.binaryProbability_minus_one_even",
+    "OdlyzkoPoonen.binaryProbability_minus_one_asymptotic"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": true
+}

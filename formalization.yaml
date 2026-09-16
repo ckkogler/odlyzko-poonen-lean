@@ -1,0 +1,208 @@
+version: v0.4
+project:
+  name: The Odlyzko–Poonen conjecture
+  description: >-
+    Irreducibility and sharp reducibility asymptotics for uniformly random monic
+    integer polynomials with constant coefficient one and intermediate coefficients
+    zero or one. Rational irreducibility has probability tending to one;
+    reducibility equals the minus-one root probability, and sqrt(2/(pi*n)),
+    each up to O(1/n). The development also proves the exact modulo-four
+    autocorrelation companion bound, independent factor-pair estimate,
+    reciprocal-factor bounds, uniform noncyclotomic fixed-factor estimate,
+    cyclotomic bound and exact binomial identities needed for these conclusions.
+  authors: [Constantin Kogler]
+  responsible_maintainers: [Constantin Kogler]
+  license: 0BSD
+classification:
+  arxiv: [math.NT, math.PR]
+  msc2020: [11C08, 60C05]
+sources:
+  - title: The Odlyzko–Poonen conjecture
+    type: paper
+    location: Theorems 1.1–1.2, Proposition 2.1, Lemmas 3.1–3.2 and their supporting arguments
+    relationship: formalizes
+    note: >-
+      User-supplied mathematical manuscript without a named bibliographic author.
+      No public identifier was supplied. Source authorship is intentionally
+      uncredited; no authorship or endorsement is inferred. The source has not
+      been independently identified as a public publication. Novelty is unknown.
+    license: Source work is not relicensed by the software license
+  - title: Zeros of polynomials with 0,1 coefficients
+    authors: [A. M. Odlyzko, B. Poonen]
+    id: https://www.cecm.sfu.ca/organics/papers/odlyzko/paper/html/paper.html
+    type: paper
+    location: Introduction
+    relationship: background
+    note: >-
+      Historical source of the irreducibility conjecture. This is a separate work
+      from the anonymous manuscript being formalized; its other results are not
+      formalization targets. See reference/LiteratureAndScope.md for the model comparison.
+  - title: 'Irreducibility of random polynomials: general measures'
+    authors: [Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma]
+    id: https://arxiv.org/abs/2007.14567v3
+    type: paper
+    location: Theorems 1–2
+    relationship: background
+    note: >-
+      Context for the two-element coefficient model and earlier irreducibility
+      and small-factor bounds. No result from this source is an assumed input.
+      Its general coefficient and Galois-group results are not claimed here.
+  - title: Irreducibility of random polynomials of large degree
+    authors: [Emmanuel Breuillard, Péter P. Varjú]
+    id: https://arxiv.org/abs/1810.13360v2
+    type: paper
+    location: Lemmas 26, 40, 45 and Section 9.2
+    relationship: independently-proves
+    note: >-
+      The fixed-factor and cyclotomic inputs needed for the specified fixed-endpoint
+      binary law are proved within this repository. The general results of this
+      source are not claimed. No Riemann hypothesis or literature theorem is an axiom.
+  - title: An effective lower bound for the height of algebraic numbers
+    authors: [Paul Voutier]
+    id: https://arxiv.org/abs/1211.3110
+    type: paper
+    relationship: background
+    note: >-
+      The determinant method informs the quantitative Mahler input. The contained
+      proof uses a coarser confluent determinant bound and proves the weaker uniform
+      logarithmic gap sufficient here; it does not claim this source's full bound.
+related_formalizations:
+  - id: lp-densities-lean, commit 1ede5c88a2f7fcbb43907447f2363db89fbde0a2
+    relationship: builds-on
+    note: >-
+      One contained polynomial-root-power proof module and reusable verification
+      scripts were copied from the author's earlier local development under 0BSD.
+      Exact source paths, revision and hashes are in provenance/. No public URL
+      is asserted and no sibling project is a build dependency.
+status:
+  scope: >-
+    All source mathematical targets have completed development proofs: 672 proved
+    statements in 182 modules. Twenty independent Challenge claims and the proved
+    Solution compile. Final official-toolchain, independent-kernel and standalone
+    verification are in progress; this is not yet a completed submission.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+automation:
+  methods:
+    - method: agent
+      models: [GPT-6 (Codex)]
+      framework: Codex
+      tool_setup: >-
+        Human-directed autonomous Lean proof development with compiler feedback,
+        Mathlib tactics, exact finite diagnostics, semantic and axiom inspections,
+        and durable checkpoints. No unchecked proof certificates are used.
+      prompting_notes: >-
+        Formalize every result and supporting input with the original hypotheses,
+        constants and floors. Preserve prior projects, record source discrepancies,
+        and prepare an independently reproducible local submission without publishing.
+  notes: >-
+    Constantin Kogler supplied project direction and the mathematical source.
+    Codex authored and revised proofs and inspected their statements and axiom lists.
+    Model identifiers across earlier context segments were not exhaustively recorded.
+    Costs and total model-inference time were not reliably aggregated.
+fidelity:
+  divergences: >-
+    All numbered results and displayed estimates are represented at their original
+    meaning. The parameter m of binaryProbability counts internal coefficients,
+    so degree n uses m=n-1, with a proved uniform-counting equivalence. The value
+    at n=0 is a total extension irrelevant to the asymptotic statements. An algebraic
+    proof of the factor constants replaces the positivity argument; that positivity
+    observation is separately proved. The arithmetic inputs are proved through
+    controlled separating primes, confluent determinants and sparse coefficients.
+    No general Breuillard–Varju theorem, sharper external Mahler bound, historical
+    result mentioned only for context, or historical conjecture beyond the stated
+    source targets is claimed. A proved sign-normalization equivalence removes monicity from the reciprocal-divisor witnesses in the compared finite and asymptotic estimates. No confirmed mathematical source error was found.
+review:
+  status: agent-reviewed
+  reviewers: []
+  notes: >-
+    The developing agent inspected full statements, definitions, all standard-only
+    axiom lists and exact source correspondence. There is no separate human review,
+    registry acceptance, or remote CI result. Final independent and relocation
+    checks remain pending and will be recorded only after their actual success.
+alignment:
+  namespace: OdlyzkoPoonen
+  coverage_index: COVERAGE.md
+  statements:
+    - source: "Model: the sampled family consists exactly of monic endpoint-one binary polynomials of degree m+1."
+      lean: OdlyzkoPoonen.mem_binaryFamily_iff
+      module: OdlyzkoPoonen.Polynomial.BinaryWords
+      status: proved
+    - source: "Model: precisely 2^m polynomials have m internal binary coefficients."
+      lean: OdlyzkoPoonen.card_binaryFamily
+      module: OdlyzkoPoonen.Polynomial.BinaryWords
+      status: proved
+    - source: "Model: fair independent internal bits give uniform counting on the polynomial family."
+      lean: OdlyzkoPoonen.binaryProbability_eq_count
+      module: OdlyzkoPoonen.Probability.BinaryModel
+      status: proved
+    - source: "Theorem 1.1: the probability of irreducibility over the rationals tends to one."
+      lean: OdlyzkoPoonen.odlyzko_poonen_irreducibility
+      module: OdlyzkoPoonen.Asymptotics.Reducibility
+      status: proved
+    - source: "Theorem 1.1: reducibility differs from the minus-one root event by O(1/n)."
+      lean: OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO
+      module: OdlyzkoPoonen.Asymptotics.Reducibility
+      status: proved
+    - source: "Theorem 1.1: one positive constant bounds that nonnegative difference by C/n for all sufficiently large degrees."
+      lean: OdlyzkoPoonen.exists_reducible_probability_excess_bound
+      module: OdlyzkoPoonen.Asymptotics.Reducibility
+      status: proved
+    - source: "Theorem 1.1: the reducibility probability is sqrt(2/(pi*n)) with O(1/n) error."
+      lean: OdlyzkoPoonen.binaryProbability_reducible_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.Reducibility
+      status: proved
+    - source: "Theorem 1.2: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4)."
+      lean: OdlyzkoPoonen.mod_four_companion_probability
+      module: OdlyzkoPoonen.ModFour.CompanionProbability
+      status: proved
+    - source: "Proposition 2.1: independent uniform degree-d and degree-e endpoint-one polynomials over F2 satisfy the joint nonreciprocity/congruence event with probability at most 2*(3/4)^floor((e-1)/2)."
+      lean: OdlyzkoPoonen.factor_pair_congruence_probability
+      module: OdlyzkoPoonen.ModFour.FactorProbability
+      status: proved
+    - source: "Lemma 3.1: reversing either monic integer factor preserves binarity and autocorrelation; the two trivial outcomes occur exactly when the corresponding factor is reciprocal. Both factors have constant one."
+      lean: OdlyzkoPoonen.binary_factor_reversal
+      module: OdlyzkoPoonen.Polynomial.FactorReversal
+      status: proved
+    - source: "Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 6*2^(-L/2). This includes every natural cutoff L."
+      lean: OdlyzkoPoonen.reciprocal_gcd_probability
+      module: OdlyzkoPoonen.FiniteField.ReciprocalProbability
+      status: proved
+    - source: "Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed."
+      lean: OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound
+      module: OdlyzkoPoonen.Probability.NoncyclotomicFactor
+      status: proved
+    - source: "Estimate (3.2), also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases."
+      lean: OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
+      module: OdlyzkoPoonen.Probability.NoncyclotomicFactor
+      status: proved
+    - source: "Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+6*2^(-L/2), uniformly in L."
+      lean: OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound
+      module: OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization
+      status: proved
+    - source: "Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0."
+      lean: OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
+      module: OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization
+      status: proved
+    - source: "Estimate (3.3): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0."
+      lean: OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO
+      module: OdlyzkoPoonen.Asymptotics.ReducibleNoncyclotomic
+      status: proved
+    - source: "Estimate (3.4): the probability of a cyclotomic factor of degree at least two is O(1/n)."
+      lean: OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO
+      module: OdlyzkoPoonen.Asymptotics.HigherCyclotomic
+      status: proved
+    - source: "Exact odd-degree formula: for degree 2r+1 the minus-one root probability is choose(2r,r)/2^(2r), including degree one."
+      lean: OdlyzkoPoonen.binaryProbability_minus_one_odd
+      module: OdlyzkoPoonen.Probability.MinusOne
+      status: proved
+    - source: "Exact even-degree formula: for degree 2r the probability is choose(2r-1,r+1)/2^(2r-1), including the zero value at degree two."
+      lean: OdlyzkoPoonen.binaryProbability_minus_one_even
+      module: OdlyzkoPoonen.Probability.MinusOne
+      status: proved
+    - source: "Minus-one asymptotic: its probability is sqrt(2/(pi*n)) with the stronger O(n^(-3/2)) error."
+      lean: OdlyzkoPoonen.binaryProbability_minus_one_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.MinusOneAsymptotic
+      status: proved
+acknowledgements: Lean, Mathlib, Comparator, lean4export, NanoDa, Landrun and their contributors. Third-party materials retain their licenses.

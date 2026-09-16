@@ -1,0 +1,21 @@
+{
+  "revision": "99c678e569c7c4c0772db297c5ddd5e4c9b6322e",
+  "fetched_utc": "2026-09-14T00:01:41.885747+00:00",
+  "files": [
+    {
+      "path": "formalization.schema.json",
+      "url": "https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/formalization.schema.json",
+      "sha256": "22bd0b61631535fc68efbdf01e3013362437673ac836d721dfbdf80773244ec3"
+    },
+    {
+      "path": "v0.3.schema.json",
+      "url": "https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/v0.3.schema.json",
+      "sha256": "93247a8093ea0bb622650e8f387bcc95c4e4c7941408974d6779341844262b27"
+    },
+    {
+      "path": "v0.4.schema.json",
+      "url": "https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/99c678e569c7c4c0772db297c5ddd5e4c9b6322e/schema/v0.4.schema.json",
+      "sha256": "25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce"
+    }
+  ]
+}

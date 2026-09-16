@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-09-16T03:03:19.065609+00:00",
+  "source_repository": "https://github.com/PalomarRegistry/PalomarSubmission",
+  "revision": "bbff37896a098b0c69a2115f6b6816b72df24464",
+  "selected": {
+    "arxiv": {
+      "math.NT": "Number Theory",
+      "math.PR": "Probability"
+    },
+    "msc2020": {
+      "11C08": "Polynomials in number theory",
+      "60C05": "Combinatorial probability"
+    }
+  },
+  "files": {
+    "arxiv-categories.json": "3b339cf140a914c50bab39b1c44df2437ce3984bd09bb2150fcb0edd60eda776",
+    "msc2020-codes.json": "b4de69f1f562da01e0f4580cecc0ab36098f5297bb7cdd669c8ec3b0d3606060"
+  }
+}

@@ -1,0 +1,1430 @@
+import OdlyzkoPoonen
+
+/-! Full statement and axiom audit of every currently proved declaration. -/
+
+#print OdlyzkoPoonen.polynomialRootPowers
+#print OdlyzkoPoonen.goodRootPowerPrimes
+#print OdlyzkoPoonen.primesInInterval
+#print OdlyzkoPoonen.primeIntervalProduct
+#print OdlyzkoPoonen.centralBinomialMass
+#print OdlyzkoPoonen.cyclotomicDegreeCutoff
+#print OdlyzkoPoonen.HasF2Endpoints
+#print OdlyzkoPoonen.f2WordPolynomial
+#print OdlyzkoPoonen.f2Family
+#print OdlyzkoPoonen.bitToF2
+#print OdlyzkoPoonen.f2ToBit
+#print OdlyzkoPoonen.bitF2Equiv
+#print OdlyzkoPoonen.coefficientConvolution
+#print OdlyzkoPoonen.coefficientConvolutionCorrection
+#print OdlyzkoPoonen.f2EndpointFamily
+#print OdlyzkoPoonen.FirstAsymmetryAt
+#print OdlyzkoPoonen.f2InteriorPolynomial
+#print OdlyzkoPoonen.pairSumPolynomial
+#print OdlyzkoPoonen.pairedPolynomial
+#print OdlyzkoPoonen.togglePair
+#print OdlyzkoPoonen.HasReciprocalF2Divisor
+#print OdlyzkoPoonen.rootPrefixPolynomial
+#print OdlyzkoPoonen.rootPrefixMultiplicity
+#print OdlyzkoPoonen.confluentVandermonde
+#print OdlyzkoPoonen.HasModFourCompanion
+#print OdlyzkoPoonen.pairedDiscrepancy
+#print OdlyzkoPoonen.HasFactorWitness
+#print OdlyzkoPoonen.activeDiscrepancyIndices
+#print OdlyzkoPoonen.halfCoefficientDifference
+#print OdlyzkoPoonen.autocorrelationDiscrepancy
+#print OdlyzkoPoonen.exposureSlopeWord
+#print OdlyzkoPoonen.IsBinary
+#print OdlyzkoPoonen.HasBinaryEndpoints
+#print OdlyzkoPoonen.bitValue
+#print OdlyzkoPoonen.interiorPolynomial
+#print OdlyzkoPoonen.wordPolynomial
+#print OdlyzkoPoonen.binaryFamily
+#print OdlyzkoPoonen.monicPolynomialOfCoefficients
+#print OdlyzkoPoonen.boundedMonicFamily
+#print OdlyzkoPoonen.AgreeOnOuter
+#print OdlyzkoPoonen.HasCyclotomicDivisor
+#print OdlyzkoPoonen.HasHigherCyclotomicDivisor
+#print OdlyzkoPoonen.smallDivisorCandidates
+#print OdlyzkoPoonen.alternatingComplement
+#print OdlyzkoPoonen.ReducibleOverRat
+#print OdlyzkoPoonen.reducePolynomial
+#print OdlyzkoPoonen.zeroOneLift
+#print OdlyzkoPoonen.CongruentMod
+#print OdlyzkoPoonen.wordResiduePolynomial
+#print OdlyzkoPoonen.residueEndpointShift
+#print OdlyzkoPoonen.autocorrelation
+#print OdlyzkoPoonen.RootPowerSeparates
+#print OdlyzkoPoonen.HasRootRatioOrder
+#print OdlyzkoPoonen.polynomialRootRatios
+#print OdlyzkoPoonen.booleanWordFinsetEquiv
+#print OdlyzkoPoonen.binaryProbability
+#print OdlyzkoPoonen.trueBitCount
+#print OdlyzkoPoonen.f2Probability
+#print OdlyzkoPoonen.f2PairProbability
+#print OdlyzkoPoonen.uniformProbability
+#print OdlyzkoPoonen.FirstTrueAt
+#print OdlyzkoPoonen.DependsOnPrefix
+#print OdlyzkoPoonen.TogglesOn
+#print OdlyzkoPoonen.freshBitCorrection
+#print OdlyzkoPoonen.shiftedWordIndex
+#print OdlyzkoPoonen.lowerWordIndex
+#print OdlyzkoPoonen.upperWordIndex
+#print OdlyzkoPoonen.centerWordIndex
+#print OdlyzkoPoonen.assembleOppositeWord
+#print OdlyzkoPoonen.oppositeWordEquiv
+#print OdlyzkoPoonen.prescribedBitsEquiv
+#print OdlyzkoPoonen.HasLargeReciprocalIntegerDivisor
+#print OdlyzkoPoonen.reciprocalGeometricTail
+#print OdlyzkoPoonen.residueIndex
+#print OdlyzkoPoonen.residueFiberEquiv
+#print OdlyzkoPoonen.residueBlockCoefficient
+#print OdlyzkoPoonen.DependsOnEarlier
+#print OdlyzkoPoonen.triangularBitMap
+#print OdlyzkoPoonen.uniformAverage
+#print OdlyzkoPoonen.groupWordEquiv
+#print OdlyzkoPoonen.wordPrefix
+#print OdlyzkoPoonen.prefixWordEquiv
+#print OdlyzkoPoonen.residue_atom_scale_sq
+#print axioms OdlyzkoPoonen.residue_atom_scale_sq
+#print OdlyzkoPoonen.residue_atom_scale_le_cutoff
+#print axioms OdlyzkoPoonen.residue_atom_scale_le_cutoff
+#print OdlyzkoPoonen.residue_order_count_mul_cube
+#print axioms OdlyzkoPoonen.residue_order_count_mul_cube
+#print OdlyzkoPoonen.exists_pos_le_on_finite
+#print axioms OdlyzkoPoonen.exists_pos_le_on_finite
+#print OdlyzkoPoonen.exists_pos_log_mahler_gap_bounded_degree
+#print axioms OdlyzkoPoonen.exists_pos_log_mahler_gap_bounded_degree
+#print OdlyzkoPoonen.exists_pos_noncyclotomic_log_mahler_gap_bounded_degree
+#print axioms OdlyzkoPoonen.exists_pos_noncyclotomic_log_mahler_gap_bounded_degree
+#print OdlyzkoPoonen.tendsto_log_div_sqrt_atTop
+#print axioms OdlyzkoPoonen.tendsto_log_div_sqrt_atTop
+#print OdlyzkoPoonen.eventually_theta_ge_half_log_two_mul
+#print axioms OdlyzkoPoonen.eventually_theta_ge_half_log_two_mul
+#print OdlyzkoPoonen.eventually_theta_eight_mul_sub_ge
+#print axioms OdlyzkoPoonen.eventually_theta_eight_mul_sub_ge
+#print OdlyzkoPoonen.exists_threshold_theta_eight_mul_sub_ge
+#print axioms OdlyzkoPoonen.exists_threshold_theta_eight_mul_sub_ge
+#print OdlyzkoPoonen.eventually_geometric_quarter_le_exp
+#print axioms OdlyzkoPoonen.eventually_geometric_quarter_le_exp
+#print OdlyzkoPoonen.geometric_quarter_isBigO_rpow
+#print axioms OdlyzkoPoonen.geometric_quarter_isBigO_rpow
+#print OdlyzkoPoonen.one_le_norm_leadingCoeff_int_map
+#print axioms OdlyzkoPoonen.one_le_norm_leadingCoeff_int_map
+#print OdlyzkoPoonen.int_mahlerMeasure_le_of_dvd
+#print axioms OdlyzkoPoonen.int_mahlerMeasure_le_of_dvd
+#print OdlyzkoPoonen.one_lt_mahlerMeasure_of_no_cyclotomic
+#print axioms OdlyzkoPoonen.one_lt_mahlerMeasure_of_no_cyclotomic
+#print OdlyzkoPoonen.log_mahlerMeasure_pos_of_no_cyclotomic
+#print axioms OdlyzkoPoonen.log_mahlerMeasure_pos_of_no_cyclotomic
+#print OdlyzkoPoonen.eventually_log_pow_le_nat_div_log_pow
+#print axioms OdlyzkoPoonen.eventually_log_pow_le_nat_div_log_pow
+#print OdlyzkoPoonen.log_nat_pow_isLittleO_nat
+#print axioms OdlyzkoPoonen.log_nat_pow_isLittleO_nat
+#print OdlyzkoPoonen.tendsto_log_nat_pow_div_nat
+#print axioms OdlyzkoPoonen.tendsto_log_nat_pow_div_nat
+#print OdlyzkoPoonen.exists_threshold_logarithmic_prime_scale
+#print axioms OdlyzkoPoonen.exists_threshold_logarithmic_prime_scale
+#print OdlyzkoPoonen.mahler_log_lower_of_parameter_budget
+#print axioms OdlyzkoPoonen.mahler_log_lower_of_parameter_budget
+#print OdlyzkoPoonen.mahler_parameter_ceil_bounds
+#print axioms OdlyzkoPoonen.mahler_parameter_ceil_bounds
+#print OdlyzkoPoonen.mahler_prime_scale_log_lower
+#print axioms OdlyzkoPoonen.mahler_prime_scale_log_lower
+#print OdlyzkoPoonen.mahler_prime_card_budget
+#print axioms OdlyzkoPoonen.mahler_prime_card_budget
+#print OdlyzkoPoonen.mahler_prime_sum_budget
+#print axioms OdlyzkoPoonen.mahler_prime_sum_budget
+#print OdlyzkoPoonen.mahler_bad_prime_log_budget
+#print axioms OdlyzkoPoonen.mahler_bad_prime_log_budget
+#print OdlyzkoPoonen.mahler_node_log_budget
+#print axioms OdlyzkoPoonen.mahler_node_log_budget
+#print OdlyzkoPoonen.max_one_norm_pow
+#print axioms OdlyzkoPoonen.max_one_norm_pow
+#print OdlyzkoPoonen.prod_max_one_norm_mono
+#print axioms OdlyzkoPoonen.prod_max_one_norm_mono
+#print OdlyzkoPoonen.roots_pow_le_of_dvd_expand
+#print axioms OdlyzkoPoonen.roots_pow_le_of_dvd_expand
+#print OdlyzkoPoonen.mahlerMeasure_pow_le_of_dvd_expand
+#print axioms OdlyzkoPoonen.mahlerMeasure_pow_le_of_dvd_expand
+#print OdlyzkoPoonen.polynomialRootPowers_eq_prod_of_splits
+#print axioms OdlyzkoPoonen.polynomialRootPowers_eq_prod_of_splits
+#print OdlyzkoPoonen.polynomialRootPowers_eq_prod
+#print axioms OdlyzkoPoonen.polynomialRootPowers_eq_prod
+#print OdlyzkoPoonen.polynomialRootPowers_leadingCoeff_of_splits
+#print axioms OdlyzkoPoonen.polynomialRootPowers_leadingCoeff_of_splits
+#print OdlyzkoPoonen.polynomialRootPowers_natDegree_of_splits
+#print axioms OdlyzkoPoonen.polynomialRootPowers_natDegree_of_splits
+#print OdlyzkoPoonen.polynomialRootPowers_dvd_pow_of_dvd_comp
+#print axioms OdlyzkoPoonen.polynomialRootPowers_dvd_pow_of_dvd_comp
+#print OdlyzkoPoonen.polynomialRootPowers_mahlerMeasure
+#print axioms OdlyzkoPoonen.polynomialRootPowers_mahlerMeasure
+#print OdlyzkoPoonen.polynomialRootPowers_map
+#print axioms OdlyzkoPoonen.polynomialRootPowers_map
+#print OdlyzkoPoonen.polynomialRootPowers_isRoot
+#print axioms OdlyzkoPoonen.polynomialRootPowers_isRoot
+#print OdlyzkoPoonen.quantitative_mahler_of_large_log_degree
+#print axioms OdlyzkoPoonen.quantitative_mahler_of_large_log_degree
+#print OdlyzkoPoonen.exists_threshold_quantitative_mahler_large_degree
+#print axioms OdlyzkoPoonen.exists_threshold_quantitative_mahler_large_degree
+#print OdlyzkoPoonen.eventually_exp_cutoff_cost_le_rpow
+#print axioms OdlyzkoPoonen.eventually_exp_cutoff_cost_le_rpow
+#print OdlyzkoPoonen.two_rpow_neg_half_ceil_log_le
+#print axioms OdlyzkoPoonen.two_rpow_neg_half_ceil_log_le
+#print OdlyzkoPoonen.isBigO_rpow_of_reciprocal_finite_bound
+#print axioms OdlyzkoPoonen.isBigO_rpow_of_reciprocal_finite_bound
+#print OdlyzkoPoonen.prod_max_norm_root_powers
+#print axioms OdlyzkoPoonen.prod_max_norm_root_powers
+#print OdlyzkoPoonen.prod_max_norm_eq_mahler_of_factorization
+#print axioms OdlyzkoPoonen.prod_max_norm_eq_mahler_of_factorization
+#print OdlyzkoPoonen.prod_max_norm_repeated_root_powers
+#print axioms OdlyzkoPoonen.prod_max_norm_repeated_root_powers
+#print OdlyzkoPoonen.prod_max_norm_option_root_powers
+#print axioms OdlyzkoPoonen.prod_max_norm_option_root_powers
+#print OdlyzkoPoonen.prime_family_mahler_power_inequality
+#print axioms OdlyzkoPoonen.prime_family_mahler_power_inequality
+#print OdlyzkoPoonen.prime_family_mahler_log_inequality
+#print axioms OdlyzkoPoonen.prime_family_mahler_log_inequality
+#print OdlyzkoPoonen.logarithmic_prime_scale_ge
+#print axioms OdlyzkoPoonen.logarithmic_prime_scale_ge
+#print OdlyzkoPoonen.log_lt_prime_mul_log_of_mahler_gap
+#print axioms OdlyzkoPoonen.log_lt_prime_mul_log_of_mahler_gap
+#print OdlyzkoPoonen.inverse_sqrt_pi_le
+#print axioms OdlyzkoPoonen.inverse_sqrt_pi_le
+#print OdlyzkoPoonen.sqrt_two_div_double
+#print axioms OdlyzkoPoonen.sqrt_two_div_double
+#print OdlyzkoPoonen.sqrt_odd_degree_comparison
+#print axioms OdlyzkoPoonen.sqrt_odd_degree_comparison
+#print OdlyzkoPoonen.inverse_three_halves_comparison
+#print axioms OdlyzkoPoonen.inverse_three_halves_comparison
+#print OdlyzkoPoonen.rpow_neg_three_halves
+#print axioms OdlyzkoPoonen.rpow_neg_three_halves
+#print OdlyzkoPoonen.exists_uniform_quantitative_log_mahler_bound
+#print axioms OdlyzkoPoonen.exists_uniform_quantitative_log_mahler_bound
+#print OdlyzkoPoonen.natLog_two_le_real_log_div
+#print axioms OdlyzkoPoonen.natLog_two_le_real_log_div
+#print OdlyzkoPoonen.nat_pow_le_two_pow_log_multiple
+#print axioms OdlyzkoPoonen.nat_pow_le_two_pow_log_multiple
+#print OdlyzkoPoonen.mem_goodRootPowerPrimes
+#print axioms OdlyzkoPoonen.mem_goodRootPowerPrimes
+#print OdlyzkoPoonen.goodRootPowerPrimes_subset
+#print axioms OdlyzkoPoonen.goodRootPowerPrimes_subset
+#print OdlyzkoPoonen.sum_log_bad_root_power_primes_le
+#print axioms OdlyzkoPoonen.sum_log_bad_root_power_primes_le
+#print OdlyzkoPoonen.good_root_power_prime_weight_lower
+#print axioms OdlyzkoPoonen.good_root_power_prime_weight_lower
+#print OdlyzkoPoonen.card_goodRootPowerPrimes_le
+#print axioms OdlyzkoPoonen.card_goodRootPowerPrimes_le
+#print OdlyzkoPoonen.sum_goodRootPowerPrimes_le
+#print axioms OdlyzkoPoonen.sum_goodRootPowerPrimes_le
+#print OdlyzkoPoonen.exists_threshold_good_root_power_prime_weight
+#print axioms OdlyzkoPoonen.exists_threshold_good_root_power_prime_weight
+#print OdlyzkoPoonen.card_mul_log_lower_le_prime_weight
+#print axioms OdlyzkoPoonen.card_mul_log_lower_le_prime_weight
+#print OdlyzkoPoonen.prime_weight_le_card_mul_log_upper
+#print axioms OdlyzkoPoonen.prime_weight_le_card_mul_log_upper
+#print OdlyzkoPoonen.sum_primes_le_card_mul_upper
+#print axioms OdlyzkoPoonen.sum_primes_le_card_mul_upper
+#print OdlyzkoPoonen.prime_weight_le_sixteen_mul
+#print axioms OdlyzkoPoonen.prime_weight_le_sixteen_mul
+#print OdlyzkoPoonen.card_prime_family_le
+#print axioms OdlyzkoPoonen.card_prime_family_le
+#print OdlyzkoPoonen.eventually_exp_le_primeIntervalProduct
+#print axioms OdlyzkoPoonen.eventually_exp_le_primeIntervalProduct
+#print OdlyzkoPoonen.exists_threshold_exp_le_primeIntervalProduct
+#print axioms OdlyzkoPoonen.exists_threshold_exp_le_primeIntervalProduct
+#print OdlyzkoPoonen.exists_prime_in_interval_not_dvd_of_log_lt
+#print axioms OdlyzkoPoonen.exists_prime_in_interval_not_dvd_of_log_lt
+#print OdlyzkoPoonen.mem_primesInInterval
+#print axioms OdlyzkoPoonen.mem_primesInInterval
+#print OdlyzkoPoonen.primeIntervalProduct_pos
+#print axioms OdlyzkoPoonen.primeIntervalProduct_pos
+#print OdlyzkoPoonen.log_primeIntervalProduct
+#print axioms OdlyzkoPoonen.log_primeIntervalProduct
+#print OdlyzkoPoonen.primeIntervalProduct_dvd
+#print axioms OdlyzkoPoonen.primeIntervalProduct_dvd
+#print OdlyzkoPoonen.exists_prime_in_interval_not_dvd
+#print axioms OdlyzkoPoonen.exists_prime_in_interval_not_dvd
+#print OdlyzkoPoonen.primitiveRoot_mul_of_coprime
+#print axioms OdlyzkoPoonen.primitiveRoot_mul_of_coprime
+#print OdlyzkoPoonen.card_positive_residue_class_ge
+#print axioms OdlyzkoPoonen.card_positive_residue_class_ge
+#print OdlyzkoPoonen.card_positive_residue_class_add_one_ge
+#print axioms OdlyzkoPoonen.card_positive_residue_class_add_one_ge
+#print OdlyzkoPoonen.card_sparse_internal_positions
+#print axioms OdlyzkoPoonen.card_sparse_internal_positions
+#print OdlyzkoPoonen.nat_div_ge_half_real_ratio
+#print axioms OdlyzkoPoonen.nat_div_ge_half_real_ratio
+#print OdlyzkoPoonen.sparse_quotient_lower
+#print axioms OdlyzkoPoonen.sparse_quotient_lower
+#print OdlyzkoPoonen.half_pow_sparse_quotient_le_exp
+#print axioms OdlyzkoPoonen.half_pow_sparse_quotient_le_exp
+#print OdlyzkoPoonen.coprime_odd_or_odd
+#print axioms OdlyzkoPoonen.coprime_odd_or_odd
+#print OdlyzkoPoonen.order_le_totient_sq_with_odd
+#print axioms OdlyzkoPoonen.order_le_totient_sq_with_odd
+#print OdlyzkoPoonen.order_le_two_totient_sq
+#print axioms OdlyzkoPoonen.order_le_two_totient_sq
+#print OdlyzkoPoonen.odd_order_le_totient_sq
+#print axioms OdlyzkoPoonen.odd_order_le_totient_sq
+#print OdlyzkoPoonen.centralBinomialMass_pos
+#print axioms OdlyzkoPoonen.centralBinomialMass_pos
+#print OdlyzkoPoonen.centralBinomialMass_eq_choose
+#print axioms OdlyzkoPoonen.centralBinomialMass_eq_choose
+#print OdlyzkoPoonen.centralBinomialMass_wallis_identity
+#print axioms OdlyzkoPoonen.centralBinomialMass_wallis_identity
+#print OdlyzkoPoonen.centralBinomialMass_sq_lower
+#print axioms OdlyzkoPoonen.centralBinomialMass_sq_lower
+#print OdlyzkoPoonen.centralBinomialMass_sq_upper_aux
+#print axioms OdlyzkoPoonen.centralBinomialMass_sq_upper_aux
+#print OdlyzkoPoonen.centralBinomialMass_sq_upper
+#print axioms OdlyzkoPoonen.centralBinomialMass_sq_upper
+#print OdlyzkoPoonen.centralBinomialMass_le_sqrt
+#print axioms OdlyzkoPoonen.centralBinomialMass_le_sqrt
+#print OdlyzkoPoonen.centralBinomialMass_abs_sub_sqrt_le
+#print axioms OdlyzkoPoonen.centralBinomialMass_abs_sub_sqrt_le
+#print OdlyzkoPoonen.cyclotomicDegreeCutoff_pos
+#print axioms OdlyzkoPoonen.cyclotomicDegreeCutoff_pos
+#print OdlyzkoPoonen.pow_eight_le_two_pow_cyclotomicDegreeCutoff
+#print axioms OdlyzkoPoonen.pow_eight_le_two_pow_cyclotomicDegreeCutoff
+#print OdlyzkoPoonen.cyclotomicDegreeCutoff_le_log
+#print axioms OdlyzkoPoonen.cyclotomicDegreeCutoff_le_log
+#print OdlyzkoPoonen.cyclotomicDegreeCutoff_isBigO_log
+#print axioms OdlyzkoPoonen.cyclotomicDegreeCutoff_isBigO_log
+#print OdlyzkoPoonen.log_nat_pow_isLittleO_sqrt
+#print axioms OdlyzkoPoonen.log_nat_pow_isLittleO_sqrt
+#print OdlyzkoPoonen.cyclotomicDegreeCutoff_pow_isLittleO_sqrt
+#print axioms OdlyzkoPoonen.cyclotomicDegreeCutoff_pow_isLittleO_sqrt
+#print OdlyzkoPoonen.tendsto_cyclotomicDegreeCutoff_pow_div_sqrt
+#print axioms OdlyzkoPoonen.tendsto_cyclotomicDegreeCutoff_pow_div_sqrt
+#print OdlyzkoPoonen.eventually_cyclotomic_cutoff_scale_le_one
+#print axioms OdlyzkoPoonen.eventually_cyclotomic_cutoff_scale_le_one
+#print OdlyzkoPoonen.cyclotomic_cutoff_tail_le
+#print axioms OdlyzkoPoonen.cyclotomic_cutoff_tail_le
+#print OdlyzkoPoonen.eventually_binaryProbability_higher_cyclotomic_le
+#print axioms OdlyzkoPoonen.eventually_binaryProbability_higher_cyclotomic_le
+#print OdlyzkoPoonen.exists_threshold_higher_cyclotomic_bound
+#print axioms OdlyzkoPoonen.exists_threshold_higher_cyclotomic_bound
+#print OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO
+#print OdlyzkoPoonen.tendsto_higher_cyclotomic_probability
+#print axioms OdlyzkoPoonen.tendsto_higher_cyclotomic_probability
+#print OdlyzkoPoonen.binaryProbability_minus_one_error_bound
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_error_bound
+#print OdlyzkoPoonen.binaryProbability_minus_one_error_rpow
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_error_rpow
+#print OdlyzkoPoonen.binaryProbability_minus_one_asymptotic
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_asymptotic
+#print OdlyzkoPoonen.tendsto_minus_one_leading_term
+#print axioms OdlyzkoPoonen.tendsto_minus_one_leading_term
+#print OdlyzkoPoonen.tendsto_minus_one_probability
+#print axioms OdlyzkoPoonen.tendsto_minus_one_probability
+#print OdlyzkoPoonen.adjacent_even_choose_identity
+#print axioms OdlyzkoPoonen.adjacent_even_choose_identity
+#print OdlyzkoPoonen.binaryProbability_minus_one_odd_eq_central
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_odd_eq_central
+#print OdlyzkoPoonen.binaryProbability_minus_one_even_eq_central
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_even_eq_central
+#print OdlyzkoPoonen.binaryProbability_minus_one_even_error
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_even_error
+#print OdlyzkoPoonen.binaryProbability_minus_one_odd_error
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_odd_error
+#print OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound
+#print axioms OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound
+#print OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
+#print OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_isBigO
+#print OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO
+#print OdlyzkoPoonen.exists_reducible_probability_excess_bound
+#print axioms OdlyzkoPoonen.exists_reducible_probability_excess_bound
+#print OdlyzkoPoonen.nat_rpow_neg_three_halves_isBigO_inverse
+#print axioms OdlyzkoPoonen.nat_rpow_neg_three_halves_isBigO_inverse
+#print OdlyzkoPoonen.binaryProbability_reducible_asymptotic
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_asymptotic
+#print OdlyzkoPoonen.tendsto_reducible_probability
+#print axioms OdlyzkoPoonen.tendsto_reducible_probability
+#print OdlyzkoPoonen.odlyzko_poonen_irreducibility
+#print axioms OdlyzkoPoonen.odlyzko_poonen_irreducibility
+#print OdlyzkoPoonen.binaryProbability_companion_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_companion_isBigO
+#print OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO
+#print OdlyzkoPoonen.cancel_common_autocorrelation_factor
+#print axioms OdlyzkoPoonen.cancel_common_autocorrelation_factor
+#print OdlyzkoPoonen.coprime_equal_autocorrelation_reverse
+#print axioms OdlyzkoPoonen.coprime_equal_autocorrelation_reverse
+#print OdlyzkoPoonen.HasBinaryEndpoints.reduce
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reduce
+#print OdlyzkoPoonen.HasF2Endpoints.lift
+#print axioms OdlyzkoPoonen.HasF2Endpoints.lift
+#print OdlyzkoPoonen.zeroOneLift_endpoints_iff
+#print axioms OdlyzkoPoonen.zeroOneLift_endpoints_iff
+#print OdlyzkoPoonen.HasF2Endpoints.reverse
+#print axioms OdlyzkoPoonen.HasF2Endpoints.reverse
+#print OdlyzkoPoonen.HasF2Endpoints.mul
+#print axioms OdlyzkoPoonen.HasF2Endpoints.mul
+#print OdlyzkoPoonen.f2WordPolynomial_endpoints
+#print axioms OdlyzkoPoonen.f2WordPolynomial_endpoints
+#print OdlyzkoPoonen.f2WordPolynomial_injective
+#print axioms OdlyzkoPoonen.f2WordPolynomial_injective
+#print OdlyzkoPoonen.exists_f2WordPolynomial_eq
+#print axioms OdlyzkoPoonen.exists_f2WordPolynomial_eq
+#print OdlyzkoPoonen.mem_f2Family_iff
+#print axioms OdlyzkoPoonen.mem_f2Family_iff
+#print OdlyzkoPoonen.card_f2Family
+#print axioms OdlyzkoPoonen.card_f2Family
+#print OdlyzkoPoonen.bitToF2_eq_zero_iff
+#print axioms OdlyzkoPoonen.bitToF2_eq_zero_iff
+#print OdlyzkoPoonen.bitToF2_eq_one_iff
+#print axioms OdlyzkoPoonen.bitToF2_eq_one_iff
+#print OdlyzkoPoonen.bitToF2_eq_int_cast
+#print axioms OdlyzkoPoonen.bitToF2_eq_int_cast
+#print OdlyzkoPoonen.f2ToBit_bitToF2
+#print axioms OdlyzkoPoonen.f2ToBit_bitToF2
+#print OdlyzkoPoonen.bitToF2_f2ToBit
+#print axioms OdlyzkoPoonen.bitToF2_f2ToBit
+#print OdlyzkoPoonen.bitToF2_xor
+#print axioms OdlyzkoPoonen.bitToF2_xor
+#print OdlyzkoPoonen.bitToF2_not
+#print axioms OdlyzkoPoonen.bitToF2_not
+#print OdlyzkoPoonen.f2ToBit_add_one
+#print axioms OdlyzkoPoonen.f2ToBit_add_one
+#print OdlyzkoPoonen.f2ToBit_eq_false_iff
+#print axioms OdlyzkoPoonen.f2ToBit_eq_false_iff
+#print OdlyzkoPoonen.f2ToBit_eq_true_iff
+#print axioms OdlyzkoPoonen.f2ToBit_eq_true_iff
+#print OdlyzkoPoonen.equal_autocorrelation_factorization
+#print axioms OdlyzkoPoonen.equal_autocorrelation_factorization
+#print OdlyzkoPoonen.nontrivial_companion_factorization
+#print axioms OdlyzkoPoonen.nontrivial_companion_factorization
+#print OdlyzkoPoonen.ordered_companion_factorization
+#print axioms OdlyzkoPoonen.ordered_companion_factorization
+#print OdlyzkoPoonen.f2ToBit_add
+#print axioms OdlyzkoPoonen.f2ToBit_add
+#print OdlyzkoPoonen.coefficientConvolutionCorrection_dependsOnEarlier
+#print axioms OdlyzkoPoonen.coefficientConvolutionCorrection_dependsOnEarlier
+#print OdlyzkoPoonen.coefficientConvolution_eq_triangular
+#print axioms OdlyzkoPoonen.coefficientConvolution_eq_triangular
+#print OdlyzkoPoonen.coefficientConvolution_bijective
+#print axioms OdlyzkoPoonen.coefficientConvolution_bijective
+#print OdlyzkoPoonen.uniformAverage_coefficientConvolution_half_weight
+#print axioms OdlyzkoPoonen.uniformAverage_coefficientConvolution_half_weight
+#print OdlyzkoPoonen.HasF2Endpoints.not_dvd_of_degree_lt
+#print axioms OdlyzkoPoonen.HasF2Endpoints.not_dvd_of_degree_lt
+#print OdlyzkoPoonen.HasF2Endpoints.exists_endpoint_quotient
+#print axioms OdlyzkoPoonen.HasF2Endpoints.exists_endpoint_quotient
+#print OdlyzkoPoonen.card_endpoint_multiples_le
+#print axioms OdlyzkoPoonen.card_endpoint_multiples_le
+#print OdlyzkoPoonen.f2Probability_divisible_eq_zero
+#print axioms OdlyzkoPoonen.f2Probability_divisible_eq_zero
+#print OdlyzkoPoonen.f2Probability_divisible_le
+#print axioms OdlyzkoPoonen.f2Probability_divisible_le
+#print OdlyzkoPoonen.mem_f2EndpointFamily_iff
+#print axioms OdlyzkoPoonen.mem_f2EndpointFamily_iff
+#print OdlyzkoPoonen.card_f2EndpointFamily
+#print axioms OdlyzkoPoonen.card_f2EndpointFamily
+#print OdlyzkoPoonen.f2EndpointFamily_nonempty
+#print axioms OdlyzkoPoonen.f2EndpointFamily_nonempty
+#print OdlyzkoPoonen.card_f2EndpointFamily_le
+#print axioms OdlyzkoPoonen.card_f2EndpointFamily_le
+#print OdlyzkoPoonen.card_reciprocal_f2EndpointFamily
+#print axioms OdlyzkoPoonen.card_reciprocal_f2EndpointFamily
+#print OdlyzkoPoonen.f2_eq_one_of_ne_zero
+#print axioms OdlyzkoPoonen.f2_eq_one_of_ne_zero
+#print OdlyzkoPoonen.f2_monic_of_ne_zero
+#print axioms OdlyzkoPoonen.f2_monic_of_ne_zero
+#print OdlyzkoPoonen.f2_endpoints_of_constant
+#print axioms OdlyzkoPoonen.f2_endpoints_of_constant
+#print OdlyzkoPoonen.HasF2Endpoints.factor_endpoints
+#print axioms OdlyzkoPoonen.HasF2Endpoints.factor_endpoints
+#print OdlyzkoPoonen.HasF2Endpoints.reverse_reverse
+#print axioms OdlyzkoPoonen.HasF2Endpoints.reverse_reverse
+#print OdlyzkoPoonen.HasF2Endpoints.eq_one_of_degree_zero
+#print axioms OdlyzkoPoonen.HasF2Endpoints.eq_one_of_degree_zero
+#print OdlyzkoPoonen.HasF2Endpoints.degree_pos_of_nonreciprocal
+#print axioms OdlyzkoPoonen.HasF2Endpoints.degree_pos_of_nonreciprocal
+#print OdlyzkoPoonen.firstAsymmetryAt_paired_iff
+#print axioms OdlyzkoPoonen.firstAsymmetryAt_paired_iff
+#print OdlyzkoPoonen.FirstAsymmetryAt.unique
+#print axioms OdlyzkoPoonen.FirstAsymmetryAt.unique
+#print OdlyzkoPoonen.FirstAsymmetryAt.ne_reverse
+#print axioms OdlyzkoPoonen.FirstAsymmetryAt.ne_reverse
+#print OdlyzkoPoonen.HasF2Endpoints.exists_firstAsymmetry
+#print axioms OdlyzkoPoonen.HasF2Endpoints.exists_firstAsymmetry
+#print OdlyzkoPoonen.exists_coprime_endpoint_factors
+#print axioms OdlyzkoPoonen.exists_coprime_endpoint_factors
+#print OdlyzkoPoonen.coeff_f2InteriorPolynomial
+#print axioms OdlyzkoPoonen.coeff_f2InteriorPolynomial
+#print OdlyzkoPoonen.coeff_f2InteriorPolynomial_outside
+#print axioms OdlyzkoPoonen.coeff_f2InteriorPolynomial_outside
+#print OdlyzkoPoonen.coeff_f2InteriorPolynomial_zero
+#print axioms OdlyzkoPoonen.coeff_f2InteriorPolynomial_zero
+#print OdlyzkoPoonen.f2InteriorPolynomial_prefix
+#print axioms OdlyzkoPoonen.f2InteriorPolynomial_prefix
+#print OdlyzkoPoonen.AgreeOnOuter.reverse
+#print axioms OdlyzkoPoonen.AgreeOnOuter.reverse
+#print OdlyzkoPoonen.AgreeOnOuter.mul_left
+#print axioms OdlyzkoPoonen.AgreeOnOuter.mul_left
+#print OdlyzkoPoonen.AgreeOnOuter.zeroOneLift
+#print axioms OdlyzkoPoonen.AgreeOnOuter.zeroOneLift
+#print OdlyzkoPoonen.coeff_pairSumPolynomial_zero
+#print axioms OdlyzkoPoonen.coeff_pairSumPolynomial_zero
+#print OdlyzkoPoonen.pairSumPolynomial_prefix
+#print axioms OdlyzkoPoonen.pairSumPolynomial_prefix
+#print OdlyzkoPoonen.paired_sum_reverse_eq
+#print axioms OdlyzkoPoonen.paired_sum_reverse_eq
+#print OdlyzkoPoonen.paired_sum_reverse_eq_pairSumPolynomial
+#print axioms OdlyzkoPoonen.paired_sum_reverse_eq_pairSumPolynomial
+#print OdlyzkoPoonen.coeff_pairSumPolynomial_lower
+#print axioms OdlyzkoPoonen.coeff_pairSumPolynomial_lower
+#print OdlyzkoPoonen.pairSumPolynomial_injective
+#print axioms OdlyzkoPoonen.pairSumPolynomial_injective
+#print OdlyzkoPoonen.pairedPolynomial_endpoints
+#print axioms OdlyzkoPoonen.pairedPolynomial_endpoints
+#print OdlyzkoPoonen.coeff_pairedPolynomial_lower
+#print axioms OdlyzkoPoonen.coeff_pairedPolynomial_lower
+#print OdlyzkoPoonen.coeff_pairedPolynomial_upper
+#print axioms OdlyzkoPoonen.coeff_pairedPolynomial_upper
+#print OdlyzkoPoonen.coeff_pairedPolynomial_center
+#print axioms OdlyzkoPoonen.coeff_pairedPolynomial_center
+#print OdlyzkoPoonen.coeff_paired_sum_reverse_lower
+#print axioms OdlyzkoPoonen.coeff_paired_sum_reverse_lower
+#print OdlyzkoPoonen.coeff_add_reverse_opposite
+#print axioms OdlyzkoPoonen.coeff_add_reverse_opposite
+#print OdlyzkoPoonen.coeff_paired_sum_reverse_upper
+#print axioms OdlyzkoPoonen.coeff_paired_sum_reverse_upper
+#print OdlyzkoPoonen.coeff_paired_sum_reverse_center
+#print axioms OdlyzkoPoonen.coeff_paired_sum_reverse_center
+#print OdlyzkoPoonen.f2Probability_eq_paired_average
+#print axioms OdlyzkoPoonen.f2Probability_eq_paired_average
+#print OdlyzkoPoonen.HasF2Endpoints.togglePair
+#print axioms OdlyzkoPoonen.HasF2Endpoints.togglePair
+#print OdlyzkoPoonen.reverse_togglePair
+#print axioms OdlyzkoPoonen.reverse_togglePair
+#print OdlyzkoPoonen.coeff_mul_togglePair_before
+#print axioms OdlyzkoPoonen.coeff_mul_togglePair_before
+#print OdlyzkoPoonen.coeff_mul_togglePair_at
+#print axioms OdlyzkoPoonen.coeff_mul_togglePair_at
+#print OdlyzkoPoonen.coeff_mul_togglePair_opposite
+#print axioms OdlyzkoPoonen.coeff_mul_togglePair_opposite
+#print OdlyzkoPoonen.coeff_mul_togglePair_opposite_before
+#print axioms OdlyzkoPoonen.coeff_mul_togglePair_opposite_before
+#print OdlyzkoPoonen.togglePair_togglePair
+#print axioms OdlyzkoPoonen.togglePair_togglePair
+#print OdlyzkoPoonen.togglePair_add_reverse
+#print axioms OdlyzkoPoonen.togglePair_add_reverse
+#print OdlyzkoPoonen.pairedPolynomial_update
+#print axioms OdlyzkoPoonen.pairedPolynomial_update
+#print OdlyzkoPoonen.f2_reverse_dvd_reverse
+#print axioms OdlyzkoPoonen.f2_reverse_dvd_reverse
+#print OdlyzkoPoonen.HasF2Endpoints.divisor_endpoints
+#print axioms OdlyzkoPoonen.HasF2Endpoints.divisor_endpoints
+#print OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_endpoints
+#print axioms OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_endpoints
+#print OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_degree_le
+#print axioms OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_degree_le
+#print OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_reciprocal
+#print axioms OdlyzkoPoonen.HasF2Endpoints.gcd_reverse_reciprocal
+#print OdlyzkoPoonen.HasF2Endpoints.reverse_eq_iff_lower
+#print axioms OdlyzkoPoonen.HasF2Endpoints.reverse_eq_iff_lower
+#print OdlyzkoPoonen.pairedPolynomial_reverse_eq_iff
+#print axioms OdlyzkoPoonen.pairedPolynomial_reverse_eq_iff
+#print OdlyzkoPoonen.f2Probability_gcd_degree_le
+#print axioms OdlyzkoPoonen.f2Probability_gcd_degree_le
+#print OdlyzkoPoonen.reciprocal_gcd_probability
+#print axioms OdlyzkoPoonen.reciprocal_gcd_probability
+#print OdlyzkoPoonen.hasReciprocalF2Divisor_iff_mem
+#print axioms OdlyzkoPoonen.hasReciprocalF2Divisor_iff_mem
+#print OdlyzkoPoonen.f2Probability_reciprocal_divisor_le
+#print axioms OdlyzkoPoonen.f2Probability_reciprocal_divisor_le
+#print OdlyzkoPoonen.HasF2Endpoints.exists_reciprocal_divisor_of_gcd_degree
+#print axioms OdlyzkoPoonen.HasF2Endpoints.exists_reciprocal_divisor_of_gcd_degree
+#print OdlyzkoPoonen.f2Probability_gcd_degree_le_sum
+#print axioms OdlyzkoPoonen.f2Probability_gcd_degree_le_sum
+#print OdlyzkoPoonen.HasF2Endpoints.coeff_degree
+#print axioms OdlyzkoPoonen.HasF2Endpoints.coeff_degree
+#print OdlyzkoPoonen.HasF2Endpoints.coeff_eq_zero_above
+#print axioms OdlyzkoPoonen.HasF2Endpoints.coeff_eq_zero_above
+#print OdlyzkoPoonen.coeff_f2WordPolynomial_internal
+#print axioms OdlyzkoPoonen.coeff_f2WordPolynomial_internal
+#print OdlyzkoPoonen.f2WordPolynomial_ext
+#print axioms OdlyzkoPoonen.f2WordPolynomial_ext
+#print OdlyzkoPoonen.reverse_f2WordPolynomial
+#print axioms OdlyzkoPoonen.reverse_f2WordPolynomial
+#print OdlyzkoPoonen.norm_resultant_comm
+#print axioms OdlyzkoPoonen.norm_resultant_comm
+#print OdlyzkoPoonen.norm_det_confluent_ge_cross_product
+#print axioms OdlyzkoPoonen.norm_det_confluent_ge_cross_product
+#print OdlyzkoPoonen.norm_det_confluent_eq_resultant_product
+#print axioms OdlyzkoPoonen.norm_det_confluent_eq_resultant_product
+#print OdlyzkoPoonen.rootPrefixPolynomial_monic
+#print axioms OdlyzkoPoonen.rootPrefixPolynomial_monic
+#print OdlyzkoPoonen.rootPrefixPolynomial_natDegree
+#print axioms OdlyzkoPoonen.rootPrefixPolynomial_natDegree
+#print OdlyzkoPoonen.rootPrefixMultiplicity_le
+#print axioms OdlyzkoPoonen.rootPrefixMultiplicity_le
+#print OdlyzkoPoonen.rootPrefixMultiplicity_lt_later_count
+#print axioms OdlyzkoPoonen.rootPrefixMultiplicity_lt_later_count
+#print OdlyzkoPoonen.hasseDeriv_eval_eq_sum_fin
+#print axioms OdlyzkoPoonen.hasseDeriv_eval_eq_sum_fin
+#print OdlyzkoPoonen.confluentVandermonde_mul_coefficients
+#print axioms OdlyzkoPoonen.confluentVandermonde_mul_coefficients
+#print OdlyzkoPoonen.confluentVandermonde_newton_lowerTriangular
+#print axioms OdlyzkoPoonen.confluentVandermonde_newton_lowerTriangular
+#print OdlyzkoPoonen.confluentVandermonde_newton_diagonal
+#print axioms OdlyzkoPoonen.confluentVandermonde_newton_diagonal
+#print OdlyzkoPoonen.det_confluentVandermonde
+#print axioms OdlyzkoPoonen.det_confluentVandermonde
+#print OdlyzkoPoonen.det_confluentVandermonde_ne_zero
+#print axioms OdlyzkoPoonen.det_confluentVandermonde_ne_zero
+#print OdlyzkoPoonen.norm_confluentVandermonde_entry_le
+#print axioms OdlyzkoPoonen.norm_confluentVandermonde_entry_le
+#print OdlyzkoPoonen.norm_det_confluentVandermonde_le
+#print axioms OdlyzkoPoonen.norm_det_confluentVandermonde_le
+#print OdlyzkoPoonen.norm_det_confluentVandermonde_le_power
+#print axioms OdlyzkoPoonen.norm_det_confluentVandermonde_le_power
+#print OdlyzkoPoonen.norm_det_confluentVandermonde_sq
+#print axioms OdlyzkoPoonen.norm_det_confluentVandermonde_sq
+#print OdlyzkoPoonen.norm_det_confluentVandermonde_sq_equiv
+#print axioms OdlyzkoPoonen.norm_det_confluentVandermonde_sq_equiv
+#print OdlyzkoPoonen.norm_det_le_factorial_mul_prod
+#print axioms OdlyzkoPoonen.norm_det_le_factorial_mul_prod
+#print OdlyzkoPoonen.prod_repeated_pairs
+#print axioms OdlyzkoPoonen.prod_repeated_pairs
+#print OdlyzkoPoonen.card_repeated_family
+#print axioms OdlyzkoPoonen.card_repeated_family
+#print OdlyzkoPoonen.repeated_root_fiber_count
+#print axioms OdlyzkoPoonen.repeated_root_fiber_count
+#print OdlyzkoPoonen.rootPrefixMultiplicity_repeated_le
+#print axioms OdlyzkoPoonen.rootPrefixMultiplicity_repeated_le
+#print OdlyzkoPoonen.sum_rootPrefixMultiplicity_repeated_le
+#print axioms OdlyzkoPoonen.sum_rootPrefixMultiplicity_repeated_le
+#print OdlyzkoPoonen.card_repeated_option_family
+#print axioms OdlyzkoPoonen.card_repeated_option_family
+#print OdlyzkoPoonen.root_power_determinant_lower_bound
+#print axioms OdlyzkoPoonen.root_power_determinant_lower_bound
+#print OdlyzkoPoonen.root_power_determinant_upper_bound
+#print axioms OdlyzkoPoonen.root_power_determinant_upper_bound
+#print OdlyzkoPoonen.option_symmetric_prod_lower
+#print axioms OdlyzkoPoonen.option_symmetric_prod_lower
+#print OdlyzkoPoonen.prod_symmetric_eq_lower_sq
+#print axioms OdlyzkoPoonen.prod_symmetric_eq_lower_sq
+#print OdlyzkoPoonen.companion_split_sum_eq_Icc
+#print axioms OdlyzkoPoonen.companion_split_sum_eq_Icc
+#print OdlyzkoPoonen.mod_four_companion_probability
+#print axioms OdlyzkoPoonen.mod_four_companion_probability
+#print OdlyzkoPoonen.mod_four_companion_probability_le
+#print axioms OdlyzkoPoonen.mod_four_companion_probability_le
+#print OdlyzkoPoonen.CongruentMod.of_dvd
+#print axioms OdlyzkoPoonen.CongruentMod.of_dvd
+#print OdlyzkoPoonen.binary_autocorrelations_reduce_eq
+#print axioms OdlyzkoPoonen.binary_autocorrelations_reduce_eq
+#print OdlyzkoPoonen.HasModFourCompanion.factorization
+#print axioms OdlyzkoPoonen.HasModFourCompanion.factorization
+#print OdlyzkoPoonen.HasModFourCompanion.exists_factor_witness
+#print axioms OdlyzkoPoonen.HasModFourCompanion.exists_factor_witness
+#print OdlyzkoPoonen.binaryProbability_companion_le_split_sum
+#print axioms OdlyzkoPoonen.binaryProbability_companion_le_split_sum
+#print OdlyzkoPoonen.halfCoefficientDifference_change
+#print axioms OdlyzkoPoonen.halfCoefficientDifference_change
+#print OdlyzkoPoonen.halfAutocorrelation_change_of_complementation
+#print axioms OdlyzkoPoonen.halfAutocorrelation_change_of_complementation
+#print OdlyzkoPoonen.autocorrelationDiscrepancy_eq_of_outer
+#print axioms OdlyzkoPoonen.autocorrelationDiscrepancy_eq_of_outer
+#print OdlyzkoPoonen.pairedPolynomial_agreeOnOuter
+#print axioms OdlyzkoPoonen.pairedPolynomial_agreeOnOuter
+#print OdlyzkoPoonen.pairedDiscrepancy_eq_of_prefix
+#print axioms OdlyzkoPoonen.pairedDiscrepancy_eq_of_prefix
+#print OdlyzkoPoonen.pairedDiscrepancy_dependsOnPrefix
+#print axioms OdlyzkoPoonen.pairedDiscrepancy_dependsOnPrefix
+#print OdlyzkoPoonen.pairedDiscrepancy_center_independent
+#print axioms OdlyzkoPoonen.pairedDiscrepancy_center_independent
+#print OdlyzkoPoonen.int_val_add_one_zmod_two
+#print axioms OdlyzkoPoonen.int_val_add_one_zmod_two
+#print OdlyzkoPoonen.asymmetry_product_coeff
+#print axioms OdlyzkoPoonen.asymmetry_product_coeff
+#print OdlyzkoPoonen.autocorrelationDiscrepancy_togglePair
+#print axioms OdlyzkoPoonen.autocorrelationDiscrepancy_togglePair
+#print OdlyzkoPoonen.f2PairProbability_first_asymmetry_contribution
+#print axioms OdlyzkoPoonen.f2PairProbability_first_asymmetry_contribution
+#print OdlyzkoPoonen.f2PairProbability_factor_congruence_le
+#print axioms OdlyzkoPoonen.f2PairProbability_factor_congruence_le
+#print OdlyzkoPoonen.factor_pair_congruence_probability
+#print axioms OdlyzkoPoonen.factor_pair_congruence_probability
+#print OdlyzkoPoonen.hasFactorWitness_iff_words
+#print axioms OdlyzkoPoonen.hasFactorWitness_iff_words
+#print OdlyzkoPoonen.factor_pair_word_card_ratio
+#print axioms OdlyzkoPoonen.factor_pair_word_card_ratio
+#print OdlyzkoPoonen.binaryProbability_factor_witness_le
+#print axioms OdlyzkoPoonen.binaryProbability_factor_witness_le
+#print OdlyzkoPoonen.pairedDiscrepancy_togglesOn
+#print axioms OdlyzkoPoonen.pairedDiscrepancy_togglesOn
+#print OdlyzkoPoonen.paired_discrepancies_zero_probability_le
+#print axioms OdlyzkoPoonen.paired_discrepancies_zero_probability_le
+#print OdlyzkoPoonen.paired_discrepancies_zero_fiber_probability_le
+#print axioms OdlyzkoPoonen.paired_discrepancies_zero_fiber_probability_le
+#print OdlyzkoPoonen.paired_factor_congruence_probability_le
+#print axioms OdlyzkoPoonen.paired_factor_congruence_probability_le
+#print OdlyzkoPoonen.f2_factor_congruence_probability_le_average
+#print axioms OdlyzkoPoonen.f2_factor_congruence_probability_le_average
+#print OdlyzkoPoonen.lifted_factor_autocorrelation_congruent_two
+#print axioms OdlyzkoPoonen.lifted_factor_autocorrelation_congruent_two
+#print OdlyzkoPoonen.lifted_factor_autocorrelation_even
+#print axioms OdlyzkoPoonen.lifted_factor_autocorrelation_even
+#print OdlyzkoPoonen.four_dvd_iff_two_dvd_half
+#print axioms OdlyzkoPoonen.four_dvd_iff_two_dvd_half
+#print OdlyzkoPoonen.halfCoefficientDifference_eq_zero_iff
+#print axioms OdlyzkoPoonen.halfCoefficientDifference_eq_zero_iff
+#print OdlyzkoPoonen.congruent_four_iff_half_differences_zero
+#print axioms OdlyzkoPoonen.congruent_four_iff_half_differences_zero
+#print OdlyzkoPoonen.lifted_factor_congruent_four_iff
+#print axioms OdlyzkoPoonen.lifted_factor_congruent_four_iff
+#print OdlyzkoPoonen.activeDiscrepancyIndices_card
+#print axioms OdlyzkoPoonen.activeDiscrepancyIndices_card
+#print OdlyzkoPoonen.exposureSlopeWord_zero_before
+#print axioms OdlyzkoPoonen.exposureSlopeWord_zero_before
+#print OdlyzkoPoonen.exposureSlopeWord_shifted
+#print axioms OdlyzkoPoonen.exposureSlopeWord_shifted
+#print OdlyzkoPoonen.uniformAverage_active_discrepancy_weight
+#print axioms OdlyzkoPoonen.uniformAverage_active_discrepancy_weight
+#print OdlyzkoPoonen.f2_factor_congruence_probability_le_of_firstAsymmetry
+#print axioms OdlyzkoPoonen.f2_factor_congruence_probability_le_of_firstAsymmetry
+#print OdlyzkoPoonen.sum_range_floor_half_even
+#print axioms OdlyzkoPoonen.sum_range_floor_half_even
+#print OdlyzkoPoonen.sum_three_quarters_range
+#print axioms OdlyzkoPoonen.sum_three_quarters_range
+#print OdlyzkoPoonen.sum_floor_half_three_quarters_le_eight
+#print axioms OdlyzkoPoonen.sum_floor_half_three_quarters_le_eight
+#print OdlyzkoPoonen.companion_split_exponent_lower
+#print axioms OdlyzkoPoonen.companion_split_exponent_lower
+#print OdlyzkoPoonen.companion_split_exponent_reversed
+#print axioms OdlyzkoPoonen.companion_split_exponent_reversed
+#print OdlyzkoPoonen.companion_split_exponent_fiber_card_le_two
+#print axioms OdlyzkoPoonen.companion_split_exponent_fiber_card_le_two
+#print OdlyzkoPoonen.companion_split_sum_le_eight
+#print axioms OdlyzkoPoonen.companion_split_sum_le_eight
+#print OdlyzkoPoonen.coeff_autocorrelation_middle
+#print axioms OdlyzkoPoonen.coeff_autocorrelation_middle
+#print OdlyzkoPoonen.eval_one_eq_sum_coeff
+#print axioms OdlyzkoPoonen.eval_one_eq_sum_coeff
+#print OdlyzkoPoonen.int_mul_sub_one_nonneg
+#print axioms OdlyzkoPoonen.int_mul_sub_one_nonneg
+#print OdlyzkoPoonen.isBinary_of_sum_sq_eq_sum
+#print axioms OdlyzkoPoonen.isBinary_of_sum_sq_eq_sum
+#print OdlyzkoPoonen.IsBinary.of_autocorrelation_eq
+#print axioms OdlyzkoPoonen.IsBinary.of_autocorrelation_eq
+#print OdlyzkoPoonen.IsBinary.coeff_nonneg
+#print axioms OdlyzkoPoonen.IsBinary.coeff_nonneg
+#print OdlyzkoPoonen.IsBinary.coeff_le_one
+#print axioms OdlyzkoPoonen.IsBinary.coeff_le_one
+#print OdlyzkoPoonen.IsBinary.coeff_sq
+#print axioms OdlyzkoPoonen.IsBinary.coeff_sq
+#print OdlyzkoPoonen.isBinary_iff_coeff_sq
+#print axioms OdlyzkoPoonen.isBinary_iff_coeff_sq
+#print OdlyzkoPoonen.HasBinaryEndpoints.ne_zero
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.ne_zero
+#print OdlyzkoPoonen.HasBinaryEndpoints.coeff_degree
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.coeff_degree
+#print OdlyzkoPoonen.HasBinaryEndpoints.coeff_eq_zero_above
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.coeff_eq_zero_above
+#print OdlyzkoPoonen.HasBinaryEndpoints.natTrailingDegree
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.natTrailingDegree
+#print OdlyzkoPoonen.IsBinary.norm_coeff_sub_le_one
+#print axioms OdlyzkoPoonen.IsBinary.norm_coeff_sub_le_one
+#print OdlyzkoPoonen.coeff_wordPolynomial_sub_outside
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_sub_outside
+#print OdlyzkoPoonen.support_wordPolynomial_sub_map_subset
+#print axioms OdlyzkoPoonen.support_wordPolynomial_sub_map_subset
+#print OdlyzkoPoonen.mahlerMeasure_wordPolynomial_sub_le
+#print axioms OdlyzkoPoonen.mahlerMeasure_wordPolynomial_sub_le
+#print OdlyzkoPoonen.bitValue_binary
+#print axioms OdlyzkoPoonen.bitValue_binary
+#print OdlyzkoPoonen.bitValue_injective
+#print axioms OdlyzkoPoonen.bitValue_injective
+#print OdlyzkoPoonen.coeff_interiorPolynomial
+#print axioms OdlyzkoPoonen.coeff_interiorPolynomial
+#print OdlyzkoPoonen.coeff_interiorPolynomial_outside
+#print axioms OdlyzkoPoonen.coeff_interiorPolynomial_outside
+#print OdlyzkoPoonen.coeff_wordPolynomial_zero
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_zero
+#print OdlyzkoPoonen.coeff_wordPolynomial_top
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_top
+#print OdlyzkoPoonen.coeff_wordPolynomial_internal
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_internal
+#print OdlyzkoPoonen.coeff_wordPolynomial_above
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_above
+#print OdlyzkoPoonen.wordPolynomial_injective
+#print axioms OdlyzkoPoonen.wordPolynomial_injective
+#print OdlyzkoPoonen.natDegree_wordPolynomial
+#print axioms OdlyzkoPoonen.natDegree_wordPolynomial
+#print OdlyzkoPoonen.wordPolynomial_endpoints
+#print axioms OdlyzkoPoonen.wordPolynomial_endpoints
+#print OdlyzkoPoonen.exists_wordPolynomial_eq
+#print axioms OdlyzkoPoonen.exists_wordPolynomial_eq
+#print OdlyzkoPoonen.mem_binaryFamily_iff
+#print axioms OdlyzkoPoonen.mem_binaryFamily_iff
+#print OdlyzkoPoonen.card_binaryFamily
+#print axioms OdlyzkoPoonen.card_binaryFamily
+#print OdlyzkoPoonen.monic_eq_polynomialOfCoefficients
+#print axioms OdlyzkoPoonen.monic_eq_polynomialOfCoefficients
+#print OdlyzkoPoonen.card_bounded_integer_interval
+#print axioms OdlyzkoPoonen.card_bounded_integer_interval
+#print OdlyzkoPoonen.card_boundedMonicFamily_le
+#print axioms OdlyzkoPoonen.card_boundedMonicFamily_le
+#print OdlyzkoPoonen.mem_boundedMonicFamily_of_coeff_bound
+#print axioms OdlyzkoPoonen.mem_boundedMonicFamily_of_coeff_bound
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_mem_boundedFamily
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_mem_boundedFamily
+#print OdlyzkoPoonen.AgreeOnOuter.mono
+#print axioms OdlyzkoPoonen.AgreeOnOuter.mono
+#print OdlyzkoPoonen.coeff_mul_right_eq_of_prefix
+#print axioms OdlyzkoPoonen.coeff_mul_right_eq_of_prefix
+#print OdlyzkoPoonen.AgreeOnOuter.autocorrelation
+#print axioms OdlyzkoPoonen.AgreeOnOuter.autocorrelation
+#print OdlyzkoPoonen.eq_exponents_of_noncyclotomic_complex_root_powers
+#print axioms OdlyzkoPoonen.eq_exponents_of_noncyclotomic_complex_root_powers
+#print OdlyzkoPoonen.exists_prime_separating_complex_roots_of_log_lt
+#print axioms OdlyzkoPoonen.exists_prime_separating_complex_roots_of_log_lt
+#print OdlyzkoPoonen.exists_prime_separating_integer_polynomial_roots_of_log_lt
+#print axioms OdlyzkoPoonen.exists_prime_separating_integer_polynomial_roots_of_log_lt
+#print OdlyzkoPoonen.pow_injective_of_no_positive_power_eq_one
+#print axioms OdlyzkoPoonen.pow_injective_of_no_positive_power_eq_one
+#print OdlyzkoPoonen.algEquiv_iterated_power_relation
+#print axioms OdlyzkoPoonen.algEquiv_iterated_power_relation
+#print OdlyzkoPoonen.exists_positive_algEquiv_power_fix_root
+#print axioms OdlyzkoPoonen.exists_positive_algEquiv_power_fix_root
+#print OdlyzkoPoonen.eq_exponents_of_periodic_algEquiv_power_relation
+#print axioms OdlyzkoPoonen.eq_exponents_of_periodic_algEquiv_power_relation
+#print OdlyzkoPoonen.eq_exponents_of_conjugate_root_powers
+#print axioms OdlyzkoPoonen.eq_exponents_of_conjugate_root_powers
+#print OdlyzkoPoonen.norm_coeff_contract_word_difference_le_one
+#print axioms OdlyzkoPoonen.norm_coeff_contract_word_difference_le_one
+#print OdlyzkoPoonen.support_contract_word_difference_map_subset
+#print axioms OdlyzkoPoonen.support_contract_word_difference_map_subset
+#print OdlyzkoPoonen.mahlerMeasure_contract_word_difference_le
+#print axioms OdlyzkoPoonen.mahlerMeasure_contract_word_difference_le
+#print OdlyzkoPoonen.HasCyclotomicDivisor.of_dvd
+#print axioms OdlyzkoPoonen.HasCyclotomicDivisor.of_dvd
+#print OdlyzkoPoonen.HasHigherCyclotomicDivisor.hasCyclotomicDivisor
+#print axioms OdlyzkoPoonen.HasHigherCyclotomicDivisor.hasCyclotomicDivisor
+#print OdlyzkoPoonen.cyclotomic_dvd_iff_rational
+#print axioms OdlyzkoPoonen.cyclotomic_dvd_iff_rational
+#print OdlyzkoPoonen.HasBinaryEndpoints.eval_int_one_pos
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.eval_int_one_pos
+#print OdlyzkoPoonen.HasBinaryEndpoints.not_cyclotomic_one_dvd
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.not_cyclotomic_one_dvd
+#print OdlyzkoPoonen.cyclotomic_two_dvd_iff_minus_one
+#print axioms OdlyzkoPoonen.cyclotomic_two_dvd_iff_minus_one
+#print OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_alternative
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_alternative
+#print OdlyzkoPoonen.HasBinaryEndpoints.hasCyclotomicDivisor_iff
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.hasCyclotomicDivisor_iff
+#print OdlyzkoPoonen.norm_coeff_mul_X_sub_C_le
+#print axioms OdlyzkoPoonen.norm_coeff_mul_X_sub_C_le
+#print OdlyzkoPoonen.norm_coeff_prod_X_sub_C_le
+#print axioms OdlyzkoPoonen.norm_coeff_prod_X_sub_C_le
+#print OdlyzkoPoonen.monic_coeff_norm_le_of_roots_le_two
+#print axioms OdlyzkoPoonen.monic_coeff_norm_le_of_roots_le_two
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_coeff_abs_le
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_coeff_abs_le
+#print OdlyzkoPoonen.eq_of_dvd_of_high_coefficients_eq
+#print axioms OdlyzkoPoonen.eq_of_dvd_of_high_coefficients_eq
+#print OdlyzkoPoonen.bounded_coefficient_choices_le_three_pow
+#print axioms OdlyzkoPoonen.bounded_coefficient_choices_le_three_pow
+#print OdlyzkoPoonen.divisor_count_summand_le_exp
+#print axioms OdlyzkoPoonen.divisor_count_summand_le_exp
+#print OdlyzkoPoonen.sum_divisor_counts_le_exp
+#print axioms OdlyzkoPoonen.sum_divisor_counts_le_exp
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_mem_candidates
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_mem_candidates
+#print OdlyzkoPoonen.card_smallDivisorCandidates_le_sum
+#print axioms OdlyzkoPoonen.card_smallDivisorCandidates_le_sum
+#print OdlyzkoPoonen.card_smallDivisorCandidates_le_exp
+#print axioms OdlyzkoPoonen.card_smallDivisorCandidates_le_exp
+#print OdlyzkoPoonen.eval_one_reverse
+#print axioms OdlyzkoPoonen.eval_one_reverse
+#print OdlyzkoPoonen.IsBinary.factor_reverse
+#print axioms OdlyzkoPoonen.IsBinary.factor_reverse
+#print OdlyzkoPoonen.HasBinaryEndpoints.factor_constants
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.factor_constants
+#print OdlyzkoPoonen.HasBinaryEndpoints.factor_reverse
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.factor_reverse
+#print OdlyzkoPoonen.factor_reverse_eq_iff
+#print axioms OdlyzkoPoonen.factor_reverse_eq_iff
+#print OdlyzkoPoonen.factor_reverse_eq_reverse_iff
+#print axioms OdlyzkoPoonen.factor_reverse_eq_reverse_iff
+#print OdlyzkoPoonen.binary_factor_reversal
+#print axioms OdlyzkoPoonen.binary_factor_reversal
+#print OdlyzkoPoonen.comp_X_pow_eq_pow_zmod
+#print axioms OdlyzkoPoonen.comp_X_pow_eq_pow_zmod
+#print OdlyzkoPoonen.prime_C_dvd_comp_X_pow_sub_pow
+#print axioms OdlyzkoPoonen.prime_C_dvd_comp_X_pow_sub_pow
+#print OdlyzkoPoonen.root_ne_zero_of_constant_ne_zero
+#print axioms OdlyzkoPoonen.root_ne_zero_of_constant_ne_zero
+#print OdlyzkoPoonen.exists_algEquiv_map_root
+#print axioms OdlyzkoPoonen.exists_algEquiv_map_root
+#print OdlyzkoPoonen.algEquiv_map_mem_rootSet
+#print axioms OdlyzkoPoonen.algEquiv_map_mem_rootSet
+#print OdlyzkoPoonen.exists_algEquiv_map_primitiveRoot
+#print axioms OdlyzkoPoonen.exists_algEquiv_map_primitiveRoot
+#print OdlyzkoPoonen.rootSet_nonempty_of_splits_of_irreducible
+#print axioms OdlyzkoPoonen.rootSet_nonempty_of_splits_of_irreducible
+#print OdlyzkoPoonen.exists_X_pow_factor_of_initial_one
+#print axioms OdlyzkoPoonen.exists_X_pow_factor_of_initial_one
+#print OdlyzkoPoonen.coeff_mul_zero_through_initial
+#print axioms OdlyzkoPoonen.coeff_mul_zero_through_initial
+#print OdlyzkoPoonen.coeff_mul_after_X_pow_factor
+#print axioms OdlyzkoPoonen.coeff_mul_after_X_pow_factor
+#print OdlyzkoPoonen.coeff_mul_constant_one
+#print axioms OdlyzkoPoonen.coeff_mul_constant_one
+#print OdlyzkoPoonen.nat_le_norm_intCast_of_dvd
+#print axioms OdlyzkoPoonen.nat_le_norm_intCast_of_dvd
+#print OdlyzkoPoonen.one_le_norm_resultant_int
+#print axioms OdlyzkoPoonen.one_le_norm_resultant_int
+#print OdlyzkoPoonen.prime_pow_degree_le_norm_rootPower_resultant
+#print axioms OdlyzkoPoonen.prime_pow_degree_le_norm_rootPower_resultant
+#print OdlyzkoPoonen.one_le_norm_derivative_resultant_of_integer_root_family
+#print axioms OdlyzkoPoonen.one_le_norm_derivative_resultant_of_integer_root_family
+#print OdlyzkoPoonen.root_families_disjoint_of_isCoprime
+#print axioms OdlyzkoPoonen.root_families_disjoint_of_isCoprime
+#print OdlyzkoPoonen.monic_reducibleOverRat_of_integer_root
+#print axioms OdlyzkoPoonen.monic_reducibleOverRat_of_integer_root
+#print OdlyzkoPoonen.HasBinaryEndpoints.reducible_of_minus_one
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reducible_of_minus_one
+#print OdlyzkoPoonen.exists_uniform_logarithmic_root_power_prime
+#print axioms OdlyzkoPoonen.exists_uniform_logarithmic_root_power_prime
+#print OdlyzkoPoonen.alternatingComplement_involutive
+#print axioms OdlyzkoPoonen.alternatingComplement_involutive
+#print OdlyzkoPoonen.alternatingComplement_bijective
+#print axioms OdlyzkoPoonen.alternatingComplement_bijective
+#print OdlyzkoPoonen.sum_bitValue_eq_trueBitCount
+#print axioms OdlyzkoPoonen.sum_bitValue_eq_trueBitCount
+#print OdlyzkoPoonen.sum_odd_position_indicators
+#print axioms OdlyzkoPoonen.sum_odd_position_indicators
+#print OdlyzkoPoonen.signed_bitValue
+#print axioms OdlyzkoPoonen.signed_bitValue
+#print OdlyzkoPoonen.eval_wordPolynomial_minus_one
+#print axioms OdlyzkoPoonen.eval_wordPolynomial_minus_one
+#print OdlyzkoPoonen.monic_or_neg_monic_of_dvd_monic
+#print axioms OdlyzkoPoonen.monic_or_neg_monic_of_dvd_monic
+#print OdlyzkoPoonen.irreducible_map_rat_of_dvd_monic
+#print axioms OdlyzkoPoonen.irreducible_map_rat_of_dvd_monic
+#print OdlyzkoPoonen.exists_monic_rational_irreducible_divisor
+#print axioms OdlyzkoPoonen.exists_monic_rational_irreducible_divisor
+#print OdlyzkoPoonen.monic_reduce_natDegree
+#print axioms OdlyzkoPoonen.monic_reduce_natDegree
+#print OdlyzkoPoonen.monic_reduce_reverse
+#print axioms OdlyzkoPoonen.monic_reduce_reverse
+#print OdlyzkoPoonen.reducePolynomial_dvd
+#print axioms OdlyzkoPoonen.reducePolynomial_dvd
+#print OdlyzkoPoonen.root_pow_ne_one_of_no_cyclotomic
+#print axioms OdlyzkoPoonen.root_pow_ne_one_of_no_cyclotomic
+#print OdlyzkoPoonen.eq_exponents_of_noncyclotomic_root_powers
+#print axioms OdlyzkoPoonen.eq_exponents_of_noncyclotomic_root_powers
+#print OdlyzkoPoonen.coeff_autocorrelation_le
+#print axioms OdlyzkoPoonen.coeff_autocorrelation_le
+#print OdlyzkoPoonen.HasBinaryEndpoints.coeff_autocorrelation_outer
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.coeff_autocorrelation_outer
+#print OdlyzkoPoonen.HasBinaryEndpoints.autocorrelation_outer_difference
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.autocorrelation_outer_difference
+#print OdlyzkoPoonen.HasBinaryEndpoints.eval_real_ge_one
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.eval_real_ge_one
+#print OdlyzkoPoonen.HasBinaryEndpoints.eval_real_pos
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.eval_real_pos
+#print OdlyzkoPoonen.monic_exists_positive_root_of_constant_neg
+#print axioms OdlyzkoPoonen.monic_exists_positive_root_of_constant_neg
+#print OdlyzkoPoonen.monic_reducibleOverRat_iff
+#print axioms OdlyzkoPoonen.monic_reducibleOverRat_iff
+#print OdlyzkoPoonen.monic_factors_of_reducibleOverRat
+#print axioms OdlyzkoPoonen.monic_factors_of_reducibleOverRat
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_factors_of_reducible
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_factors_of_reducible
+#print OdlyzkoPoonen.complex_roots_nodup_of_rational_irreducible
+#print axioms OdlyzkoPoonen.complex_roots_nodup_of_rational_irreducible
+#print OdlyzkoPoonen.HasBinaryEndpoints.reciprocal_divisor_candidate_alternative
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reciprocal_divisor_candidate_alternative
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_constant
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_constant
+#print OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_reduce_endpoints
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.monic_divisor_reduce_endpoints
+#print OdlyzkoPoonen.monic_reciprocal_reduce_dvd_gcd
+#print axioms OdlyzkoPoonen.monic_reciprocal_reduce_dvd_gcd
+#print OdlyzkoPoonen.HasBinaryEndpoints.reciprocal_divisor_degree_le_gcd
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reciprocal_divisor_degree_le_gcd
+#print OdlyzkoPoonen.monic_reciprocal_divisor_reduction
+#print axioms OdlyzkoPoonen.monic_reciprocal_divisor_reduction
+#print OdlyzkoPoonen.coeff_reducePolynomial
+#print axioms OdlyzkoPoonen.coeff_reducePolynomial
+#print OdlyzkoPoonen.reducePolynomial_mul
+#print axioms OdlyzkoPoonen.reducePolynomial_mul
+#print OdlyzkoPoonen.coeff_zeroOneLift
+#print axioms OdlyzkoPoonen.coeff_zeroOneLift
+#print OdlyzkoPoonen.zeroOneLift_binary
+#print axioms OdlyzkoPoonen.zeroOneLift_binary
+#print OdlyzkoPoonen.reduce_zeroOneLift
+#print axioms OdlyzkoPoonen.reduce_zeroOneLift
+#print OdlyzkoPoonen.zeroOneLift_reduce
+#print axioms OdlyzkoPoonen.zeroOneLift_reduce
+#print OdlyzkoPoonen.zeroOneLift_injective
+#print axioms OdlyzkoPoonen.zeroOneLift_injective
+#print OdlyzkoPoonen.IsBinary.eq_of_reduce_eq
+#print axioms OdlyzkoPoonen.IsBinary.eq_of_reduce_eq
+#print OdlyzkoPoonen.support_zeroOneLift
+#print axioms OdlyzkoPoonen.support_zeroOneLift
+#print OdlyzkoPoonen.natDegree_zeroOneLift
+#print axioms OdlyzkoPoonen.natDegree_zeroOneLift
+#print OdlyzkoPoonen.zeroOneLift_reverse
+#print axioms OdlyzkoPoonen.zeroOneLift_reverse
+#print OdlyzkoPoonen.IsBinary.natDegree_reduce
+#print axioms OdlyzkoPoonen.IsBinary.natDegree_reduce
+#print OdlyzkoPoonen.IsBinary.reduce_reverse
+#print axioms OdlyzkoPoonen.IsBinary.reduce_reverse
+#print OdlyzkoPoonen.congruentMod_iff_coeff_dvd
+#print axioms OdlyzkoPoonen.congruentMod_iff_coeff_dvd
+#print OdlyzkoPoonen.X_pow_sub_one_dvd_pow_sub_residue
+#print axioms OdlyzkoPoonen.X_pow_sub_one_dvd_pow_sub_residue
+#print OdlyzkoPoonen.wordPolynomial_sub_residue_dvd
+#print axioms OdlyzkoPoonen.wordPolynomial_sub_residue_dvd
+#print OdlyzkoPoonen.cyclotomic_dvd_wordResiduePolynomial_iff
+#print axioms OdlyzkoPoonen.cyclotomic_dvd_wordResiduePolynomial_iff
+#print OdlyzkoPoonen.coeff_wordResiduePolynomial
+#print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial
+#print OdlyzkoPoonen.coeff_wordResiduePolynomial_above
+#print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial_above
+#print OdlyzkoPoonen.resultant_map_injective
+#print axioms OdlyzkoPoonen.resultant_map_injective
+#print OdlyzkoPoonen.monic_resultant_right_degree
+#print axioms OdlyzkoPoonen.monic_resultant_right_degree
+#print OdlyzkoPoonen.pow_dvd_resultant_of_C_dvd_sub_mul
+#print axioms OdlyzkoPoonen.pow_dvd_resultant_of_C_dvd_sub_mul
+#print OdlyzkoPoonen.prime_pow_degree_dvd_resultant_comp_X_pow
+#print axioms OdlyzkoPoonen.prime_pow_degree_dvd_resultant_comp_X_pow
+#print OdlyzkoPoonen.reverse_natDegree_of_constant_ne_zero
+#print axioms OdlyzkoPoonen.reverse_natDegree_of_constant_ne_zero
+#print OdlyzkoPoonen.reverse_reverse_of_constant_ne_zero
+#print axioms OdlyzkoPoonen.reverse_reverse_of_constant_ne_zero
+#print OdlyzkoPoonen.IsBinary.reverse
+#print axioms OdlyzkoPoonen.IsBinary.reverse
+#print OdlyzkoPoonen.HasBinaryEndpoints.reverse
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reverse
+#print OdlyzkoPoonen.HasBinaryEndpoints.reverse_reverse
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.reverse_reverse
+#print OdlyzkoPoonen.autocorrelation_reverse
+#print axioms OdlyzkoPoonen.autocorrelation_reverse
+#print OdlyzkoPoonen.autocorrelation_mul
+#print axioms OdlyzkoPoonen.autocorrelation_mul
+#print OdlyzkoPoonen.autocorrelation_factor_reverse
+#print axioms OdlyzkoPoonen.autocorrelation_factor_reverse
+#print OdlyzkoPoonen.sum_range_pow_lt_pow_of_two_le
+#print axioms OdlyzkoPoonen.sum_range_pow_lt_pow_of_two_le
+#print OdlyzkoPoonen.monic_root_norm_lt_two
+#print axioms OdlyzkoPoonen.monic_root_norm_lt_two
+#print OdlyzkoPoonen.HasBinaryEndpoints.root_norm_lt_two
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.root_norm_lt_two
+#print OdlyzkoPoonen.HasBinaryEndpoints.divisor_root_norm_lt_two
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.divisor_root_norm_lt_two
+#print OdlyzkoPoonen.exists_injective_complex_root_family
+#print axioms OdlyzkoPoonen.exists_injective_complex_root_family
+#print OdlyzkoPoonen.prod_bad_root_power_primes_le
+#print axioms OdlyzkoPoonen.prod_bad_root_power_primes_le
+#print OdlyzkoPoonen.root_power_injOn_transfer
+#print axioms OdlyzkoPoonen.root_power_injOn_transfer
+#print OdlyzkoPoonen.prod_bad_complex_root_power_primes_le
+#print axioms OdlyzkoPoonen.prod_bad_complex_root_power_primes_le
+#print OdlyzkoPoonen.prod_bad_integer_root_power_primes_le
+#print axioms OdlyzkoPoonen.prod_bad_integer_root_power_primes_le
+#print OdlyzkoPoonen.polynomialRootPowers_prod_X_sub_C
+#print axioms OdlyzkoPoonen.polynomialRootPowers_prod_X_sub_C
+#print OdlyzkoPoonen.exists_integer_root_family
+#print axioms OdlyzkoPoonen.exists_integer_root_family
+#print OdlyzkoPoonen.root_power_family_factorization
+#print axioms OdlyzkoPoonen.root_power_family_factorization
+#print OdlyzkoPoonen.root_power_family_injective
+#print axioms OdlyzkoPoonen.root_power_family_injective
+#print OdlyzkoPoonen.root_power_families_disjoint
+#print axioms OdlyzkoPoonen.root_power_families_disjoint
+#print OdlyzkoPoonen.option_prime_exponents_injective
+#print axioms OdlyzkoPoonen.option_prime_exponents_injective
+#print OdlyzkoPoonen.root_power_pair_injective
+#print axioms OdlyzkoPoonen.root_power_pair_injective
+#print OdlyzkoPoonen.exists_prime_separating_root_powers_of_product_lt
+#print axioms OdlyzkoPoonen.exists_prime_separating_root_powers_of_product_lt
+#print OdlyzkoPoonen.exists_prime_in_interval_separating_root_powers
+#print axioms OdlyzkoPoonen.exists_prime_in_interval_separating_root_powers
+#print OdlyzkoPoonen.exists_prime_separating_root_powers_of_log_lt
+#print axioms OdlyzkoPoonen.exists_prime_separating_root_powers_of_log_lt
+#print OdlyzkoPoonen.polynomialRootPowers_complex_monic
+#print axioms OdlyzkoPoonen.polynomialRootPowers_complex_monic
+#print OdlyzkoPoonen.polynomialRootPowers_one_complex
+#print axioms OdlyzkoPoonen.polynomialRootPowers_one_complex
+#print OdlyzkoPoonen.polynomialRootPowers_int_monic
+#print axioms OdlyzkoPoonen.polynomialRootPowers_int_monic
+#print OdlyzkoPoonen.polynomialRootPowers_int_natDegree
+#print axioms OdlyzkoPoonen.polynomialRootPowers_int_natDegree
+#print OdlyzkoPoonen.resultant_rootPowers_eq_comp_complex
+#print axioms OdlyzkoPoonen.resultant_rootPowers_eq_comp_complex
+#print OdlyzkoPoonen.resultant_rootPowers_eq_comp_int
+#print axioms OdlyzkoPoonen.resultant_rootPowers_eq_comp_int
+#print OdlyzkoPoonen.prime_pow_degree_dvd_rootPower_resultant
+#print axioms OdlyzkoPoonen.prime_pow_degree_dvd_rootPower_resultant
+#print OdlyzkoPoonen.polynomialRootPowers_complex_ne_zero
+#print axioms OdlyzkoPoonen.polynomialRootPowers_complex_ne_zero
+#print OdlyzkoPoonen.polynomialRootPowers_complex_roots
+#print axioms OdlyzkoPoonen.polynomialRootPowers_complex_roots
+#print OdlyzkoPoonen.rootPowers_isCoprime_of_distinct_exponents
+#print axioms OdlyzkoPoonen.rootPowers_isCoprime_of_distinct_exponents
+#print OdlyzkoPoonen.resultant_prod_X_sub_C
+#print axioms OdlyzkoPoonen.resultant_prod_X_sub_C
+#print OdlyzkoPoonen.norm_resultant_eq_root_product
+#print axioms OdlyzkoPoonen.norm_resultant_eq_root_product
+#print OdlyzkoPoonen.eval_derivative_prod_X_sub_C
+#print axioms OdlyzkoPoonen.eval_derivative_prod_X_sub_C
+#print OdlyzkoPoonen.norm_resultant_derivative_eq_root_product
+#print axioms OdlyzkoPoonen.norm_resultant_derivative_eq_root_product
+#print OdlyzkoPoonen.hasRootRatioOrder_one
+#print axioms OdlyzkoPoonen.hasRootRatioOrder_one
+#print OdlyzkoPoonen.HasRootRatioOrder.mul_of_coprime
+#print axioms OdlyzkoPoonen.HasRootRatioOrder.mul_of_coprime
+#print OdlyzkoPoonen.hasRootRatioOrder_prod_primes
+#print axioms OdlyzkoPoonen.hasRootRatioOrder_prod_primes
+#print OdlyzkoPoonen.prime_bad_power_hasRootRatioOrder
+#print axioms OdlyzkoPoonen.prime_bad_power_hasRootRatioOrder
+#print OdlyzkoPoonen.mem_polynomialRootRatios
+#print axioms OdlyzkoPoonen.mem_polynomialRootRatios
+#print OdlyzkoPoonen.card_polynomialRootRatios_le
+#print axioms OdlyzkoPoonen.card_polynomialRootRatios_le
+#print OdlyzkoPoonen.algEquiv_map_mem_polynomialRootRatios
+#print axioms OdlyzkoPoonen.algEquiv_map_mem_polynomialRootRatios
+#print OdlyzkoPoonen.primitiveRoots_subset_polynomialRootRatios
+#print axioms OdlyzkoPoonen.primitiveRoots_subset_polynomialRootRatios
+#print OdlyzkoPoonen.totient_le_degree_sq_of_primitive_root_ratio
+#print axioms OdlyzkoPoonen.totient_le_degree_sq_of_primitive_root_ratio
+#print OdlyzkoPoonen.order_le_two_degree_four_of_primitive_root_ratio
+#print axioms OdlyzkoPoonen.order_le_two_degree_four_of_primitive_root_ratio
+#print OdlyzkoPoonen.word_eq_of_sparse_divisibility
+#print axioms OdlyzkoPoonen.word_eq_of_sparse_divisibility
+#print OdlyzkoPoonen.expand_contract_of_coeff_eq_zero
+#print axioms OdlyzkoPoonen.expand_contract_of_coeff_eq_zero
+#print OdlyzkoPoonen.coeff_wordPolynomial_sub_eq_zero_of_not_dvd
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_sub_eq_zero_of_not_dvd
+#print OdlyzkoPoonen.sparse_word_difference_expand
+#print axioms OdlyzkoPoonen.sparse_word_difference_expand
+#print OdlyzkoPoonen.sparse_word_difference_contract_ne_zero
+#print axioms OdlyzkoPoonen.sparse_word_difference_contract_ne_zero
+#print OdlyzkoPoonen.taylor_X_sub_C_self
+#print axioms OdlyzkoPoonen.taylor_X_sub_C_self
+#print OdlyzkoPoonen.taylor_coeff_pow_X_sub_C_mul
+#print axioms OdlyzkoPoonen.taylor_coeff_pow_X_sub_C_mul
+#print OdlyzkoPoonen.hasseDeriv_eval_pow_X_sub_C_mul
+#print axioms OdlyzkoPoonen.hasseDeriv_eval_pow_X_sub_C_mul
+#print OdlyzkoPoonen.hasseDeriv_eval_pow_X_sub_C_mul_of_lt
+#print axioms OdlyzkoPoonen.hasseDeriv_eval_pow_X_sub_C_mul_of_lt
+#print OdlyzkoPoonen.prod_X_sub_C_factor_at
+#print axioms OdlyzkoPoonen.prod_X_sub_C_factor_at
+#print OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_multiplicity
+#print axioms OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_multiplicity
+#print OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_eq_zero_of_lt
+#print axioms OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_eq_zero_of_lt
+#print OdlyzkoPoonen.asymmetry_weight_factor
+#print axioms OdlyzkoPoonen.asymmetry_weight_factor
+#print OdlyzkoPoonen.sum_two_thirds_positive
+#print axioms OdlyzkoPoonen.sum_two_thirds_positive
+#print OdlyzkoPoonen.sum_two_thirds_positive_le_two
+#print axioms OdlyzkoPoonen.sum_two_thirds_positive_le_two
+#print OdlyzkoPoonen.asymmetry_geometric_sum_le
+#print axioms OdlyzkoPoonen.asymmetry_geometric_sum_le
+#print OdlyzkoPoonen.f2Probability_firstAsymmetryAt
+#print axioms OdlyzkoPoonen.f2Probability_firstAsymmetryAt
+#print OdlyzkoPoonen.HasF2Endpoints.exists_firstAsymmetry_range
+#print axioms OdlyzkoPoonen.HasF2Endpoints.exists_firstAsymmetry_range
+#print OdlyzkoPoonen.f2Probability_firstAsymmetryAt_of_range
+#print axioms OdlyzkoPoonen.f2Probability_firstAsymmetryAt_of_range
+#print OdlyzkoPoonen.HasF2Endpoints.reverse_eq_of_degree_le_two
+#print axioms OdlyzkoPoonen.HasF2Endpoints.reverse_eq_of_degree_le_two
+#print OdlyzkoPoonen.uniformAverage_const
+#print axioms OdlyzkoPoonen.uniformAverage_const
+#print OdlyzkoPoonen.uniformAverage_le
+#print axioms OdlyzkoPoonen.uniformAverage_le
+#print OdlyzkoPoonen.trueBitCount_eq_card
+#print axioms OdlyzkoPoonen.trueBitCount_eq_card
+#print OdlyzkoPoonen.uniformProbability_trueBitCount
+#print axioms OdlyzkoPoonen.uniformProbability_trueBitCount
+#print OdlyzkoPoonen.uniformProbability_trueBitCount_eq_zero
+#print axioms OdlyzkoPoonen.uniformProbability_trueBitCount_eq_zero
+#print OdlyzkoPoonen.binaryProbability_eq_count
+#print axioms OdlyzkoPoonen.binaryProbability_eq_count
+#print OdlyzkoPoonen.binaryProbability_endpoints
+#print axioms OdlyzkoPoonen.binaryProbability_endpoints
+#print OdlyzkoPoonen.uniformProbability_trueBitCount_le_central
+#print axioms OdlyzkoPoonen.uniformProbability_trueBitCount_le_central
+#print OdlyzkoPoonen.uniformProbability_trueBitCount_le_sqrt
+#print axioms OdlyzkoPoonen.uniformProbability_trueBitCount_le_sqrt
+#print OdlyzkoPoonen.uniformProbability_bitValue_sum_le
+#print axioms OdlyzkoPoonen.uniformProbability_bitValue_sum_le
+#print OdlyzkoPoonen.uniformProbability_shifted_bitValue_sum_le
+#print axioms OdlyzkoPoonen.uniformProbability_shifted_bitValue_sum_le
+#print OdlyzkoPoonen.pow_trueBitCount_eq_prod
+#print axioms OdlyzkoPoonen.pow_trueBitCount_eq_prod
+#print OdlyzkoPoonen.sum_pow_trueBitCount
+#print axioms OdlyzkoPoonen.sum_pow_trueBitCount
+#print OdlyzkoPoonen.uniformAverage_pow_trueBitCount
+#print axioms OdlyzkoPoonen.uniformAverage_pow_trueBitCount
+#print OdlyzkoPoonen.uniformAverage_half_pow_trueBitCount
+#print axioms OdlyzkoPoonen.uniformAverage_half_pow_trueBitCount
+#print OdlyzkoPoonen.uniformAverage_triangular_half_weight
+#print axioms OdlyzkoPoonen.uniformAverage_triangular_half_weight
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_degree_two_fixed_le
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_degree_two_fixed_le
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_degree_two_le
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_degree_two_le
+#print OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_order_le
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_order_le
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_divisible_le
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_divisible_le
+#print OdlyzkoPoonen.binaryProbability_high_cyclotomic_le
+#print axioms OdlyzkoPoonen.binaryProbability_high_cyclotomic_le
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_intermediate_fixed_le
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_intermediate_fixed_le
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_intermediate_le
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_intermediate_le
+#print OdlyzkoPoonen.binaryProbability_higher_cyclotomic_range_sum
+#print axioms OdlyzkoPoonen.binaryProbability_higher_cyclotomic_range_sum
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_residue_bound
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_residue_bound
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_residue_bound_degree
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_residue_bound_degree
+#print OdlyzkoPoonen.uniformProbability_not
+#print axioms OdlyzkoPoonen.uniformProbability_not
+#print OdlyzkoPoonen.binaryProbability_irreducible_eq_one_sub_reducible
+#print axioms OdlyzkoPoonen.binaryProbability_irreducible_eq_one_sub_reducible
+#print OdlyzkoPoonen.uniformProbability_finite_bit_sum_le
+#print axioms OdlyzkoPoonen.uniformProbability_finite_bit_sum_le
+#print OdlyzkoPoonen.uniformAverage_sum
+#print axioms OdlyzkoPoonen.uniformAverage_sum
+#print OdlyzkoPoonen.uniformAverage_mul_right
+#print axioms OdlyzkoPoonen.uniformAverage_mul_right
+#print OdlyzkoPoonen.uniformProbability_exists_le_sum
+#print axioms OdlyzkoPoonen.uniformProbability_exists_le_sum
+#print OdlyzkoPoonen.uniformProbability_product_bound
+#print axioms OdlyzkoPoonen.uniformProbability_product_bound
+#print OdlyzkoPoonen.uniformAverage_add
+#print axioms OdlyzkoPoonen.uniformAverage_add
+#print OdlyzkoPoonen.uniformAverage_sub
+#print axioms OdlyzkoPoonen.uniformAverage_sub
+#print OdlyzkoPoonen.uniformProbability_or_le_add
+#print axioms OdlyzkoPoonen.uniformProbability_or_le_add
+#print OdlyzkoPoonen.uniformProbability_sub_of_imp
+#print axioms OdlyzkoPoonen.uniformProbability_sub_of_imp
+#print OdlyzkoPoonen.binaryProbability_or_le_add
+#print axioms OdlyzkoPoonen.binaryProbability_or_le_add
+#print OdlyzkoPoonen.f2Probability_eq_count
+#print axioms OdlyzkoPoonen.f2Probability_eq_count
+#print OdlyzkoPoonen.f2Probability_eq_binaryProbability
+#print axioms OdlyzkoPoonen.f2Probability_eq_binaryProbability
+#print OdlyzkoPoonen.f2Probability_endpoints
+#print axioms OdlyzkoPoonen.f2Probability_endpoints
+#print OdlyzkoPoonen.f2PairProbability_product
+#print axioms OdlyzkoPoonen.f2PairProbability_product
+#print OdlyzkoPoonen.uniformProbability_pi
+#print axioms OdlyzkoPoonen.uniformProbability_pi
+#print OdlyzkoPoonen.uniformProbability_pi_eq_le
+#print axioms OdlyzkoPoonen.uniformProbability_pi_eq_le
+#print OdlyzkoPoonen.uniformProbability_fiber_unique_le
+#print axioms OdlyzkoPoonen.uniformProbability_fiber_unique_le
+#print OdlyzkoPoonen.uniformAverage_finset_sum
+#print axioms OdlyzkoPoonen.uniformAverage_finset_sum
+#print OdlyzkoPoonen.uniformProbability_exists_mem_le_sum
+#print axioms OdlyzkoPoonen.uniformProbability_exists_mem_le_sum
+#print OdlyzkoPoonen.uniformProbability_exists_mem_le_card_mul
+#print axioms OdlyzkoPoonen.uniformProbability_exists_mem_le_card_mul
+#print OdlyzkoPoonen.uniformProbability_false
+#print axioms OdlyzkoPoonen.uniformProbability_false
+#print OdlyzkoPoonen.uniformProbability_true
+#print axioms OdlyzkoPoonen.uniformProbability_true
+#print OdlyzkoPoonen.uniformProbability_nonneg
+#print axioms OdlyzkoPoonen.uniformProbability_nonneg
+#print OdlyzkoPoonen.uniformProbability_mono
+#print axioms OdlyzkoPoonen.uniformProbability_mono
+#print OdlyzkoPoonen.uniformProbability_le_one
+#print axioms OdlyzkoPoonen.uniformProbability_le_one
+#print OdlyzkoPoonen.uniformProbability_product
+#print axioms OdlyzkoPoonen.uniformProbability_product
+#print OdlyzkoPoonen.firstTrueAt_iff_prescribed
+#print axioms OdlyzkoPoonen.firstTrueAt_iff_prescribed
+#print OdlyzkoPoonen.uniformProbability_firstTrueAt
+#print axioms OdlyzkoPoonen.uniformProbability_firstTrueAt
+#print OdlyzkoPoonen.FirstTrueAt.unique
+#print axioms OdlyzkoPoonen.FirstTrueAt.unique
+#print OdlyzkoPoonen.exists_firstTrueAt_iff
+#print axioms OdlyzkoPoonen.exists_firstTrueAt_iff
+#print OdlyzkoPoonen.freshBitCorrection_dependsOnEarlier
+#print axioms OdlyzkoPoonen.freshBitCorrection_dependsOnEarlier
+#print OdlyzkoPoonen.triangular_freshBitCorrection_active
+#print axioms OdlyzkoPoonen.triangular_freshBitCorrection_active
+#print OdlyzkoPoonen.triangular_freshBitCorrection_inactive
+#print axioms OdlyzkoPoonen.triangular_freshBitCorrection_inactive
+#print OdlyzkoPoonen.uniformProbability_freshBitConstraints
+#print axioms OdlyzkoPoonen.uniformProbability_freshBitConstraints
+#print OdlyzkoPoonen.uniformProbability_all_outputs_zero_le
+#print axioms OdlyzkoPoonen.uniformProbability_all_outputs_zero_le
+#print OdlyzkoPoonen.uniformProbability_exists_image_le
+#print axioms OdlyzkoPoonen.uniformProbability_exists_image_le
+#print OdlyzkoPoonen.binaryProbability_divisible_eq_zero_of_constant
+#print axioms OdlyzkoPoonen.binaryProbability_divisible_eq_zero_of_constant
+#print OdlyzkoPoonen.binaryProbability_divisible_eq_zero_of_degree
+#print axioms OdlyzkoPoonen.binaryProbability_divisible_eq_zero_of_degree
+#print OdlyzkoPoonen.binaryProbability_monic_divisible_le
+#print axioms OdlyzkoPoonen.binaryProbability_monic_divisible_le
+#print OdlyzkoPoonen.shiftedWordIndex_injective
+#print axioms OdlyzkoPoonen.shiftedWordIndex_injective
+#print OdlyzkoPoonen.trueBitCount_eq_shifted
+#print axioms OdlyzkoPoonen.trueBitCount_eq_shifted
+#print OdlyzkoPoonen.uniformProbability_alternatingComplement
+#print axioms OdlyzkoPoonen.uniformProbability_alternatingComplement
+#print OdlyzkoPoonen.eval_wordPolynomial_minus_one_odd
+#print axioms OdlyzkoPoonen.eval_wordPolynomial_minus_one_odd
+#print OdlyzkoPoonen.eval_wordPolynomial_minus_one_even
+#print axioms OdlyzkoPoonen.eval_wordPolynomial_minus_one_even
+#print OdlyzkoPoonen.binaryProbability_minus_one_odd
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_odd
+#print OdlyzkoPoonen.binaryProbability_minus_one_even
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_even
+#print OdlyzkoPoonen.binaryProbability_minus_one_degree_one
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_degree_one
+#print OdlyzkoPoonen.binaryProbability_minus_one_degree_two
+#print axioms OdlyzkoPoonen.binaryProbability_minus_one_degree_two
+#print OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound
+#print axioms OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound
+#print OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
+#print axioms OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
+#print OdlyzkoPoonen.exists_uniform_noncyclotomic_monic_factor_bound
+#print axioms OdlyzkoPoonen.exists_uniform_noncyclotomic_monic_factor_bound
+#print OdlyzkoPoonen.lowerWordIndex_val
+#print axioms OdlyzkoPoonen.lowerWordIndex_val
+#print OdlyzkoPoonen.upperWordIndex_val
+#print axioms OdlyzkoPoonen.upperWordIndex_val
+#print OdlyzkoPoonen.lowerWordIndex_lt_half
+#print axioms OdlyzkoPoonen.lowerWordIndex_lt_half
+#print OdlyzkoPoonen.half_le_upperWordIndex
+#print axioms OdlyzkoPoonen.half_le_upperWordIndex
+#print OdlyzkoPoonen.upperWordIndex_rev
+#print axioms OdlyzkoPoonen.upperWordIndex_rev
+#print OdlyzkoPoonen.centerWordIndex_val
+#print axioms OdlyzkoPoonen.centerWordIndex_val
+#print OdlyzkoPoonen.centerWordIndex_rev
+#print axioms OdlyzkoPoonen.centerWordIndex_rev
+#print OdlyzkoPoonen.center_index_of_not_outer
+#print axioms OdlyzkoPoonen.center_index_of_not_outer
+#print OdlyzkoPoonen.assembleOppositeWord_lower
+#print axioms OdlyzkoPoonen.assembleOppositeWord_lower
+#print OdlyzkoPoonen.assembleOppositeWord_upper
+#print axioms OdlyzkoPoonen.assembleOppositeWord_upper
+#print OdlyzkoPoonen.assembleOppositeWord_center
+#print axioms OdlyzkoPoonen.assembleOppositeWord_center
+#print OdlyzkoPoonen.assembleOppositeWord_recover
+#print axioms OdlyzkoPoonen.assembleOppositeWord_recover
+#print OdlyzkoPoonen.uniformProbability_oppositeWord
+#print axioms OdlyzkoPoonen.uniformProbability_oppositeWord
+#print OdlyzkoPoonen.card_prescribedBits
+#print axioms OdlyzkoPoonen.card_prescribedBits
+#print OdlyzkoPoonen.uniformProbability_prescribedBits
+#print axioms OdlyzkoPoonen.uniformProbability_prescribedBits
+#print OdlyzkoPoonen.hasLargeReciprocalIntegerDivisor_iff
+#print axioms OdlyzkoPoonen.hasLargeReciprocalIntegerDivisor_iff
+#print OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_unrestricted
+#print axioms OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_unrestricted
+#print OdlyzkoPoonen.HasBinaryEndpoints.gcd_degree_of_large_reciprocal_divisor
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.gcd_degree_of_large_reciprocal_divisor
+#print OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le
+#print axioms OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le
+#print OdlyzkoPoonen.f2Probability_reciprocal
+#print axioms OdlyzkoPoonen.f2Probability_reciprocal
+#print OdlyzkoPoonen.card_reciprocal_f2Family
+#print axioms OdlyzkoPoonen.card_reciprocal_f2Family
+#print OdlyzkoPoonen.exists_noncyclotomic_reciprocal_finite_bound
+#print axioms OdlyzkoPoonen.exists_noncyclotomic_reciprocal_finite_bound
+#print OdlyzkoPoonen.reciprocal_counting_summand
+#print axioms OdlyzkoPoonen.reciprocal_counting_summand
+#print OdlyzkoPoonen.reciprocalGeometricTail_nonneg
+#print axioms OdlyzkoPoonen.reciprocalGeometricTail_nonneg
+#print OdlyzkoPoonen.reciprocalGeometricTail_succ
+#print axioms OdlyzkoPoonen.reciprocalGeometricTail_succ
+#print OdlyzkoPoonen.sum_reciprocal_tail_range
+#print axioms OdlyzkoPoonen.sum_reciprocal_tail_range
+#print OdlyzkoPoonen.sum_reciprocal_counting_le_tail
+#print axioms OdlyzkoPoonen.sum_reciprocal_counting_le_tail
+#print OdlyzkoPoonen.two_rpow_neg_half_even
+#print axioms OdlyzkoPoonen.two_rpow_neg_half_even
+#print OdlyzkoPoonen.two_rpow_neg_half_odd
+#print axioms OdlyzkoPoonen.two_rpow_neg_half_odd
+#print OdlyzkoPoonen.reciprocalGeometricTail_even
+#print axioms OdlyzkoPoonen.reciprocalGeometricTail_even
+#print OdlyzkoPoonen.reciprocalGeometricTail_odd
+#print axioms OdlyzkoPoonen.reciprocalGeometricTail_odd
+#print OdlyzkoPoonen.reciprocalGeometricTail_le_rpow
+#print axioms OdlyzkoPoonen.reciprocalGeometricTail_le_rpow
+#print OdlyzkoPoonen.sum_reciprocal_counting_le_rpow
+#print axioms OdlyzkoPoonen.sum_reciprocal_counting_le_rpow
+#print OdlyzkoPoonen.coeff_wordResiduePolynomial_eq_block
+#print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial_eq_block
+#print OdlyzkoPoonen.coeff_wordResiduePolynomial_grouped
+#print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial_grouped
+#print OdlyzkoPoonen.card_residueIndex_fiber_add_one_ge
+#print axioms OdlyzkoPoonen.card_residueIndex_fiber_add_one_ge
+#print OdlyzkoPoonen.uniformProbability_residueBlockCoefficient_le
+#print axioms OdlyzkoPoonen.uniformProbability_residueBlockCoefficient_le
+#print OdlyzkoPoonen.cyclotomic_dvd_determines_low_residue_coefficients
+#print axioms OdlyzkoPoonen.cyclotomic_dvd_determines_low_residue_coefficients
+#print OdlyzkoPoonen.uniformProbability_selected_coordinates_le
+#print axioms OdlyzkoPoonen.uniformProbability_selected_coordinates_le
+#print OdlyzkoPoonen.uniformProbability_bool_eq
+#print axioms OdlyzkoPoonen.uniformProbability_bool_eq
+#print OdlyzkoPoonen.binaryProbability_divisible_le_sparse
+#print axioms OdlyzkoPoonen.binaryProbability_divisible_le_sparse
+#print OdlyzkoPoonen.binaryProbability_rational_irreducible_divisible_le_sparse
+#print axioms OdlyzkoPoonen.binaryProbability_rational_irreducible_divisible_le_sparse
+#print OdlyzkoPoonen.triangularBitMap_injective
+#print axioms OdlyzkoPoonen.triangularBitMap_injective
+#print OdlyzkoPoonen.triangularBitMap_bijective
+#print axioms OdlyzkoPoonen.triangularBitMap_bijective
+#print OdlyzkoPoonen.uniformProbability_triangularBitMap
+#print axioms OdlyzkoPoonen.uniformProbability_triangularBitMap
+#print OdlyzkoPoonen.uniformProbability_triangular_prescribedBits
+#print axioms OdlyzkoPoonen.uniformProbability_triangular_prescribedBits
+#print OdlyzkoPoonen.uniformAverage_mono
+#print axioms OdlyzkoPoonen.uniformAverage_mono
+#print OdlyzkoPoonen.uniformAverage_equiv
+#print axioms OdlyzkoPoonen.uniformAverage_equiv
+#print OdlyzkoPoonen.uniformAverage_bijective
+#print axioms OdlyzkoPoonen.uniformAverage_bijective
+#print OdlyzkoPoonen.uniformAverage_product
+#print axioms OdlyzkoPoonen.uniformAverage_product
+#print OdlyzkoPoonen.uniformProbability_eq_average_indicator
+#print axioms OdlyzkoPoonen.uniformProbability_eq_average_indicator
+#print OdlyzkoPoonen.uniformProbability_product_eq_average
+#print axioms OdlyzkoPoonen.uniformProbability_product_eq_average
+#print OdlyzkoPoonen.uniformProbability_equiv
+#print axioms OdlyzkoPoonen.uniformProbability_equiv
+#print OdlyzkoPoonen.uniformProbability_bijective
+#print axioms OdlyzkoPoonen.uniformProbability_bijective
+#print OdlyzkoPoonen.groupWordEquiv_apply
+#print axioms OdlyzkoPoonen.groupWordEquiv_apply
+#print OdlyzkoPoonen.uniformProbability_groupWord
+#print axioms OdlyzkoPoonen.uniformProbability_groupWord
+#print OdlyzkoPoonen.uniformProbability_groupWord_pi
+#print axioms OdlyzkoPoonen.uniformProbability_groupWord_pi
+#print OdlyzkoPoonen.uniformAverage_wordPrefix
+#print axioms OdlyzkoPoonen.uniformAverage_wordPrefix
+#print OdlyzkoPoonen.reducible_without_cyclotomic_probability_le
+#print axioms OdlyzkoPoonen.reducible_without_cyclotomic_probability_le
+#print OdlyzkoPoonen.reducible_sub_minus_one_probability_eq
+#print axioms OdlyzkoPoonen.reducible_sub_minus_one_probability_eq
+#print OdlyzkoPoonen.reducible_sub_minus_one_probability_nonneg
+#print axioms OdlyzkoPoonen.reducible_sub_minus_one_probability_nonneg
+#print OdlyzkoPoonen.reducible_sub_minus_one_probability_le
+#print axioms OdlyzkoPoonen.reducible_sub_minus_one_probability_le
+#print OdlyzkoPoonen.reducible_probability_reduction
+#print axioms OdlyzkoPoonen.reducible_probability_reduction
+#print OdlyzkoPoonen.HasBinaryEndpoints.companion_or_reciprocal_of_reducible
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.companion_or_reciprocal_of_reducible

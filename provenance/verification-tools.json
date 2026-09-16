@@ -1,0 +1,69 @@
+{
+  "note": "Contained copies of reusable verification tooling; project-specific checks will be adapted. Original repository remains unchanged.",
+  "files": [
+    {
+      "path": "scripts/lean_source_text.py",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "scripts/lean_source_text.py",
+      "source_sha256": "52922445f4b758edf55b5e837c41648869166973410f24bd037974b02e73eff5",
+      "license": "0BSD"
+    },
+    {
+      "path": "scripts/requirements-palomar.txt",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "scripts/requirements-palomar.txt",
+      "source_sha256": "ae94826af521bcd02eb04e20e00c07743f849d60cfccdaf31d334d3b7eb799ef",
+      "license": "0BSD"
+    },
+    {
+      "path": "scripts/verify_license.py",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "scripts/verify_license.py",
+      "source_sha256": "9dfaa73d64069c5df2bee0c7e3811fd97a2057df75e54742a74088b5005b3375",
+      "license": "0BSD"
+    },
+    {
+      "path": "scripts/verify_palomar.py",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "scripts/verify_palomar.py",
+      "source_sha256": "090763366cadcbcdd87c63ea975f49db0462fd0965e884763823245acbd610cf",
+      "license": "0BSD"
+    },
+    {
+      "path": "scripts/check_official.py",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "scripts/check_official.py",
+      "source_sha256": "3bd6525b0d4d0e0dabcdac667981231337e55baf7b745c55f42de23751ef7dd6",
+      "license": "0BSD"
+    },
+    {
+      "path": "Gemfile",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "Gemfile",
+      "source_sha256": "c0197db488ffa8e154edea20a26fa7a1c1c3e89675dfce43e72c16831966dd9b",
+      "license": "0BSD"
+    },
+    {
+      "path": "Gemfile.lock",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "Gemfile.lock",
+      "source_sha256": "a7d673fba846151585c46d02a8e4ba4972161a1984dff957de3d07c30f5d05bd",
+      "license": "0BSD"
+    },
+    {
+      "path": "reference/palomar/schema/v0.4.schema.json",
+      "source_repository": "lp-densities-lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_path": "reference/palomar/schema/v0.4.schema.json",
+      "source_sha256": "25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce",
+      "license": "Apache-2.0; see reference/palomar/schema/LICENSE and SOURCE.json"
+    }
+  ]
+}

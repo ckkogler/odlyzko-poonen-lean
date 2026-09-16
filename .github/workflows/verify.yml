@@ -1,0 +1,51 @@
+name: Verify proofs and Palomar package
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      LEAN_CC: /usr/bin/gcc
+      BUNDLE_FORCE_RUBY_PLATFORM: "true"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          build: false
+      - name: Build all mathematical results and print their actual statements
+        run: |
+          python3 scripts/check_official.py ci-build lake build
+          python3 scripts/check_official.py ci-statements lake env lean Verification.lean
+          python3 scripts/audit_full_statements.py logs/verification/ci-statements
+      - name: Validate metadata, license, pins and Challenge isolation
+        run: |
+          python3 -m venv .lake/palomar-validation
+          .lake/palomar-validation/bin/python -m pip install -r scripts/requirements-palomar.txt
+          .lake/palomar-validation/bin/python scripts/validate_palomar.py
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b
+        with:
+          ruby-version: "3.3.12"
+          bundler-cache: true
+      - name: Detect the exact declared source-code license
+        run: python3 scripts/check_official.py ci-license python3 scripts/verify_license.py
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+        with:
+          go-version: "1.24.0"
+          cache: false
+      - name: Install the pinned Rust toolchain
+        run: rustup toolchain install 1.88.0 --profile minimal
+      - name: Compare all twenty independent statements and replay in NanoDa
+        run: python3 scripts/check_official.py ci-comparator python3 scripts/verify_palomar.py
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        if: always()
+        with:
+          name: verification-evidence
+          path: logs/verification/
+          if-no-files-found: error

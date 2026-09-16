@@ -1,0 +1,16 @@
+{
+  "original_code_license": "0BSD",
+  "files": [
+    {
+      "destination": "OdlyzkoPoonen/Analysis/PolynomialRootPowers.lean",
+      "source_project": "lp-densities-lean",
+      "source_path": "LpSelfSimilar/Analysis/PolynomialRootPowers.lean",
+      "source_commit": "1ede5c88a2f7fcbb43907447f2363db89fbde0a2",
+      "source_sha256": "4ed1890b8d9c261793d76d7ba629e49afb88e329aec70ad1b4872361fd8a4ff3",
+      "destination_sha256": "2725b2bbef84ad4ac83f0457370d6d78166a38060e82f6fc88a2df901b763d2d",
+      "author": "Constantin Kogler",
+      "changes": "Namespace changed from LpSelfSimilar to OdlyzkoPoonen; provenance paragraph added. Proof terms unchanged.",
+      "dependencies": "Pinned Mathlib only; no sibling project dependency."
+    }
+  ]
+}
