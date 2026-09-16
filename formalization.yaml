@@ -79,8 +79,9 @@ status:
     All source mathematical targets have official checked proofs: 672 proved
     statements in 182 modules. The official default build and complete statement
     audit passed. Comparator accepted all twenty Challenge claims, and both
-    NanoDa and Lean accepted the proofs. Fresh standalone checkout and final
-    recovery verification remain in progress.
+    NanoDa and Lean accepted the proofs. A fresh standalone checkout reproduced
+    the build, complete statement/axiom audit and metadata checks with the original
+    project path unavailable and all nine exact dependency sources contained.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -121,8 +122,9 @@ review:
     The developing agent inspected full statements, definitions, all standard-only
     axiom lists and exact source correspondence. There is no separate human review,
     registry acceptance, or remote CI result. Actual strict statement comparison
-    and both NanoDa and Lean kernel checks passed. Fresh standalone checkout
-    and final recovery checks remain pending.
+    and both NanoDa and Lean kernel checks passed. A fresh standalone checkout
+    reproduced the build and identical complete statement output with the original
+    project path unavailable. Metadata and dependency containment checks passed.
 alignment:
   namespace: OdlyzkoPoonen
   coverage_index: COVERAGE.md

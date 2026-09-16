@@ -9,7 +9,8 @@ The official default build and full statement audit passed for **672 proved
 statements in 182 modules**, with 82 printed definitions. Only `propext`,
 `Classical.choice` and `Quot.sound` occur. Comparator accepted all 20 Challenge
 claims, and both NanoDa and Lean's kernel accepted the exported proofs.
-Fresh standalone checkout and final recovery verification remain in progress.
+A fresh standalone checkout also passed the build, complete statement/axiom
+audit and metadata checks with the original project path unavailable.
 The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
@@ -178,8 +179,9 @@ complete principal types were inspected for hidden hypotheses, probability
 models, uniform constants and exact exponents. Actual strict Challenge/Solution
 comparison and both NanoDa and Lean kernel replays passed. Metadata, license,
 import isolation and source preservation checks also passed. Compact evidence
-is recorded in [verification/](verification/); fresh standalone relocation and
-final recovery remain pending.
+is recorded in [verification/](verification/). A fresh standalone checkout
+reproduced the complete build and identical statement output with the original
+project path unavailable and all nine pinned dependency sources contained.
 
 To reproduce the final checks after resolving the pinned dependencies:
 

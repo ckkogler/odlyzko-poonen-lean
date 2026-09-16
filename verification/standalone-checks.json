@@ -1,0 +1,70 @@
+{
+  "checked_candidate_commit": "19ea9580ddef2e5a127158b81e40a1521caf7a66",
+  "checked_sources_file": "official-source-snapshot.json",
+  "checks": {
+    "axioms": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T12:46:28.170347+00:00",
+      "raw_command_sha256": "2580b44bdacdc93100d3750fad9d1747e799f5e89d362c7b1fdfc47746e689f1",
+      "raw_output_bytes": 292,
+      "raw_output_sha256": "4c6313b4b4763db962007cd2afee23a47df82cb165166ea3c28fa3a5f5e2e3e1",
+      "started_utc": "2026-09-16T12:46:23.462358+00:00"
+    },
+    "build": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T12:37:51.398353+00:00",
+      "raw_command_sha256": "d6601ceeae9b782953a8362a93934a8bae0432edae64580bac653b1785ae953e",
+      "raw_output_bytes": 17303,
+      "raw_output_sha256": "e9f53ef7bf2d2f07871e1bec25fa5a3c21d9138977bd6b97173e0217f9d7d389",
+      "started_utc": "2026-09-16T09:32:57.240357+00:00"
+    },
+    "metadata": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T12:46:37.350343+00:00",
+      "raw_command_sha256": "57323164baf1022e95f9d261b992f9e91220023a35d430edc56ca1a317ec9b4d",
+      "raw_output_bytes": 491,
+      "raw_output_sha256": "7c0eb09913b62496932551b65aa7f96d762c22b4ac7806a3889c85df56124fda",
+      "started_utc": "2026-09-16T12:46:29.600371+00:00"
+    },
+    "paths": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T09:32:55.136345+00:00",
+      "raw_command_sha256": "dd2699fad5b83cd58029d7afa3183f74d61f19e2eca6c4732ea3efc8f9df41c6",
+      "raw_output_bytes": 4497,
+      "raw_output_sha256": "9d04a25b19ad6b583fbd325fb1c693df485903323d9e03dcbb5f56dc2d5ce372",
+      "started_utc": "2026-09-16T09:30:06.486362+00:00"
+    },
+    "statements": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T12:46:22.023348+00:00",
+      "raw_command_sha256": "1cec076f5b85922c70b0801b1dc2be14a418d7cfe51b5445567520cdaf5680f9",
+      "raw_output_bytes": 4817911,
+      "raw_output_sha256": "1b703cdd15c5ae5a6b00e7da7a1142341860a17d0a317691a74aff0c19ec3df0",
+      "started_utc": "2026-09-16T12:37:53.026365+00:00"
+    }
+  },
+  "contained_exact_dependencies": {
+    "Cli": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af",
+    "LeanSearchClient": "ba67e212be1197b84c1f1f6299488a10a3002713",
+    "Qq": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+    "aesop": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+    "batteries": "d54dddc581e08be364c278052863524bff7a99a9",
+    "importGraph": "d8823026ac7ef130c253089d95685f9877b95323",
+    "mathlib": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "plausible": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+    "proofwidgets": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f"
+  },
+  "definition_prints": 82,
+  "dependency_sources_clean_after_checks": true,
+  "fresh_authored_compilation": true,
+  "full_statement_output_identical_to_official": true,
+  "original_and_dependencies_restored": true,
+  "original_path_absent_during_checks": true,
+  "recorded_utc": "2026-09-16T13:04:53.410405+00:00",
+  "registry_admission_claimed": false,
+  "remote_ci_claimed": false,
+  "scope": "Actual fresh authored compilation and full audit in a clean checkout, with the original project path absent throughout. Final Git bundle recovery is separate.",
+  "source_and_import_path_containment_checked": true,
+  "theorem_statements": 672,
+  "tracked_candidate_files": 219
+}

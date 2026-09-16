@@ -16,7 +16,13 @@ Metadata and license checks passed; licensee 10.0.0 detected exactly 0BSD.
 `official-source-snapshot.json` and `official-checks.json` bind the official
 checks to exact source/configuration bytes, actual exits and raw output hashes.
 These receipts summarize checks; they are not themselves proof certificates.
-Fresh standalone checkout and final Git recovery receipts remain pending.
+`standalone-checks.json` records an actual fresh authored build, complete
+statement/axiom audit and metadata validation in a clean checkout while the
+original project path was unavailable. All nine dependency sources were checked
+for exact revisions, unchanged tracked files and contained paths. The complete
+statement output was identical to the official run. The receipt identifies the
+checked commit; `official-source-snapshot.json` identifies the proof and
+configuration bytes shared by these checks.
 
 Reproduction commands and tool prerequisites are in the main README and pinned
 CI. Each check saves its actual output, exit, timestamps and source snapshots.

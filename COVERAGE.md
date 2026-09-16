@@ -4,7 +4,8 @@ This index records the complete source-result correspondence and every authored
 proof declaration. All names are in `OdlyzkoPoonen`. The mathematical development
 and official audits cover 672 proved statements and 82 definitions in 182 modules.
 All 20 principal claims passed actual independent comparison and both kernel
-replays. Fresh standalone verification remains pending.
+replays. A fresh standalone checkout reproduced the complete build and full
+statement/axiom audit with the original project path unavailable.
 
 ## Independently compared claims
 
