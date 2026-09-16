@@ -1,19 +1,24 @@
 # Verification evidence
 
-The complete development audit checked 672 theorem statements/axiom lists and
-82 definitions from all 182 proof modules. `proof-source-baseline.json` records
-those preserved mathematical source hashes; it is not an independent proof
-certificate. All full types and principal definitions were inspected for the
-actual finite model, quantifiers, constants and exponents.
+The official default build and full audit checked 672 theorem statements/axiom
+lists and 82 definitions from all 182 proof modules. Only `propext`,
+`Classical.choice` and `Quot.sound` occur. Complete statement output matches the
+reviewed development output byte for byte. Full types and definitions were
+inspected for the finite model, quantifiers, constants, floors and exponents.
 
-The independent Challenge and proved Solution compiled. Structural checks
-confirmed all20 configured claims, Mathlib-only Challenge imports, and exclusion
-of Challenge from the entire Solution closure. Actual licensee10.0.0 detection
-returned exactly0BSD. Final official build, independent kernel, standalone
-relocation and recovery receipts are still pending.
+The actual strict Comparator accepted all 20 Challenge claims. Both NanoDa and
+Lean's default kernel accepted the exported proofs. Explicit definition bodies
+are recursively compared; there are no permitted definition holes. Challenge's
+intentional theorem holes are excluded from the proved Solution import closure.
+Metadata and license checks passed; licensee 10.0.0 detected exactly 0BSD.
+
+`proof-source-baseline.json` records preserved mathematical source hashes.
+`official-source-snapshot.json` and `official-checks.json` bind the official
+checks to exact source/configuration bytes, actual exits and raw output hashes.
+These receipts summarize checks; they are not themselves proof certificates.
+Fresh standalone checkout and final Git recovery receipts remain pending.
 
 Reproduction commands and tool prerequisites are in the main README and pinned
-CI. Every check saves timestamps, actual exit, raw output and source snapshots.
-Large raw logs remain outside the committed submission; compact final receipts
-will identify the checked bytes and actual outcomes here. No remote CI, human
-review, publication or registry acceptance is claimed.
+CI. Each check saves its actual output, exit, timestamps and source snapshots.
+Large raw logs stay outside the committed submission. No remote CI, independent
+human review, registry acceptance or adversarial registry confinement is claimed.

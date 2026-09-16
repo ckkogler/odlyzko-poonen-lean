@@ -5,11 +5,12 @@ uniformly random monic binary integer polynomials with constant coefficient one.
 The proof library now proves both main theorems, both numbered lemmas, the
 factor-pair proposition, and all displayed estimates used in their proofs.
 
-The complete development build and statement audit cover **672 proved statements
-in 182 modules**, with 82 printed definitions. Only `propext`, `Classical.choice`
-and `Quot.sound` occur. Final official-toolchain, independent-kernel, standalone
-and Palomar package verification is still in progress. This repository is not
-yet a completed submission and has not been published or registered.
+The official default build and full statement audit passed for **672 proved
+statements in 182 modules**, with 82 printed definitions. Only `propext`,
+`Classical.choice` and `Quot.sound` occur. Comparator accepted all 20 Challenge
+claims, and both NanoDa and Lean's kernel accepted the exported proofs.
+Fresh standalone checkout and final recovery verification remain in progress.
+The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
 code and documentation use [0BSD](LICENSE). The source work, *The Odlyzko–Poonen
@@ -170,13 +171,15 @@ lake build
 lake env lean Verification.lean
 ```
 
-[Verification.lean](Verification.lean) prints every currently proved declaration,
-relevant definitions and all axiom lists. The current development runs succeeded,
-and full final statements were inspected for hidden hypotheses, wrong probability
-models, nonuniform constants and altered exponents. The independent Challenge and Solution compile, and structural metadata,
-license-text, import-isolation and source-preservation checks have passed.
-Official, independent-kernel and relocation results remain pending; development
-checks alone do not establish those final gates.
+[Verification.lean](Verification.lean) prints all 672 proved declarations,
+82 relevant definitions and the complete axiom lists. The official run passed;
+its full output matches the reviewed development output byte for byte. The
+complete principal types were inspected for hidden hypotheses, probability
+models, uniform constants and exact exponents. Actual strict Challenge/Solution
+comparison and both NanoDa and Lean kernel replays passed. Metadata, license,
+import isolation and source preservation checks also passed. Compact evidence
+is recorded in [verification/](verification/); fresh standalone relocation and
+final recovery remain pending.
 
 To reproduce the final checks after resolving the pinned dependencies:
 

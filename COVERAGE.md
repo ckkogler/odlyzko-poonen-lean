@@ -2,8 +2,9 @@
 
 This index records the complete source-result correspondence and every authored
 proof declaration. All names are in `OdlyzkoPoonen`. The mathematical development
-audit covers 672 proved statements and 82 definitions in 182 modules. Final
-independent and standalone verification is still pending.
+and official audits cover 672 proved statements and 82 definitions in 182 modules.
+All 20 principal claims passed actual independent comparison and both kernel
+replays. Fresh standalone verification remains pending.
 
 ## Independently compared claims
 

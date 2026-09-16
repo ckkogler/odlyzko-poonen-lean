@@ -76,10 +76,11 @@ related_formalizations:
       is asserted and no sibling project is a build dependency.
 status:
   scope: >-
-    All source mathematical targets have completed development proofs: 672 proved
-    statements in 182 modules. Twenty independent Challenge claims and the proved
-    Solution compile. Final official-toolchain, independent-kernel and standalone
-    verification are in progress; this is not yet a completed submission.
+    All source mathematical targets have official checked proofs: 672 proved
+    statements in 182 modules. The official default build and complete statement
+    audit passed. Comparator accepted all twenty Challenge claims, and both
+    NanoDa and Lean accepted the proofs. Fresh standalone checkout and final
+    recovery verification remain in progress.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -119,8 +120,9 @@ review:
   notes: >-
     The developing agent inspected full statements, definitions, all standard-only
     axiom lists and exact source correspondence. There is no separate human review,
-    registry acceptance, or remote CI result. Final independent and relocation
-    checks remain pending and will be recorded only after their actual success.
+    registry acceptance, or remote CI result. Actual strict statement comparison
+    and both NanoDa and Lean kernel checks passed. Fresh standalone checkout
+    and final recovery checks remain pending.
 alignment:
   namespace: OdlyzkoPoonen
   coverage_index: COVERAGE.md

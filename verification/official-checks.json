@@ -1,0 +1,103 @@
+{
+  "actual_verifier_binary_sha256": {
+    "comparator": "5971fdbcaa7c0b9d2e9979ec425bdbd0e56d2bb624cdd3039dc8a329c158af84",
+    "landrun": "1fe5ff7b94ea274e2fa5b85f5bfc0cdc8c62d9a766889d2beb7197b1e8cfa995",
+    "lean4export": "c1d95882d009591ccc371682e36b5459e08e5e3534a27ceca1d7bcd86eaea6d9",
+    "nanoda": "0d7cfb13db5de015cff236891d9fd671ad06f5ac5f14b9b27b85d4d2fa0b6418"
+  },
+  "adversarial_registry_confinement_claimed": false,
+  "checked_sources_file": "official-source-snapshot.json",
+  "checks": {
+    "default_build": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T06:07:53.980347+00:00",
+      "raw_command_sha256": "d6601ceeae9b782953a8362a93934a8bae0432edae64580bac653b1785ae953e",
+      "raw_output_bytes": 18151,
+      "raw_output_sha256": "311b31f7b40a5440a3148a18e35d9b5c73ee2ee9f0ed16e03681f0acf3901881",
+      "run": "default-build-01",
+      "started_utc": "2026-09-16T03:18:46.773377+00:00"
+    },
+    "full_axiom_audit": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T06:16:51.745347+00:00",
+      "raw_command_sha256": "56f1ffdf86fb00b435d1cd73a3ebb1b67625eb3b089a14a597022b6ac3e21ec7",
+      "raw_output_bytes": 292,
+      "raw_output_sha256": "4c6313b4b4763db962007cd2afee23a47df82cb165166ea3c28fa3a5f5e2e3e1",
+      "run": "statements-audit-01",
+      "started_utc": "2026-09-16T06:16:47.021365+00:00"
+    },
+    "full_statements": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T06:16:41.976348+00:00",
+      "raw_command_sha256": "1cec076f5b85922c70b0801b1dc2be14a418d7cfe51b5445567520cdaf5680f9",
+      "raw_output_bytes": 4817911,
+      "raw_output_sha256": "1b703cdd15c5ae5a6b00e7da7a1142341860a17d0a317691a74aff0c19ec3df0",
+      "run": "statements-01",
+      "started_utc": "2026-09-16T06:08:11.220370+00:00"
+    },
+    "independent_comparison": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T06:33:44.737345+00:00",
+      "raw_command_sha256": "2c7f20fe8c8545abf3fbea0b0e5f061cc5787740fb017d8ac0306f8ef9384c66",
+      "raw_output_bytes": 9339,
+      "raw_output_sha256": "6e01490b82781bdc2ca209d7a813f3f93404bf2a292e027fd362456cdeb08fa8",
+      "run": "comparator-01",
+      "started_utc": "2026-09-16T06:16:55.980361+00:00"
+    },
+    "license": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T09:11:08.376363+00:00",
+      "raw_command_sha256": "a7be4d8e8dd09a2aa3bd78edb87609f6f68306bdfb26c572f8a9de1ba6ffc529",
+      "raw_output_bytes": 4507,
+      "raw_output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50",
+      "run": "license-current-01",
+      "started_utc": "2026-09-16T09:10:49.503376+00:00"
+    },
+    "metadata": {
+      "actual_exit": 0,
+      "finished_utc": "2026-09-16T06:33:58.112352+00:00",
+      "raw_command_sha256": "57323164baf1022e95f9d261b992f9e91220023a35d430edc56ca1a317ec9b4d",
+      "raw_output_bytes": 491,
+      "raw_output_sha256": "7c0eb09913b62496932551b65aa7f96d762c22b4ac7806a3889c85df56124fda",
+      "run": "metadata-post-comparator-01",
+      "started_utc": "2026-09-16T06:33:49.087358+00:00"
+    }
+  },
+  "comparison_theorems": [
+    "OdlyzkoPoonen.mem_binaryFamily_iff",
+    "OdlyzkoPoonen.card_binaryFamily",
+    "OdlyzkoPoonen.binaryProbability_eq_count",
+    "OdlyzkoPoonen.odlyzko_poonen_irreducibility",
+    "OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO",
+    "OdlyzkoPoonen.exists_reducible_probability_excess_bound",
+    "OdlyzkoPoonen.binaryProbability_reducible_asymptotic",
+    "OdlyzkoPoonen.mod_four_companion_probability",
+    "OdlyzkoPoonen.factor_pair_congruence_probability",
+    "OdlyzkoPoonen.binary_factor_reversal",
+    "OdlyzkoPoonen.reciprocal_gcd_probability",
+    "OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound",
+    "OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_minus_one_odd",
+    "OdlyzkoPoonen.binaryProbability_minus_one_even",
+    "OdlyzkoPoonen.binaryProbability_minus_one_asymptotic"
+  ],
+  "definition_prints": 82,
+  "official_lean_version": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)",
+  "permitted_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "proof_modules": 182,
+  "recorded_utc": "2026-09-16T09:13:28.312461+00:00",
+  "registry_admission_claimed": false,
+  "remote_ci_claimed": false,
+  "review": "Agent source/meaning review; no independent human review claimed.",
+  "same_full_output_as_development": true,
+  "scope": "Actual official build, full statement/axiom audit, local independent comparison, metadata and license checks. Relocation and final recovery are separate receipts.",
+  "theorem_statements": 672
+}
