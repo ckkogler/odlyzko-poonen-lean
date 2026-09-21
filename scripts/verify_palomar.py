@@ -94,7 +94,8 @@ for name, binary in binaries.items():
     assert binary.is_file() and '/tmp/' not in str(binary.resolve())
     print(name, 'SHA256', hashlib.sha256(binary.read_bytes()).hexdigest(), flush=True)
 cfg = json.loads((root / 'comparator.json').read_text())
-assert cfg['enable_nanoda'] is True and len(cfg['theorem_names']) == 20
+assert cfg['enable_nanoda'] is True and cfg['theorem_names']
+assert len(cfg['theorem_names']) == len(set(cfg['theorem_names']))
 if args.prepare_only:
     print('Exact verifier source/binary preparation passed; paper comparison not run.',flush=True)
 else:

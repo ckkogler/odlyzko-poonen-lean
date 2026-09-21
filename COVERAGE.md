@@ -1,17 +1,17 @@
 # Mathematical coverage
 
-This index records the complete source-result correspondence and every authored
-proof declaration. All names are in `OdlyzkoPoonen`. The mathematical development
-and official audits cover 672 proved statements and 82 definitions in 182 modules.
-All 20 principal claims passed actual independent comparison and both kernel
-replays. A fresh standalone checkout reproduced the complete build and full
-statement/axiom audit with the original project path unavailable.
+The library contains 761 proved declarations and 94 definitions or
+structures in 203 modules. All names are in `OdlyzkoPoonen`. The complete
+higher-order reducibility expansion remains in progress; its finite cyclotomic
+reduction and the parity-dependent minus-one correction are proved. Final
+submission verification must be repeated for the completed source snapshot.
+Historical verification records certify only their recorded snapshots.
 
-## Independently compared claims
+## Challenge claims
 
-[Challenge.lean](Challenge.lean) gives the ordinary-language statements and explicit
-probability model. [comparator.json](comparator.json) selects all 20 declarations
-below; [Solution.lean](Solution.lean) imports the complete proved library.
+[Challenge.lean](Challenge.lean) supplies explicit definitions and independent
+statements. [comparator.json](comparator.json) selects its 29 claims;
+[Solution.lean](Solution.lean) imports the proved library.
 
 | Claim | Declaration and proof module |
 | --- | --- |
@@ -25,22 +25,32 @@ below; [Solution.lean](Solution.lean) imports the complete proved library.
 | Theorem 1.2: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4). | [`mod_four_companion_probability`](OdlyzkoPoonen/ModFour/CompanionProbability.lean) |
 | Proposition 2.1: independent uniform degree-d and degree-e endpoint-one polynomials over F2 satisfy the joint nonreciprocity/congruence event with probability at most 2*(3/4)^floor((e-1)/2). | [`factor_pair_congruence_probability`](OdlyzkoPoonen/ModFour/FactorProbability.lean) |
 | Lemma 3.1: reversing either monic integer factor preserves binarity and autocorrelation; the two trivial outcomes occur exactly when the corresponding factor is reciprocal. Both factors have constant one. | [`binary_factor_reversal`](OdlyzkoPoonen/Polynomial/FactorReversal.lean) |
-| Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 6*2^(-L/2). This includes every natural cutoff L. | [`reciprocal_gcd_probability`](OdlyzkoPoonen/FiniteField/ReciprocalProbability.lean) |
+| Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 8*2^(-L/2). This includes every natural cutoff L. | [`reciprocal_gcd_probability_le_eight`](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean) |
 | Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed. | [`exists_uniform_noncyclotomic_factor_bound`](OdlyzkoPoonen/Probability/NoncyclotomicFactor.lean) |
 | Estimate (3.2), also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases. | [`exists_uniform_integer_irreducible_noncyclotomic_factor_bound`](OdlyzkoPoonen/Probability/NoncyclotomicFactor.lean) |
-| Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+6*2^(-L/2), uniformly in L. | [`exists_unrestricted_reciprocal_finite_bound`](OdlyzkoPoonen/Asymptotics/ReciprocalDivisorNormalization.lean) |
+| Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L. | [`exists_unrestricted_reciprocal_finite_bound_eight`](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean) |
 | Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0. | [`binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/ReciprocalDivisorNormalization.lean) |
 | Estimate (3.3): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0. | [`binaryProbability_reducible_noncyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/ReducibleNoncyclotomic.lean) |
 | Estimate (3.4): the probability of a cyclotomic factor of degree at least two is O(1/n). | [`binaryProbability_higher_cyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/HigherCyclotomic.lean) |
 | Exact odd-degree formula: for degree 2r+1 the minus-one root probability is choose(2r,r)/2^(2r), including degree one. | [`binaryProbability_minus_one_odd`](OdlyzkoPoonen/Probability/MinusOne.lean) |
 | Exact even-degree formula: for degree 2r the probability is choose(2r-1,r+1)/2^(2r-1), including the zero value at degree two. | [`binaryProbability_minus_one_even`](OdlyzkoPoonen/Probability/MinusOne.lean) |
 | Minus-one asymptotic: its probability is sqrt(2/(pi*n)) with the stronger O(n^(-3/2)) error. | [`binaryProbability_minus_one_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneAsymptotic.lean) |
+| Signed difference multiplicities are equivalent to reciprocal-product coefficients. | [`differenceMultiset_eq_iff_autocorrelation_eq`](OdlyzkoPoonen/Polynomial/DifferenceMultiset.lean) |
+| Reflection preserves every signed-difference multiplicity. | [`differenceMultiset_reflectedSet`](OdlyzkoPoonen/Polynomial/SetReflection.lean) |
+| Exactly 2^floor(n/2) endpoint-fixed subsets are invariant under reflection. | [`card_reflection_fixed_binarySetFamily`](OdlyzkoPoonen/Polynomial/SetReflection.lean) |
+| Finite lower and upper bounds for distinct signed difference multisets, including degree one. | [`differenceMultisetFamily_card_bounds`](OdlyzkoPoonen/Combinatorics/DifferenceMultisetCount.lean) |
+| The endpoint-fixed count is 2^(n-2) with error O(12^(n/4)), using a real exponent. | [`differenceMultisetFamily_asymptotic`](OdlyzkoPoonen/Asymptotics/DifferenceMultisets.lean) |
+| The free-upper-endpoint count is 2^(n-1) with the same exponential error rate. | [`anchoredDifferenceMultisetFamily_exponential_asymptotic`](OdlyzkoPoonen/Asymptotics/AnchoredDifferenceRate.lean) |
+| The free-upper-endpoint signed-difference count is 2^(n-1)+o(2^n). | [`anchoredDifferenceMultisetFamily_asymptotic`](OdlyzkoPoonen/Asymptotics/AnchoredDifferences.lean) |
+| A fixed finite collection of cyclotomic divisibility events approximates reducibility to every natural inverse power. | [`binaryProbability_reducible_finite_cyclotomic_approximation`](OdlyzkoPoonen/Asymptotics/FiniteCyclotomicApproximation.lean) |
+| The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity. | [`binaryProbability_minus_one_first_correction_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneExpansion.lean) |
 
-## Supporting arguments and source displays
+
+## Supporting arguments
 
 Every supporting argument is proved internally or supplied by pinned Mathlib.
-No literature theorem is assumed. The source manuscript supplies the mathematical
-targets; historical discussion and bibliographic context are not additional claims.
+No literature theorem is assumed. Historical discussion and bibliographic
+context are not additional claims.
 
 | Source step | Proved modules |
 | --- | --- |
@@ -68,6 +78,13 @@ targets; historical discussion and bibliographic context are not additional clai
 | Stirling and parity asymptotic | Asymptotics/MinusOneParity and MinusOneAsymptotic; Analysis/SquareRootComparison |
 | Cyclotomic classification and nonnegative excess | Polynomial/CyclotomicDivisors, IntegerRoots, Probability/FiniteEvents, Reducibility/EventBounds |
 | Theorem 1.1 | Asymptotics/Reducibility, EventComplement |
+| Signed difference multiset and polynomial equivalence | Polynomial/BinarySets, DifferenceMultiset |
+| Reflection invariance and exact fixed-point count | Polynomial/SetReflection, Combinatorics/AutocorrelationCount |
+| Exact finite difference-multiset bounds and exponential error | Combinatorics/DifferenceMultisetCount, Asymptotics/DifferenceMultisets |
+| Free upper endpoint, disjoint maximum decomposition and exponential error | Combinatorics/AnchoredDifferences, Asymptotics/AnchoredDifferences, AnchoredDifferenceRate |
+| Arbitrary-accuracy finite cyclotomic reduction | Probability/CyclotomicDegreeRange, Asymptotics/CyclotomicTruncation, FiniteCyclotomicApproximation |
+| Central-binomial correction by recurrence and monotone comparison | Asymptotics/CentralBinomialCorrection, CentralBinomialSecondOrder, CentralBinomialExpansion |
+| Parity-dependent minus-one correction | Asymptotics/MinusOneEvenCorrection, MinusOneOddCorrection, MinusOneExpansion |
 
 The fixed-factor argument uses the proved controlled-prime separation and
 quantitative Mahler bound. It does not assert the stronger general versions of
@@ -75,9 +92,8 @@ external results. See the arithmetic, linear algebra and analysis modules below.
 
 ## Complete declaration index
 
-The following lists include every authored theorem, lemma, definition and
-structure. Verification.lean prints all 672 proof statements with their axiom
-lists, plus all 82 definitions/structures. File links identify the actual proof.
+[Verification.lean](Verification.lean) prints the declarations and the axiom
+lists of every theorem and lemma. File links identify the actual proofs.
 
 ### [OdlyzkoPoonen.Analysis.AtomScale](OdlyzkoPoonen/Analysis/AtomScale.lean)
 
@@ -197,17 +213,55 @@ Proved declarations: `nat_div_ge_half_real_ratio`, `sparse_quotient_lower`, `hal
 
 Proved declarations: `coprime_odd_or_odd`, `order_le_totient_sq_with_odd`, `order_le_two_totient_sq`, `odd_order_le_totient_sq`.
 
+### [OdlyzkoPoonen.Asymptotics.AnchoredDifferenceRate](OdlyzkoPoonen/Asymptotics/AnchoredDifferenceRate.lean)
+
+Proved declarations: `anchoredDifferenceMultisetFamily_exponential_error_bound`, `anchoredDifferenceMultisetFamily_exponential_asymptotic`.
+
+### [OdlyzkoPoonen.Asymptotics.AnchoredDifferences](OdlyzkoPoonen/Asymptotics/AnchoredDifferences.lean)
+
+Proved declarations: `twelve_rpow_quarter_eq_pow`, `twelve_rpow_quarter_lt_two`, `anchoredDifferenceMultisetFamily_error_bound`, `anchoredDifferenceMultisetFamily_asymptotic`.
+
 ### [OdlyzkoPoonen.Asymptotics.CentralBinomial](OdlyzkoPoonen/Asymptotics/CentralBinomial.lean)
 
 Definitions: `centralBinomialMass`.
 
 Proved declarations: `centralBinomialMass_pos`, `centralBinomialMass_eq_choose`, `centralBinomialMass_wallis_identity`, `centralBinomialMass_sq_lower`, `centralBinomialMass_sq_upper_aux`, `centralBinomialMass_sq_upper`, `centralBinomialMass_le_sqrt`, `centralBinomialMass_abs_sub_sqrt_le`.
 
+### [OdlyzkoPoonen.Asymptotics.CentralBinomialCorrection](OdlyzkoPoonen/Asymptotics/CentralBinomialCorrection.lean)
+
+Definitions: `normalizedCentralBinomialSquare`.
+
+Proved declarations: `centralBinomialMass_succ`, `normalizedCentralBinomialSquare_step`, `normalizedCentralBinomialSquare_le_one`, `normalizedCentralBinomialSquare_lower`, `tendsto_normalizedCentralBinomialSquare`, `normalizedCentralBinomialSquare_step_upper`, `normalizedCentralBinomialSquare_step_lower`.
+
+### [OdlyzkoPoonen.Asymptotics.CentralBinomialExpansion](OdlyzkoPoonen/Asymptotics/CentralBinomialExpansion.lean)
+
+Proved declarations: `abs_sub_le_twice_abs_sq_sub_sq`, `centralBinomialMass_first_correction`, `normalizedCentralBinomialMass_first_correction`.
+
+### [OdlyzkoPoonen.Asymptotics.CentralBinomialSecondOrder](OdlyzkoPoonen/Asymptotics/CentralBinomialSecondOrder.lean)
+
+Proved declarations: `tendsto_quarter_reciprocal_shift`, `normalizedCentralBinomialSquare_correction_bounds`, `normalizedCentralBinomialSquare_first_correction`.
+
 ### [OdlyzkoPoonen.Asymptotics.CyclotomicCutoff](OdlyzkoPoonen/Asymptotics/CyclotomicCutoff.lean)
 
 Definitions: `cyclotomicDegreeCutoff`.
 
 Proved declarations: `cyclotomicDegreeCutoff_pos`, `pow_eight_le_two_pow_cyclotomicDegreeCutoff`, `cyclotomicDegreeCutoff_le_log`, `cyclotomicDegreeCutoff_isBigO_log`, `log_nat_pow_isLittleO_sqrt`, `cyclotomicDegreeCutoff_pow_isLittleO_sqrt`, `tendsto_cyclotomicDegreeCutoff_pow_div_sqrt`, `eventually_cyclotomic_cutoff_scale_le_one`.
+
+### [OdlyzkoPoonen.Asymptotics.CyclotomicTruncation](OdlyzkoPoonen/Asymptotics/CyclotomicTruncation.lean)
+
+Definitions: `scaledCyclotomicCutoff`.
+
+Proved declarations: `scaledCyclotomicCutoff_isBigO_log`, `scaledCyclotomicCutoff_pow_isLittleO_sqrt`, `eventually_scaledCyclotomicCutoff_pow_le_sqrt`, `eventually_scaledCyclotomicCutoff_scale_le_one`, `nat_pow_le_two_pow_scaledCyclotomicCutoff`, `cyclotomic_middle_scaled_bound`, `cyclotomic_high_scaled_bound`, `binaryProbability_cyclotomic_degree_tail_isBigO`.
+
+### [OdlyzkoPoonen.Asymptotics.DifferenceMultisets](OdlyzkoPoonen/Asymptotics/DifferenceMultisets.lean)
+
+Proved declarations: `difference_multiset_exception_scale_le`, `difference_multiset_reflection_scale_le`, `twelve_pow_block_le_rpow`, `differenceMultisetFamily_error_bound`, `differenceMultisetFamily_asymptotic`.
+
+### [OdlyzkoPoonen.Asymptotics.FiniteCyclotomicApproximation](OdlyzkoPoonen/Asymptotics/FiniteCyclotomicApproximation.lean)
+
+Definitions: `HasBoundedDegreeCyclotomicDivisor`.
+
+Proved declarations: `hasBoundedDegreeCyclotomicDivisor_iff_finite`, `HasBinaryEndpoints.reducible_of_bounded_cyclotomic`, `reducible_sub_bounded_cyclotomic_probability_eq`, `reducible_sub_bounded_cyclotomic_probability_le`, `binaryProbability_reducible_finite_cyclotomic_approximation`.
 
 ### [OdlyzkoPoonen.Asymptotics.HigherCyclotomic](OdlyzkoPoonen/Asymptotics/HigherCyclotomic.lean)
 
@@ -217,13 +271,31 @@ Proved declarations: `cyclotomic_cutoff_tail_le`, `eventually_binaryProbability_
 
 Proved declarations: `binaryProbability_minus_one_error_bound`, `binaryProbability_minus_one_error_rpow`, `binaryProbability_minus_one_asymptotic`, `tendsto_minus_one_leading_term`, `tendsto_minus_one_probability`.
 
+### [OdlyzkoPoonen.Asymptotics.MinusOneEvenCorrection](OdlyzkoPoonen/Asymptotics/MinusOneEvenCorrection.lean)
+
+Proved declarations: `binaryProbability_minus_one_even_first_correction`.
+
+### [OdlyzkoPoonen.Asymptotics.MinusOneExpansion](OdlyzkoPoonen/Asymptotics/MinusOneExpansion.lean)
+
+Definitions: `minusOneRelativeCorrection`.
+
+Proved declarations: `binaryProbability_minus_one_relative_error`, `binaryProbability_minus_one_first_correction_error`, `binaryProbability_minus_one_first_correction_asymptotic`.
+
 ### [OdlyzkoPoonen.Asymptotics.MinusOneMass](OdlyzkoPoonen/Asymptotics/MinusOneMass.lean)
 
 Proved declarations: `adjacent_even_choose_identity`, `binaryProbability_minus_one_odd_eq_central`, `binaryProbability_minus_one_even_eq_central`.
 
+### [OdlyzkoPoonen.Asymptotics.MinusOneOddCorrection](OdlyzkoPoonen/Asymptotics/MinusOneOddCorrection.lean)
+
+Proved declarations: `binaryProbability_minus_one_odd_first_correction`.
+
 ### [OdlyzkoPoonen.Asymptotics.MinusOneParity](OdlyzkoPoonen/Asymptotics/MinusOneParity.lean)
 
 Proved declarations: `binaryProbability_minus_one_even_error`, `binaryProbability_minus_one_odd_error`.
+
+### [OdlyzkoPoonen.Asymptotics.ReciprocalBounds](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean)
+
+Proved declarations: `reciprocal_gcd_probability_le_eight`, `exists_unrestricted_reciprocal_finite_bound_eight`.
 
 ### [OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization](OdlyzkoPoonen/Asymptotics/ReciprocalDivisorNormalization.lean)
 
@@ -240,6 +312,32 @@ Proved declarations: `binaryProbability_reducible_excess_isBigO`, `exists_reduci
 ### [OdlyzkoPoonen.Asymptotics.ReducibleNoncyclotomic](OdlyzkoPoonen/Asymptotics/ReducibleNoncyclotomic.lean)
 
 Proved declarations: `binaryProbability_companion_isBigO`, `binaryProbability_reducible_noncyclotomic_isBigO`.
+
+### [OdlyzkoPoonen.Combinatorics.AnchoredDifferences](OdlyzkoPoonen/Combinatorics/AnchoredDifferences.lean)
+
+Definitions: `anchoredSetFamily`, `anchoredDifferenceMultisetFamily`.
+
+Proved declarations: `mem_anchoredSetFamily_iff`, `differenceMultiset_mem_iff`, `endpoint_mem_differenceMultiset`, `differenceMultiset_mem_le`, `differenceMultisetFamily_disjoint`, `anchoredDifferenceMultisetFamily_eq_biUnion`, `card_anchoredDifferenceMultisetFamily`, `binarySetFamily_zero`, `card_differenceMultisetFamily_zero`, `card_anchoredDifferenceMultisetFamily_succ_sum`.
+
+### [OdlyzkoPoonen.Combinatorics.AutocorrelationCount](OdlyzkoPoonen/Combinatorics/AutocorrelationCount.lean)
+
+Definitions: `binaryAutocorrelationFamily`.
+
+Proved declarations: `card_reciprocal_binaryFamily`, `binaryAutocorrelationFamily_card_upper`, `companion_free_fiber_card_le_two`, `binaryAutocorrelationFamily_card_lower`.
+
+### [OdlyzkoPoonen.Combinatorics.DifferenceMultisetCount](OdlyzkoPoonen/Combinatorics/DifferenceMultisetCount.lean)
+
+Definitions: `differenceMultisetFamily`.
+
+Proved declarations: `card_differenceMultisetFamily`, `differenceMultisetFamily_card_bounds`.
+
+### [OdlyzkoPoonen.Combinatorics.FiberCounting](OdlyzkoPoonen/Combinatorics/FiberCounting.lean)
+
+Proved declarations: `card_le_twice_image_of_fibers`, `twice_image_card_le_card_add_fixed`.
+
+### [OdlyzkoPoonen.Combinatorics.ImageCardinality](OdlyzkoPoonen/Combinatorics/ImageCardinality.lean)
+
+Proved declarations: `card_image_le_of_fiber_imp`, `card_image_eq_of_fibers_iff`.
 
 ### [OdlyzkoPoonen.FiniteField.AutocorrelationFactors](OdlyzkoPoonen/FiniteField/AutocorrelationFactors.lean)
 
@@ -477,6 +575,12 @@ Proved declarations: `IsBinary.coeff_nonneg`, `IsBinary.coeff_le_one`, `IsBinary
 
 Proved declarations: `IsBinary.norm_coeff_sub_le_one`, `coeff_wordPolynomial_sub_outside`, `support_wordPolynomial_sub_map_subset`, `mahlerMeasure_wordPolynomial_sub_le`.
 
+### [OdlyzkoPoonen.Polynomial.BinarySets](OdlyzkoPoonen/Polynomial/BinarySets.lean)
+
+Definitions: `setPolynomial`, `binarySetFamily`.
+
+Proved declarations: `coeff_setPolynomial`, `support_setPolynomial`, `setPolynomial_injective`, `setPolynomial_binary`, `mem_binarySetFamily_iff`, `setPolynomial_endpoints`, `HasBinaryEndpoints.support_mem_binarySetFamily`, `setPolynomial_support_of_binary`, `binarySetFamily_image_setPolynomial`, `card_binarySetFamily`.
+
 ### [OdlyzkoPoonen.Polynomial.BinaryWords](OdlyzkoPoonen/Polynomial/BinaryWords.lean)
 
 Definitions: `bitValue`, `interiorPolynomial`, `wordPolynomial`, `binaryFamily`.
@@ -516,6 +620,12 @@ Proved declarations: `norm_coeff_contract_word_difference_le_one`, `support_cont
 Definitions: `HasCyclotomicDivisor`, `HasHigherCyclotomicDivisor`.
 
 Proved declarations: `HasCyclotomicDivisor.of_dvd`, `HasHigherCyclotomicDivisor.hasCyclotomicDivisor`, `cyclotomic_dvd_iff_rational`, `HasBinaryEndpoints.eval_int_one_pos`, `HasBinaryEndpoints.not_cyclotomic_one_dvd`, `cyclotomic_two_dvd_iff_minus_one`, `HasBinaryEndpoints.cyclotomic_alternative`, `HasBinaryEndpoints.hasCyclotomicDivisor_iff`.
+
+### [OdlyzkoPoonen.Polynomial.DifferenceMultiset](OdlyzkoPoonen/Polynomial/DifferenceMultiset.lean)
+
+Definitions: `differenceMultiset`.
+
+Proved declarations: `count_differenceMultiset`, `IsBinary.eq_sum_support_X_pow`, `HasBinaryEndpoints.reverse_eq_sum`, `HasBinaryEndpoints.autocorrelation_eq_sum`, `HasBinaryEndpoints.coeff_autocorrelation_eq_count`, `HasBinaryEndpoints.difference_count_eq_zero`, `differenceMultiset_eq_iff_autocorrelation_eq`.
 
 ### [OdlyzkoPoonen.Polynomial.DivisorCoefficientBound](OdlyzkoPoonen/Polynomial/DivisorCoefficientBound.lean)
 
@@ -683,6 +793,12 @@ Definitions: `polynomialRootRatios`.
 
 Proved declarations: `mem_polynomialRootRatios`, `card_polynomialRootRatios_le`, `algEquiv_map_mem_polynomialRootRatios`, `primitiveRoots_subset_polynomialRootRatios`, `totient_le_degree_sq_of_primitive_root_ratio`, `order_le_two_degree_four_of_primitive_root_ratio`.
 
+### [OdlyzkoPoonen.Polynomial.SetReflection](OdlyzkoPoonen/Polynomial/SetReflection.lean)
+
+Definitions: `reflectedSet`.
+
+Proved declarations: `reflectedSet_mem_binarySetFamily`, `setPolynomial_reflectedSet`, `reflectedSet_eq_self_iff`, `differenceMultiset_reflectedSet`, `card_reflection_fixed_binarySetFamily`.
+
 ### [OdlyzkoPoonen.Polynomial.SparseDivisorUniqueness](OdlyzkoPoonen/Polynomial/SparseDivisorUniqueness.lean)
 
 Proved declarations: `word_eq_of_sparse_divisibility`.
@@ -728,6 +844,10 @@ Proved declarations: `uniformProbability_trueBitCount_le_central`, `uniformProba
 Definitions: `trueBitCount`.
 
 Proved declarations: `pow_trueBitCount_eq_prod`, `sum_pow_trueBitCount`, `uniformAverage_pow_trueBitCount`, `uniformAverage_half_pow_trueBitCount`, `uniformAverage_triangular_half_weight`.
+
+### [OdlyzkoPoonen.Probability.CyclotomicDegreeRange](OdlyzkoPoonen/Probability/CyclotomicDegreeRange.lean)
+
+Proved declarations: `binaryProbability_cyclotomic_degree_range_fixed_le`, `binaryProbability_cyclotomic_degree_range_le`, `binaryProbability_cyclotomic_degree_at_least_le`.
 
 ### [OdlyzkoPoonen.Probability.CyclotomicDegreeTwo](OdlyzkoPoonen/Probability/CyclotomicDegreeTwo.lean)
 

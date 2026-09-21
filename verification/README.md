@@ -1,5 +1,10 @@
 # Verification evidence
 
+The records in this directory certify the historical 182-module development.
+They do not certify subsequent changes. The current submission is still being
+prepared; its final build, comparison, replay and standalone-checkout records
+must identify the completed source snapshot.
+
 The official default build and full audit checked 672 theorem statements/axiom
 lists and 82 definitions from all 182 proof modules. Only `propext`,
 `Classical.choice` and `Quot.sound` occur. Complete statement output matches the

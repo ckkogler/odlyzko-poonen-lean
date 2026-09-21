@@ -5,18 +5,20 @@ uniformly random monic binary integer polynomials with constant coefficient one.
 The proof library now proves both main theorems, both numbered lemmas, the
 factor-pair proposition, and all displayed estimates used in their proofs.
 
-The official default build and full statement audit passed for **672 proved
-statements in 182 modules**, with 82 printed definitions. Only `propext`,
-`Classical.choice` and `Quot.sound` occur. Comparator accepted all 20 Challenge
-claims, and both NanoDa and Lean's kernel accepted the exported proofs.
-A fresh standalone checkout also passed the build, complete statement/axiom
-audit and metadata checks with the original project path unavailable.
+Submission preparation is in progress. The difference-multiset counting results,
+their exponential error bounds, and finite cyclotomic approximation now have
+checked proofs. The complete higher-order reducibility expansion and final
+submission verification remain unfinished. The historical build, Comparator,
+kernel-replay and standalone-checkout records certify their recorded snapshots;
+they do not certify the current development tree.
 The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
-code and documentation use [0BSD](LICENSE). The source work, *The Odlyzko–Poonen
-conjecture*, has no named bibliographic author. Development uses AI assistance;
-no independent human review is claimed. Contained proof reuse is recorded in
+code and documentation use [0BSD](LICENSE). The mathematical work,
+*The Odlyzko–Poonen conjecture*, is by Constantin Kogler; its contribution
+statement credits GPT-6 Astra with the original proof and Kogler with rewriting
+and checking the mathematical proof. Lean development uses AI assistance;
+no independent human review of the formalization is claimed. Contained proof reuse is recorded in
 [provenance/reused-source.json](provenance/reused-source.json).
 
 ## The mathematical statements
@@ -51,7 +53,7 @@ therefore corresponds to `m=n-1`. `binaryProbability_eq_count` and
 
 [Literature and scope](reference/LiteratureAndScope.md) compares the exact
 probability model with the historical conjecture and identifies the role of
-the primary references. Source authorship and novelty remain unknown.
+the primary references. No independent novelty assessment is claimed.
 
 ## Results and source correspondence
 
@@ -68,15 +70,19 @@ All declarations below are in namespace `OdlyzkoPoonen`.
 | (2.1), fresh-bit toggle | `autocorrelationDiscrepancy_togglePair` | `ModFour/ExposureToggle` |
 | (2.2), conditional fiber bound | `paired_discrepancies_zero_fiber_probability_le` | `ModFour/FiberEstimate` |
 | Lemma 3.1, full monic factor reversal | `binary_factor_reversal` | `Polynomial/FactorReversal` |
-| (3.1), reciprocal gcd tail | `reciprocal_gcd_probability` | `FiniteField/ReciprocalProbability` |
+| (3.1), reciprocal gcd tail | `reciprocal_gcd_probability_le_eight` | `Asymptotics/ReciprocalBounds` |
 | (3.2), uniform noncyclotomic factor bound | `exists_uniform_noncyclotomic_factor_bound` | `Probability/NoncyclotomicFactor` |
 | (3.2), integer-ring irreducibility version | `exists_uniform_integer_irreducible_noncyclotomic_factor_bound` | `Probability/NoncyclotomicFactor` |
-| Lemma 3.2, exact finite two-term estimate | `exists_unrestricted_reciprocal_finite_bound` | `Asymptotics/ReciprocalDivisorNormalization` |
+| Lemma 3.2, exact finite two-term estimate | `exists_unrestricted_reciprocal_finite_bound_eight` | `Asymptotics/ReciprocalBounds` |
 | Lemma 3.2, every real decay exponent | `binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO` | `Asymptotics/ReciprocalDivisorNormalization` |
 | (3.3), reducibility without cyclotomic factors | `binaryProbability_reducible_noncyclotomic_isBigO` | `Asymptotics/ReducibleNoncyclotomic` |
 | (3.4), full higher-cyclotomic estimate | `binaryProbability_higher_cyclotomic_isBigO` | `Asymptotics/HigherCyclotomic` |
 | Exact odd/even binomial formulas | `binaryProbability_minus_one_odd`, `binaryProbability_minus_one_even` | `Probability/MinusOne` |
 | Stronger minus-one remainder | `binaryProbability_minus_one_asymptotic` | `Asymptotics/MinusOneAsymptotic` |
+| Signed difference-multiset count and exponential error | `differenceMultisetFamily_card_bounds`, `differenceMultisetFamily_asymptotic` | `Combinatorics/DifferenceMultisetCount`, `Asymptotics/DifferenceMultisets` |
+| Free upper endpoint with the same exponential rate | `anchoredDifferenceMultisetFamily_exponential_asymptotic` | `Asymptotics/AnchoredDifferenceRate` |
+| Finite cyclotomic approximation to every inverse power | `binaryProbability_reducible_finite_cyclotomic_approximation` | `Asymptotics/FiniteCyclotomicApproximation` |
+| Parity-dependent minus-one correction | `binaryProbability_minus_one_first_correction_asymptotic` | `Asymptotics/MinusOneExpansion` |
 
 The fixed-factor estimate has one positive real constant and one sufficiently
 large degree threshold, both independent of the factor. Its exponential rate is
@@ -145,17 +151,17 @@ A useful dependency order is:
 
 ## Independent statement and submission files
 
-[Challenge.lean](Challenge.lean) is a 252-line independent statement surface with
-20 compared claims, explicit definitions and ordinary-language explanations.
+[Challenge.lean](Challenge.lean) is a 346-line independent statement surface with
+29 claims selected for comparison, explicit definitions and ordinary-language explanations.
 It imports Mathlib only. [Solution.lean](Solution.lean) imports the proved library
 and excludes the Challenge, whose deliberate theorem placeholders are confined
 to that file. The default build checks both the library and Solution.
 
-[COVERAGE.md](COVERAGE.md) maps every source argument and lists all 672 proof
-declarations and 82 definitions. [formalization.yaml](formalization.yaml) records
+[COVERAGE.md](COVERAGE.md) indexes all 761 proof
+declarations and 94 definitions or structures. [formalization.yaml](formalization.yaml) records
 attribution, source relationships, AI assistance, review status and scope.
-The supplied source has no named bibliographic author or public identifier;
-novelty is unknown and no separate human review is claimed.
+The mathematical work is attributed to Constantin Kogler. No public identifier,
+independent novelty assessment, or separate human review is claimed.
 
 Verification scripts and pinned CI live in `scripts/` and `.github/workflows/`.
 Compact preservation records are in `verification/`; full generated logs are
@@ -172,16 +178,14 @@ lake build
 lake env lean Verification.lean
 ```
 
-[Verification.lean](Verification.lean) prints all 672 proved declarations,
-82 relevant definitions and the complete axiom lists. The official run passed;
-its full output matches the reviewed development output byte for byte. The
-complete principal types were inspected for hidden hypotheses, probability
-models, uniform constants and exact exponents. Actual strict Challenge/Solution
-comparison and both NanoDa and Lean kernel replays passed. Metadata, license,
-import isolation and source preservation checks also passed. Compact evidence
-is recorded in [verification/](verification/). A fresh standalone checkout
-reproduced the complete build and identical statement output with the original
-project path unavailable and all nine pinned dependency sources contained.
+[Verification.lean](Verification.lean) prints all 761 proved declarations,
+94 definitions or structures, and the complete theorem axiom lists. The current
+development check passed with only `propext`, `Classical.choice`, and `Quot.sound`.
+Metadata, license-file integrity, import isolation, and preservation of the
+182 original proof modules passed structural validation. The final official
+build, strict comparison, proof replays, license detection, and fresh-checkout
+verification remain to be run for the completed submission. Records in
+[verification/](verification/) document historical snapshots.
 
 To reproduce the final checks after resolving the pinned dependencies:
 

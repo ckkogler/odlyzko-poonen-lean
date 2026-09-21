@@ -166,8 +166,40 @@ import OdlyzkoPoonen.Polynomial.FactorReversal
 import OdlyzkoPoonen.Polynomial.Autocorrelation
 import OdlyzkoPoonen.Polynomial.Binary
 import OdlyzkoPoonen.Polynomial.Reversal
-
 import OdlyzkoPoonen.Probability.ReciprocalDivisorNormalization
 import OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization
+import OdlyzkoPoonen.Asymptotics.AnchoredDifferences
+import OdlyzkoPoonen.Asymptotics.CyclotomicTruncation
+import OdlyzkoPoonen.Asymptotics.DifferenceMultisets
+import OdlyzkoPoonen.Asymptotics.FiniteCyclotomicApproximation
+import OdlyzkoPoonen.Asymptotics.ReciprocalBounds
+import OdlyzkoPoonen.Combinatorics.AnchoredDifferences
+import OdlyzkoPoonen.Combinatorics.AutocorrelationCount
+import OdlyzkoPoonen.Combinatorics.DifferenceMultisetCount
+import OdlyzkoPoonen.Combinatorics.FiberCounting
+import OdlyzkoPoonen.Combinatorics.ImageCardinality
+import OdlyzkoPoonen.Polynomial.BinarySets
+import OdlyzkoPoonen.Polynomial.DifferenceMultiset
+import OdlyzkoPoonen.Polynomial.SetReflection
+import OdlyzkoPoonen.Probability.CyclotomicDegreeRange
+import OdlyzkoPoonen.Asymptotics.AnchoredDifferenceRate
+import OdlyzkoPoonen.Asymptotics.CentralBinomialCorrection
+import OdlyzkoPoonen.Asymptotics.CentralBinomialExpansion
+import OdlyzkoPoonen.Asymptotics.CentralBinomialSecondOrder
+import OdlyzkoPoonen.Asymptotics.MinusOneEvenCorrection
+import OdlyzkoPoonen.Asymptotics.MinusOneExpansion
+import OdlyzkoPoonen.Asymptotics.MinusOneOddCorrection
+import OdlyzkoPoonen.FiniteField.BitTests
+import OdlyzkoPoonen.FiniteField.GcdFactors
+import OdlyzkoPoonen.FiniteField.InteriorPolynomial
+import OdlyzkoPoonen.Polynomial.BinaryWords
+import OdlyzkoPoonen.Polynomial.CoefficientLocality
+import OdlyzkoPoonen.Polynomial.MonicReduction
+import OdlyzkoPoonen.Probability.AverageBounds
+import OdlyzkoPoonen.Probability.FiniteUniform
+import OdlyzkoPoonen.Probability.PrescribedBits
+import OdlyzkoPoonen.Probability.ReciprocalLaw
+import OdlyzkoPoonen.Probability.UniformAverage
+import OdlyzkoPoonen.Probability.UniformTransport
 
 /-! Default entry point for the complete Odlyzko–Poonen proof library. -/

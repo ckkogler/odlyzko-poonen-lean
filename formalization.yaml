@@ -18,14 +18,16 @@ classification:
   msc2020: [11C08, 60C05]
 sources:
   - title: The Odlyzko–Poonen conjecture
+    authors: [Constantin Kogler]
     type: paper
     location: Theorems 1.1–1.2, Proposition 2.1, Lemmas 3.1–3.2 and their supporting arguments
     relationship: formalizes
     note: >-
-      User-supplied mathematical manuscript without a named bibliographic author.
-      No public identifier was supplied. Source authorship is intentionally
-      uncredited; no authorship or endorsement is inferred. The source has not
-      been independently identified as a public publication. Novelty is unknown.
+      The contribution statement credits GPT-6 Astra with the original proof
+      and Constantin Kogler with rewriting and checking the mathematical proof
+      and taking responsibility for it. No public identifier was supplied, and
+      no independent novelty assessment is claimed. This does not establish
+      independent review of the Lean statements or proofs.
     license: Source work is not relicensed by the software license
   - title: Zeros of polynomials with 0,1 coefficients
     authors: [A. M. Odlyzko, B. Poonen]
@@ -35,7 +37,7 @@ sources:
     relationship: background
     note: >-
       Historical source of the irreducibility conjecture. This is a separate work
-      from the anonymous manuscript being formalized; its other results are not
+      from the work being formalized; its other results are not
       formalization targets. See reference/LiteratureAndScope.md for the model comparison.
   - title: 'Irreducibility of random polynomials: general measures'
     authors: [Lior Bary-Soroker, Dimitris Koukoulopoulos, Gady Kozma]
@@ -76,12 +78,12 @@ related_formalizations:
       is asserted and no sibling project is a build dependency.
 status:
   scope: >-
-    All source mathematical targets have official checked proofs: 672 proved
-    statements in 182 modules. The official default build and complete statement
-    audit passed. Comparator accepted all twenty Challenge claims, and both
-    NanoDa and Lean accepted the proofs. A fresh standalone checkout reproduced
-    the build, complete statement/axiom audit and metadata checks with the original
-    project path unavailable and all nine exact dependency sources contained.
+    Submission preparation is in progress. The proved development includes
+    irreducibility, the sharp leading reducibility term, difference-multiset
+    counts with exponential error, and finite cyclotomic approximation to
+    arbitrary inverse-polynomial accuracy. The complete higher-order expansion
+    and final submission verification remain unfinished. Historical verification
+    records apply only to their recorded source snapshots.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -105,8 +107,9 @@ automation:
     Costs and total model-inference time were not reliably aggregated.
 fidelity:
   divergences: >-
-    All numbered results and displayed estimates are represented at their original
-    meaning. The parameter m of binaryProbability counts internal coefficients,
+    The complete higher-order reducibility expansion is still in progress.
+    Proved statements preserve their mathematical hypotheses and constants.
+    The parameter m of binaryProbability counts internal coefficients,
     so degree n uses m=n-1, with a proved uniform-counting equivalence. The value
     at n=0 is a total extension irrelevant to the asymptotic statements. An algebraic
     proof of the factor constants replaces the positivity argument; that positivity
@@ -121,10 +124,10 @@ review:
   notes: >-
     The developing agent inspected full statements, definitions, all standard-only
     axiom lists and exact source correspondence. There is no separate human review,
-    registry acceptance, or remote CI result. Actual strict statement comparison
-    and both NanoDa and Lean kernel checks passed. A fresh standalone checkout
-    reproduced the build and identical complete statement output with the original
-    project path unavailable. Metadata and dependency containment checks passed.
+    registry acceptance, or remote CI result. Historical strict comparison,
+    kernel replay and standalone-checkout checks apply only to the source
+    snapshots identified in their records. The complete verification suite
+    must be rerun for the finished submission.
 alignment:
   namespace: OdlyzkoPoonen
   coverage_index: COVERAGE.md
@@ -169,9 +172,9 @@ alignment:
       lean: OdlyzkoPoonen.binary_factor_reversal
       module: OdlyzkoPoonen.Polynomial.FactorReversal
       status: proved
-    - source: "Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 6*2^(-L/2). This includes every natural cutoff L."
-      lean: OdlyzkoPoonen.reciprocal_gcd_probability
-      module: OdlyzkoPoonen.FiniteField.ReciprocalProbability
+    - source: "Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 8*2^(-L/2). This includes every natural cutoff L."
+      lean: OdlyzkoPoonen.reciprocal_gcd_probability_le_eight
+      module: OdlyzkoPoonen.Asymptotics.ReciprocalBounds
       status: proved
     - source: "Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed."
       lean: OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound
@@ -181,9 +184,9 @@ alignment:
       lean: OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
       module: OdlyzkoPoonen.Probability.NoncyclotomicFactor
       status: proved
-    - source: "Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+6*2^(-L/2), uniformly in L."
-      lean: OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound
-      module: OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization
+    - source: "Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L."
+      lean: OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound_eight
+      module: OdlyzkoPoonen.Asymptotics.ReciprocalBounds
       status: proved
     - source: "Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0."
       lean: OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
@@ -208,5 +211,41 @@ alignment:
     - source: "Minus-one asymptotic: its probability is sqrt(2/(pi*n)) with the stronger O(n^(-3/2)) error."
       lean: OdlyzkoPoonen.binaryProbability_minus_one_asymptotic
       module: OdlyzkoPoonen.Asymptotics.MinusOneAsymptotic
+      status: proved
+    - source: "Signed difference multiplicities are equivalent to reciprocal-product coefficients."
+      lean: OdlyzkoPoonen.differenceMultiset_eq_iff_autocorrelation_eq
+      module: OdlyzkoPoonen.Polynomial.DifferenceMultiset
+      status: proved
+    - source: "Reflection preserves every signed-difference multiplicity."
+      lean: OdlyzkoPoonen.differenceMultiset_reflectedSet
+      module: OdlyzkoPoonen.Polynomial.SetReflection
+      status: proved
+    - source: "Exactly 2^floor(n/2) endpoint-fixed subsets are invariant under reflection."
+      lean: OdlyzkoPoonen.card_reflection_fixed_binarySetFamily
+      module: OdlyzkoPoonen.Polynomial.SetReflection
+      status: proved
+    - source: "Finite lower and upper bounds for distinct signed difference multisets, including degree one."
+      lean: OdlyzkoPoonen.differenceMultisetFamily_card_bounds
+      module: OdlyzkoPoonen.Combinatorics.DifferenceMultisetCount
+      status: proved
+    - source: "The endpoint-fixed count is 2^(n-2) with error O(12^(n/4)), using a real exponent."
+      lean: OdlyzkoPoonen.differenceMultisetFamily_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.DifferenceMultisets
+      status: proved
+    - source: "The free-upper-endpoint count is 2^(n-1) with the same exponential error rate."
+      lean: OdlyzkoPoonen.anchoredDifferenceMultisetFamily_exponential_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.AnchoredDifferenceRate
+      status: proved
+    - source: "The free-upper-endpoint signed-difference count is 2^(n-1)+o(2^n)."
+      lean: OdlyzkoPoonen.anchoredDifferenceMultisetFamily_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.AnchoredDifferences
+      status: proved
+    - source: "A fixed finite collection of cyclotomic divisibility events approximates reducibility to every natural inverse power."
+      lean: OdlyzkoPoonen.binaryProbability_reducible_finite_cyclotomic_approximation
+      module: OdlyzkoPoonen.Asymptotics.FiniteCyclotomicApproximation
+      status: proved
+    - source: "The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity."
+      lean: OdlyzkoPoonen.binaryProbability_minus_one_first_correction_asymptotic
+      module: OdlyzkoPoonen.Asymptotics.MinusOneExpansion
       status: proved
 acknowledgements: Lean, Mathlib, Comparator, lean4export, NanoDa, Landrun and their contributors. Third-party materials retain their licenses.

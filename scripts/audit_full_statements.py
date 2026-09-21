@@ -28,7 +28,7 @@ for relative,digest in snapshot.items():
 source_names=[]
 for p in sorted((root/'OdlyzkoPoonen').rglob('*.lean')):
     source_names.extend('OdlyzkoPoonen.'+n for n in re.findall(r'^(?:lemma|theorem)\s+(\S+)',p.read_text(),re.M))
-assert source_names==expected and len(set(expected))==len(expected)==672
+assert source_names==expected and expected and len(set(expected))==len(expected)
 claims = json.loads((root / 'comparator.json').read_text())['theorem_names']
 for name in claims:
     assert name in expected and 'theorem '+name in output, name

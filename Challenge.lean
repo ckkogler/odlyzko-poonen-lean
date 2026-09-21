@@ -1,3 +1,5 @@
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Multiset.Filter
 import Mathlib.Algebra.Polynomial.Reverse
 import Mathlib.RingTheory.Polynomial.Cyclotomic.Basic
 import Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics
@@ -107,6 +109,38 @@ def HasCyclotomicDivisor (p : ℤ[X]) : Prop :=
 def HasHigherCyclotomicDivisor (p : ℤ[X]) : Prop :=
   ∃ k : ℕ, 2 ≤ k.totient ∧ cyclotomic k ℤ ∣ p
 
+
+/-- Endpoint-fixed subsets of the integer interval from zero to n. -/
+def binarySetFamily (n : ℕ) : Finset (Finset ℕ) :=
+  ((Finset.range (n + 1)).powerset).filter (fun A ↦ 0 ∈ A ∧ n ∈ A)
+
+/-- Signed differences of all ordered pairs, including multiplicities and zeros. -/
+def differenceMultiset (A : Finset ℕ) : Multiset ℤ :=
+  (A.product A).val.map (fun ab ↦ (ab.1 : ℤ) - (ab.2 : ℤ))
+
+/-- Distinct multisets in the endpoint-fixed family. -/
+noncomputable def differenceMultisetFamily (n : ℕ) : Finset (Multiset ℤ) :=
+  (binarySetFamily n).image differenceMultiset
+
+/-- Reflection about the midpoint of the endpoint interval. -/
+def reflectedSet (n : ℕ) (A : Finset ℕ) : Finset ℕ := A.image (fun a ↦ n - a)
+
+/-- Subsets containing zero, with the upper endpoint free. -/
+def anchoredSetFamily (n : ℕ) : Finset (Finset ℕ) :=
+  ((Finset.range (n + 1)).powerset).filter (fun A ↦ 0 ∈ A)
+
+/-- Distinct signed difference multisets when only the lower endpoint is fixed. -/
+noncomputable def anchoredDifferenceMultisetFamily (n : ℕ) : Finset (Multiset ℤ) :=
+  (anchoredSetFamily n).image differenceMultiset
+
+/-- A positive-order cyclotomic divisor of degree below D. -/
+def HasBoundedDegreeCyclotomicDivisor (D : ℕ) (p : ℤ[X]) : Prop :=
+  ∃ k : ℕ, 0 < k ∧ k.totient < D ∧ cyclotomic k ℤ ∣ p
+
+/-- The even- and odd-degree relative coefficients of the minus-one event. -/
+noncomputable def minusOneRelativeCorrection (n : ℕ) : ℝ :=
+  if n % 2 = 0 then -17 / 4 else 1 / 4
+
 /-- Model: the sampled family consists exactly of monic endpoint-one binary polynomials of degree m+1. -/
 lemma mem_binaryFamily_iff {m : ℕ} {p : ℤ[X]} :
     p ∈ binaryFamily m ↔ HasBinaryEndpoints (m + 1) p := by
@@ -174,11 +208,11 @@ theorem binary_factor_reversal {n : ℕ} {p a b : ℤ[X]}
       (a * b.reverse = p.reverse ↔ a = a.reverse) := by
   sorry
 
-/-- Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 6*2^(-L/2). This includes every natural cutoff L. -/
-theorem reciprocal_gcd_probability {n : ℕ} (hn : 1 ≤ n) (L : ℕ) :
+/-- Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 8*2^(-L/2). This includes every natural cutoff L. -/
+theorem reciprocal_gcd_probability_le_eight {n : ℕ} (hn : 1 ≤ n) (L : ℕ) :
     binaryProbability (n - 1) (fun p ↦
       L ≤ (GCDMonoid.gcd (reducePolynomial 2 p) (reducePolynomial 2 p).reverse).natDegree) ≤
-      6 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
+      8 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
   sorry
 
 /-- Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed. -/
@@ -198,14 +232,14 @@ lemma exists_uniform_integer_irreducible_noncyclotomic_factor_bound :
           Real.exp (-a * (n : ℝ) / Real.log (n : ℝ) ^ 4) := by
   sorry
 
-/-- Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+6*2^(-L/2), uniformly in L. -/
-lemma exists_unrestricted_reciprocal_finite_bound :
+/-- Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L. -/
+theorem exists_unrestricted_reciprocal_finite_bound_eight :
     ∃ a : ℝ, 0 < a ∧ ∃ N : ℕ, 2 ≤ N ∧ ∀ n : ℕ, N ≤ n → ∀ L : ℕ,
       binaryProbability (n - 1) (fun P ↦
         (∃ J : ℤ[X], J ∣ P ∧ J.reverse = J ∧ 1 ≤ J.natDegree) ∧
           ¬ HasCyclotomicDivisor P) ≤
         Real.exp (4 * (L : ℝ) ^ 2 - a * (n : ℝ) / Real.log (n : ℝ) ^ 4) +
-          6 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
+          8 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
   sorry
 
 /-- Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0. -/
@@ -247,6 +281,66 @@ theorem binaryProbability_minus_one_asymptotic :
     (fun n : ℕ ↦ binaryProbability (n - 1) (fun p ↦ p.eval (-1) = 0) -
       Real.sqrt (2 / (Real.pi * (n : ℝ)))) =O[atTop]
         (fun n : ℕ ↦ (n : ℝ) ^ (-3 / 2 : ℝ)) := by
+  sorry
+
+/-- Signed difference multiplicities are equivalent to reciprocal-product coefficients. -/
+theorem differenceMultiset_eq_iff_autocorrelation_eq {n : ℕ} {p q : ℤ[X]}
+    (hp : HasBinaryEndpoints n p) (hq : HasBinaryEndpoints n q) :
+    differenceMultiset p.support = differenceMultiset q.support ↔
+      autocorrelation p = autocorrelation q := by
+  sorry
+
+/-- Reflection preserves every signed-difference multiplicity. -/
+theorem differenceMultiset_reflectedSet {n : ℕ} {A : Finset ℕ}
+    (hA : A ∈ binarySetFamily n) :
+    differenceMultiset (reflectedSet n A) = differenceMultiset A := by
+  sorry
+
+/-- Exactly 2^floor(n/2) endpoint-fixed subsets are invariant under reflection. -/
+theorem card_reflection_fixed_binarySetFamily {n : ℕ} (hn : 1 ≤ n) :
+    ((binarySetFamily n).filter (fun A ↦ reflectedSet n A = A)).card = 2 ^ (n / 2) := by
+  sorry
+
+/-- Finite lower and upper bounds for distinct signed difference multisets, including degree one. -/
+theorem differenceMultisetFamily_card_bounds {n : ℕ} (hn : 1 ≤ n) :
+    (2 : ℝ) ^ (n - 1) / 2 * (1 - 8 * (3 / 4 : ℝ) ^ ((n - 1) / 4)) ≤
+        ((differenceMultisetFamily n).card : ℝ) ∧
+      ((differenceMultisetFamily n).card : ℝ) ≤
+        (2 : ℝ) ^ (n - 1) / 2 + (2 : ℝ) ^ (n / 2) / 2 := by
+  sorry
+
+/-- The endpoint-fixed count is 2^(n-2) with error O(12^(n/4)), using a real exponent. -/
+theorem differenceMultisetFamily_asymptotic :
+    (fun n : ℕ ↦ ((differenceMultisetFamily n).card : ℝ) - (2 : ℝ) ^ (n - 2))
+      =O[atTop] (fun n : ℕ ↦ (12 : ℝ) ^ ((n : ℝ) / 4)) := by
+  sorry
+
+/-- The free-upper-endpoint count is 2^(n-1) with the same exponential error rate. -/
+theorem anchoredDifferenceMultisetFamily_exponential_asymptotic :
+    (fun n : ℕ ↦ ((anchoredDifferenceMultisetFamily n).card : ℝ) - (2 : ℝ) ^ (n - 1))
+      =O[atTop] (fun n : ℕ ↦ (12 : ℝ) ^ ((n : ℝ) / 4)) := by
+  sorry
+
+/-- The free-upper-endpoint signed-difference count is 2^(n-1)+o(2^n). -/
+theorem anchoredDifferenceMultisetFamily_asymptotic :
+    (fun n : ℕ ↦ ((anchoredDifferenceMultisetFamily n).card : ℝ) - (2 : ℝ) ^ (n - 1))
+      =o[atTop] (fun n : ℕ ↦ (2 : ℝ) ^ n) := by
+  sorry
+
+/-- A fixed finite collection of cyclotomic divisibility events approximates reducibility to every natural inverse power. -/
+theorem binaryProbability_reducible_finite_cyclotomic_approximation
+    (R : ℕ) (hR : 1 ≤ R) :
+    (fun n : ℕ ↦ binaryProbability (n - 1) ReducibleOverRat -
+      binaryProbability (n - 1) (HasBoundedDegreeCyclotomicDivisor (2 * R + 1)))
+      =O[atTop] (fun n : ℕ ↦ ((n : ℝ) ^ R)⁻¹) := by
+  sorry
+
+/-- The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity. -/
+theorem binaryProbability_minus_one_first_correction_asymptotic :
+    (fun n : ℕ ↦ binaryProbability (n - 1) (fun p ↦ p.eval (-1) = 0) -
+      Real.sqrt (2 / (Real.pi * (n : ℝ))) *
+        (1 + minusOneRelativeCorrection n / (n : ℝ))) =O[atTop]
+      (fun n : ℕ ↦ 1 / (n : ℝ) ^ 2) := by
   sorry
 
 end OdlyzkoPoonen

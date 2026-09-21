@@ -13,12 +13,14 @@ excludes zero constant coefficients and discusses the conjectured prevalence
 of rational irreducibility. Their paper is *Zeros of polynomials with 0,1
 coefficients*, L’Enseignement Mathématique (2) 39 (1993), 317–348.
 
-The supplied work being formalized, *The Odlyzko–Poonen conjecture*, is a
-separate mathematical manuscript without a credited bibliographic author or
-supplied public identifier. Its authorship and public-publication status have
-not been independently established. The historical authors are not attributed
-as authors of that manuscript, this formalization or its proof. Novelty and
-priority are unknown; this repository makes no first-proof claim.
+The work being formalized, *The Odlyzko–Poonen conjecture*, is by Constantin
+Kogler. Its contribution statement credits GPT-6 Astra with the original proof
+and Kogler with rewriting and checking the mathematical proof and taking
+responsibility for it. That statement does not establish independent review
+of the Lean declarations or proofs. No public identifier was supplied.
+Odlyzko and Poonen are the historical conjecture authors; they are not credited
+as authors of this work or formalization. This repository makes no independent
+novelty or priority assessment.
 
 ## Exact correspondence with the Lean model
 
