@@ -1,16 +1,17 @@
 # Mathematical coverage
 
-The library contains 901 proved declarations and 112 definitions or
-structures in 239 modules. All names are in `OdlyzkoPoonen`. The complete
-higher-order reducibility expansion remains in progress; its finite cyclotomic
-reduction and the parity-dependent minus-one correction are proved. Final
+The library contains 928 proved declarations and 115 definitions or
+structures in 249 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
+periodic half-power expansions are proved. The explicit coefficients through
+degree minus three halves remain in progress; the minus-one correction is
+proved. Final
 submission verification must be repeated for the completed source snapshot.
 Historical verification records certify only their recorded snapshots.
 
 ## Challenge claims
 
 [Challenge.lean](Challenge.lean) supplies explicit definitions and independent
-statements. [comparator.json](comparator.json) selects its 29 claims;
+statements. [comparator.json](comparator.json) selects its 30 claims;
 [Solution.lean](Solution.lean) imports the proved library.
 
 | Claim | Declaration and proof module |
@@ -45,6 +46,8 @@ statements. [comparator.json](comparator.json) selects its 29 claims;
 | A fixed finite collection of cyclotomic divisibility events approximates reducibility to every natural inverse power. | [`binaryProbability_reducible_finite_cyclotomic_approximation`](OdlyzkoPoonen/Asymptotics/FiniteCyclotomicApproximation.lean) |
 | The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity. | [`binaryProbability_minus_one_first_correction_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneExpansion.lean) |
 
+
+| The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period. | [`binaryProbability_reducible_periodic_expansion`](OdlyzkoPoonen/Asymptotics/ReducibilityExpansion.lean) |
 
 ## Supporting arguments
 
@@ -94,6 +97,16 @@ external results. See the arithmetic, linear algebra and analysis modules below.
 
 [Verification.lean](Verification.lean) prints the declarations and the axiom
 lists of every theorem and lemma. File links identify the actual proofs.
+
+### [OdlyzkoPoonen.Analysis.AffineHalfPowerExpansion](OdlyzkoPoonen/Analysis/AffineHalfPowerExpansion.lean)
+
+Proved declarations: `nat_affine_tendsto`, `nat_affine_rpow_isTheta`, `half_power_expansion_affine`.
+
+### [OdlyzkoPoonen.Analysis.AnalyticInverseSquareRoot](OdlyzkoPoonen/Analysis/AnalyticInverseSquareRoot.lean)
+
+Definitions: `affineInverseSqrt`.
+
+Proved declarations: `scalar_multilinear_diagonal`, `analytic_inverse_sqrt_expansion`, `affineInverseSqrt_zero`, `affineInverseSqrt_analyticAt`, `affineInverseSqrt_at_index`.
 
 ### [OdlyzkoPoonen.Analysis.AnalyticPowerHalfExpansion](OdlyzkoPoonen/Analysis/AnalyticPowerHalfExpansion.lean)
 
@@ -223,6 +236,10 @@ Proved declarations: `mahler_parameter_ceil_bounds`, `mahler_prime_scale_log_low
 
 Proved declarations: `max_one_norm_pow`, `prod_max_one_norm_mono`, `roots_pow_le_of_dvd_expand`, `mahlerMeasure_pow_le_of_dvd_expand`.
 
+### [OdlyzkoPoonen.Analysis.PeriodicExpansionSums](OdlyzkoPoonen/Analysis/PeriodicExpansionSums.lean)
+
+Proved declarations: `finite_sum_periodic_half_expansion`.
+
 ### [OdlyzkoPoonen.Analysis.PolynomialRootPowers](OdlyzkoPoonen/Analysis/PolynomialRootPowers.lean)
 
 Definitions: `polynomialRootPowers`.
@@ -260,6 +277,10 @@ Proved declarations: `eventually_exp_cutoff_cost_le_rpow`, `two_rpow_neg_half_ce
 ### [OdlyzkoPoonen.Analysis.RepeatedRootMahler](OdlyzkoPoonen/Analysis/RepeatedRootMahler.lean)
 
 Proved declarations: `prod_max_norm_root_powers`, `prod_max_norm_eq_mahler_of_factorization`, `prod_max_norm_repeated_root_powers`, `prod_max_norm_option_root_powers`.
+
+### [OdlyzkoPoonen.Analysis.ResidueClassBounds](OdlyzkoPoonen/Analysis/ResidueClassBounds.lean)
+
+Proved declarations: `isBigO_of_residue_classes`.
 
 ### [OdlyzkoPoonen.Analysis.RootPowerMahlerInequality](OdlyzkoPoonen/Analysis/RootPowerMahlerInequality.lean)
 
@@ -371,6 +392,10 @@ Definitions: `scaledCyclotomicCutoff`.
 
 Proved declarations: `scaledCyclotomicCutoff_isBigO_log`, `scaledCyclotomicCutoff_pow_isLittleO_sqrt`, `eventually_scaledCyclotomicCutoff_pow_le_sqrt`, `eventually_scaledCyclotomicCutoff_scale_le_one`, `nat_pow_le_two_pow_scaledCyclotomicCutoff`, `cyclotomic_middle_scaled_bound`, `cyclotomic_high_scaled_bound`, `binaryProbability_cyclotomic_degree_tail_isBigO`.
 
+### [OdlyzkoPoonen.Asymptotics.CyclotomicUnionExpansion](OdlyzkoPoonen/Asymptotics/CyclotomicUnionExpansion.lean)
+
+Proved declarations: `binaryProbability_cyclotomic_union_inclusion_exclusion`, `binaryProbability_cyclotomic_union_expansion`.
+
 ### [OdlyzkoPoonen.Asymptotics.DifferenceMultisets](OdlyzkoPoonen/Asymptotics/DifferenceMultisets.lean)
 
 Proved declarations: `difference_multiset_exception_scale_le`, `difference_multiset_reflection_scale_le`, `twelve_pow_block_le_rpow`, `differenceMultisetFamily_error_bound`, `differenceMultisetFamily_asymptotic`.
@@ -417,6 +442,16 @@ Proved declarations: `binaryProbability_minus_one_odd_first_correction`.
 
 Proved declarations: `binaryProbability_minus_one_even_error`, `binaryProbability_minus_one_odd_error`.
 
+### [OdlyzkoPoonen.Asymptotics.PeriodicMonicExpansion](OdlyzkoPoonen/Asymptotics/PeriodicMonicExpansion.lean)
+
+Proved declarations: `binaryProbability_monic_residue_expansion`, `degreeProbability_monic_residue_expansion`.
+
+### [OdlyzkoPoonen.Asymptotics.PeriodicMonicIntegral](OdlyzkoPoonen/Asymptotics/PeriodicMonicIntegral.lean)
+
+Definitions: `monicDivisorAmplitude`.
+
+Proved declarations: `binaryProbability_periodic_monic_integral`, `binaryProbability_periodic_monic_block_expansion`.
+
 ### [OdlyzkoPoonen.Asymptotics.ReciprocalBounds](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean)
 
 Proved declarations: `reciprocal_gcd_probability_le_eight`, `exists_unrestricted_reciprocal_finite_bound_eight`.
@@ -432,6 +467,12 @@ Proved declarations: `binaryProbability_reciprocal_noncyclotomic_isBigO`.
 ### [OdlyzkoPoonen.Asymptotics.Reducibility](OdlyzkoPoonen/Asymptotics/Reducibility.lean)
 
 Proved declarations: `binaryProbability_reducible_excess_isBigO`, `exists_reducible_probability_excess_bound`, `nat_rpow_neg_three_halves_isBigO_inverse`, `binaryProbability_reducible_asymptotic`, `tendsto_reducible_probability`, `odlyzko_poonen_irreducibility`.
+
+### [OdlyzkoPoonen.Asymptotics.ReducibilityExpansion](OdlyzkoPoonen/Asymptotics/ReducibilityExpansion.lean)
+
+Definitions: `smallCyclotomicOrders`.
+
+Proved declarations: `smallCyclotomicOrders_ge_two`, `HasBinaryEndpoints.bounded_cyclotomic_iff_small_orders`, `binaryProbability_bounded_cyclotomic_eq_small_union`, `binaryProbability_reducible_predecessor_residue_expansion`, `predecessor_residue_rotation`, `binaryProbability_reducible_periodic_expansion`.
 
 ### [OdlyzkoPoonen.Asymptotics.ReducibleNoncyclotomic](OdlyzkoPoonen/Asymptotics/ReducibleNoncyclotomic.lean)
 
@@ -1047,6 +1088,10 @@ Proved declarations: `f2Probability_eq_count`, `f2Probability_eq_binaryProbabili
 
 Proved declarations: `integral_integer_character`, `integrable_integer_character`, `integral_re_integer_character`, `uniformProbability_zero_eq_torus_integral`.
 
+### [OdlyzkoPoonen.Probability.FiniteInclusionExclusion](OdlyzkoPoonen/Probability/FiniteInclusionExclusion.lean)
+
+Proved declarations: `uniformProbability_finite_union`.
+
 ### [OdlyzkoPoonen.Probability.FiniteProduct](OdlyzkoPoonen/Probability/FiniteProduct.lean)
 
 Proved declarations: `uniformProbability_pi`, `uniformProbability_pi_eq_le`, `uniformProbability_fiber_unique_le`.
@@ -1114,6 +1159,10 @@ Proved declarations: `lowerWordIndex_val`, `upperWordIndex_val`, `lowerWordIndex
 Definitions: `assembleOppositeWord`, `oppositeWordEquiv`.
 
 Proved declarations: `assembleOppositeWord_lower`, `assembleOppositeWord_upper`, `assembleOppositeWord_center`, `assembleOppositeWord_recover`, `uniformProbability_oppositeWord`.
+
+### [OdlyzkoPoonen.Probability.PeriodicBernoulliIntegral](OdlyzkoPoonen/Probability/PeriodicBernoulliIntegral.lean)
+
+Proved declarations: `uniformAverage_bit_characters_normalized`, `finiteCharacterAmplitude_bit_product`, `periodic_bit_product`, `uniformProbability_periodic_bit_vector_zero`.
 
 ### [OdlyzkoPoonen.Probability.PeriodicDivisorBound](OdlyzkoPoonen/Probability/PeriodicDivisorBound.lean)
 

@@ -80,9 +80,9 @@ status:
   scope: >-
     Submission preparation is in progress. The proved development includes
     irreducibility, the sharp leading reducibility term, difference-multiset
-    counts with exponential error, and finite cyclotomic approximation to
-    arbitrary inverse-polynomial accuracy. The complete higher-order expansion
-    and final submission verification remain unfinished. Historical verification
+    counts with exponential error, and arbitrary-order periodic half-power expansions. The explicit
+    expansion through degree minus three halves and final submission
+    verification remain unfinished. Historical verification
     records apply only to their recorded source snapshots.
   sorry_count: 0
   sorry_in_definitions: 0
@@ -107,7 +107,8 @@ automation:
     Costs and total model-inference time were not reliably aggregated.
 fidelity:
   divergences: >-
-    The complete higher-order reducibility expansion is still in progress.
+    The explicit coefficients through degree minus three halves are still in progress.
+    The existence of arbitrary-order periodic half-power expansions is proved.
     Proved statements preserve their mathematical hypotheses and constants.
     The parameter m of binaryProbability counts internal coefficients,
     so degree n uses m=n-1, with a proved uniform-counting equivalence. The value
@@ -248,4 +249,9 @@ alignment:
       lean: OdlyzkoPoonen.binaryProbability_minus_one_first_correction_asymptotic
       module: OdlyzkoPoonen.Asymptotics.MinusOneExpansion
       status: proved
+    - source: "The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period."
+      lean: OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion
+      module: OdlyzkoPoonen.Asymptotics.ReducibilityExpansion
+      status: proved
+
 acknowledgements: Lean, Mathlib, Comparator, lean4export, NanoDa, Landrun and their contributors. Third-party materials retain their licenses.

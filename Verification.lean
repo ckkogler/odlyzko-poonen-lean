@@ -4,6 +4,7 @@ set_option pp.proofs false
 
 /-! Full statement and axiom audit of every currently proved declaration. -/
 
+#print OdlyzkoPoonen.affineInverseSqrt
 #print OdlyzkoPoonen.binomialHalfPowerPolynomial
 #print OdlyzkoPoonen.cosineSquareProduct
 #print OdlyzkoPoonen.cosineQuadraticForm
@@ -26,6 +27,8 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.HasBoundedDegreeCyclotomicDivisor
 #print OdlyzkoPoonen.fourCyclotomicMainTerm
 #print OdlyzkoPoonen.minusOneRelativeCorrection
+#print OdlyzkoPoonen.monicDivisorAmplitude
+#print OdlyzkoPoonen.smallCyclotomicOrders
 #print OdlyzkoPoonen.anchoredSetFamily
 #print OdlyzkoPoonen.anchoredDifferenceMultisetFamily
 #print OdlyzkoPoonen.binaryAutocorrelationFamily
@@ -117,6 +120,22 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.wordPrefix
 #print OdlyzkoPoonen.prefixWordEquiv
 
+#print OdlyzkoPoonen.nat_affine_tendsto
+#print axioms OdlyzkoPoonen.nat_affine_tendsto
+#print OdlyzkoPoonen.nat_affine_rpow_isTheta
+#print axioms OdlyzkoPoonen.nat_affine_rpow_isTheta
+#print OdlyzkoPoonen.half_power_expansion_affine
+#print axioms OdlyzkoPoonen.half_power_expansion_affine
+#print OdlyzkoPoonen.scalar_multilinear_diagonal
+#print axioms OdlyzkoPoonen.scalar_multilinear_diagonal
+#print OdlyzkoPoonen.analytic_inverse_sqrt_expansion
+#print axioms OdlyzkoPoonen.analytic_inverse_sqrt_expansion
+#print OdlyzkoPoonen.affineInverseSqrt_zero
+#print axioms OdlyzkoPoonen.affineInverseSqrt_zero
+#print OdlyzkoPoonen.affineInverseSqrt_analyticAt
+#print axioms OdlyzkoPoonen.affineInverseSqrt_analyticAt
+#print OdlyzkoPoonen.affineInverseSqrt_at_index
+#print axioms OdlyzkoPoonen.affineInverseSqrt_at_index
 #print OdlyzkoPoonen.analytic_power_polynomial_expansion
 #print axioms OdlyzkoPoonen.analytic_power_polynomial_expansion
 #print OdlyzkoPoonen.analytic_power_half_expansion
@@ -325,6 +344,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.roots_pow_le_of_dvd_expand
 #print OdlyzkoPoonen.mahlerMeasure_pow_le_of_dvd_expand
 #print axioms OdlyzkoPoonen.mahlerMeasure_pow_le_of_dvd_expand
+#print OdlyzkoPoonen.finite_sum_periodic_half_expansion
+#print axioms OdlyzkoPoonen.finite_sum_periodic_half_expansion
 #print OdlyzkoPoonen.polynomialRootPowers_eq_prod_of_splits
 #print axioms OdlyzkoPoonen.polynomialRootPowers_eq_prod_of_splits
 #print OdlyzkoPoonen.polynomialRootPowers_eq_prod
@@ -385,6 +406,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.prod_max_norm_repeated_root_powers
 #print OdlyzkoPoonen.prod_max_norm_option_root_powers
 #print axioms OdlyzkoPoonen.prod_max_norm_option_root_powers
+#print OdlyzkoPoonen.isBigO_of_residue_classes
+#print axioms OdlyzkoPoonen.isBigO_of_residue_classes
 #print OdlyzkoPoonen.prime_family_mahler_power_inequality
 #print axioms OdlyzkoPoonen.prime_family_mahler_power_inequality
 #print OdlyzkoPoonen.prime_family_mahler_log_inequality
@@ -573,6 +596,10 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.cyclotomic_high_scaled_bound
 #print OdlyzkoPoonen.binaryProbability_cyclotomic_degree_tail_isBigO
 #print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_degree_tail_isBigO
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_union_inclusion_exclusion
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_union_inclusion_exclusion
+#print OdlyzkoPoonen.binaryProbability_cyclotomic_union_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_union_expansion
 #print OdlyzkoPoonen.difference_multiset_exception_scale_le
 #print axioms OdlyzkoPoonen.difference_multiset_exception_scale_le
 #print OdlyzkoPoonen.difference_multiset_reflection_scale_le
@@ -637,6 +664,14 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.binaryProbability_minus_one_even_error
 #print OdlyzkoPoonen.binaryProbability_minus_one_odd_error
 #print axioms OdlyzkoPoonen.binaryProbability_minus_one_odd_error
+#print OdlyzkoPoonen.binaryProbability_monic_residue_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_monic_residue_expansion
+#print OdlyzkoPoonen.degreeProbability_monic_residue_expansion
+#print axioms OdlyzkoPoonen.degreeProbability_monic_residue_expansion
+#print OdlyzkoPoonen.binaryProbability_periodic_monic_integral
+#print axioms OdlyzkoPoonen.binaryProbability_periodic_monic_integral
+#print OdlyzkoPoonen.binaryProbability_periodic_monic_block_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_periodic_monic_block_expansion
 #print OdlyzkoPoonen.reciprocal_gcd_probability_le_eight
 #print axioms OdlyzkoPoonen.reciprocal_gcd_probability_le_eight
 #print OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound_eight
@@ -659,6 +694,18 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.tendsto_reducible_probability
 #print OdlyzkoPoonen.odlyzko_poonen_irreducibility
 #print axioms OdlyzkoPoonen.odlyzko_poonen_irreducibility
+#print OdlyzkoPoonen.smallCyclotomicOrders_ge_two
+#print axioms OdlyzkoPoonen.smallCyclotomicOrders_ge_two
+#print OdlyzkoPoonen.HasBinaryEndpoints.bounded_cyclotomic_iff_small_orders
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.bounded_cyclotomic_iff_small_orders
+#print OdlyzkoPoonen.binaryProbability_bounded_cyclotomic_eq_small_union
+#print axioms OdlyzkoPoonen.binaryProbability_bounded_cyclotomic_eq_small_union
+#print OdlyzkoPoonen.binaryProbability_reducible_predecessor_residue_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_predecessor_residue_expansion
+#print OdlyzkoPoonen.predecessor_residue_rotation
+#print axioms OdlyzkoPoonen.predecessor_residue_rotation
+#print OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion
 #print OdlyzkoPoonen.binaryProbability_companion_isBigO
 #print axioms OdlyzkoPoonen.binaryProbability_companion_isBigO
 #print OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO
@@ -1697,6 +1744,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.integral_re_integer_character
 #print OdlyzkoPoonen.uniformProbability_zero_eq_torus_integral
 #print axioms OdlyzkoPoonen.uniformProbability_zero_eq_torus_integral
+#print OdlyzkoPoonen.uniformProbability_finite_union
+#print axioms OdlyzkoPoonen.uniformProbability_finite_union
 #print OdlyzkoPoonen.uniformProbability_pi
 #print axioms OdlyzkoPoonen.uniformProbability_pi
 #print OdlyzkoPoonen.uniformProbability_pi_eq_le
@@ -1799,6 +1848,14 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.assembleOppositeWord_recover
 #print OdlyzkoPoonen.uniformProbability_oppositeWord
 #print axioms OdlyzkoPoonen.uniformProbability_oppositeWord
+#print OdlyzkoPoonen.uniformAverage_bit_characters_normalized
+#print axioms OdlyzkoPoonen.uniformAverage_bit_characters_normalized
+#print OdlyzkoPoonen.finiteCharacterAmplitude_bit_product
+#print axioms OdlyzkoPoonen.finiteCharacterAmplitude_bit_product
+#print OdlyzkoPoonen.periodic_bit_product
+#print axioms OdlyzkoPoonen.periodic_bit_product
+#print OdlyzkoPoonen.uniformProbability_periodic_bit_vector_zero
+#print axioms OdlyzkoPoonen.uniformProbability_periodic_bit_vector_zero
 #print OdlyzkoPoonen.periodic_dvd_wordResiduePolynomial_iff
 #print axioms OdlyzkoPoonen.periodic_dvd_wordResiduePolynomial_iff
 #print OdlyzkoPoonen.periodic_dvd_determines_low_residue_coefficients

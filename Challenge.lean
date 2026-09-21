@@ -343,4 +343,14 @@ theorem binaryProbability_minus_one_first_correction_asymptotic :
       (fun n : ℕ ↦ 1 / (n : ℝ) ^ 2) := by
   sorry
 
+/-- The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period. -/
+theorem binaryProbability_reducible_periodic_expansion (R : ℕ) (hR : 1 ≤ R) :
+    ∃ q : ℕ, ∃ hq : 0 < q, ∃ c : Fin q → ℕ → ℝ,
+      (∀ r, c r 0 = 0) ∧
+      (fun n : ℕ ↦ binaryProbability (n - 1) ReducibleOverRat -
+        ∑ j ∈ Finset.range (2 * R), c ⟨n % q, Nat.mod_lt _ hq⟩ j *
+          (n : ℝ) ^ (-(j : ℝ) / 2)) =O[atTop]
+            (fun n : ℕ ↦ (n : ℝ) ^ (-(R : ℝ))) := by
+  sorry
+
 end OdlyzkoPoonen

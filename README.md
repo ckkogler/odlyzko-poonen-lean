@@ -6,9 +6,9 @@ The proof library now proves both main theorems, both numbered lemmas, the
 factor-pair proposition, and all displayed estimates used in their proofs.
 
 Submission preparation is in progress. The difference-multiset counting results,
-their exponential error bounds, and finite cyclotomic approximation now have
-checked proofs. The complete higher-order reducibility expansion and final
-submission verification remain unfinished. The historical build, Comparator,
+their exponential error bounds, and arbitrary-order periodic half-power
+expansions now have checked proofs. The explicit coefficients through degree
+minus three halves and final submission verification remain unfinished. The historical build, Comparator,
 kernel-replay and standalone-checkout records certify their recorded snapshots;
 they do not certify the current development tree.
 The repository has not been published or registered.
@@ -151,14 +151,14 @@ A useful dependency order is:
 
 ## Independent statement and submission files
 
-[Challenge.lean](Challenge.lean) is a 346-line independent statement surface with
-29 claims selected for comparison, explicit definitions and ordinary-language explanations.
+[Challenge.lean](Challenge.lean) is a 356-line independent statement surface with
+30 claims selected for comparison, explicit definitions and ordinary-language explanations.
 It imports Mathlib only. [Solution.lean](Solution.lean) imports the proved library
 and excludes the Challenge, whose deliberate theorem placeholders are confined
 to that file. The default build checks both the library and Solution.
 
-[COVERAGE.md](COVERAGE.md) indexes all 761 proof
-declarations and 94 definitions or structures. [formalization.yaml](formalization.yaml) records
+[COVERAGE.md](COVERAGE.md) indexes all 928 proof
+declarations and 115 definitions or structures. [formalization.yaml](formalization.yaml) records
 attribution, source relationships, AI assistance, review status and scope.
 The mathematical work is attributed to Constantin Kogler. No public identifier,
 independent novelty assessment, or separate human review is claimed.
@@ -178,8 +178,8 @@ lake build
 lake env lean Verification.lean
 ```
 
-[Verification.lean](Verification.lean) prints all 761 proved declarations,
-94 definitions or structures, and the complete theorem axiom lists. The current
+[Verification.lean](Verification.lean) prints all 928 proved declarations,
+115 definitions or structures, and the complete theorem axiom lists. The current
 development check passed with only `propext`, `Classical.choice`, and `Quot.sound`.
 Metadata, license-file integrity, import isolation, and preservation of the
 182 original proof modules passed structural validation. The final official
