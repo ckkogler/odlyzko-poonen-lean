@@ -12,6 +12,8 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.gaussianAmplitudeCoefficient
 #print OdlyzkoPoonen.gaussianMomentPolynomial
 #print OdlyzkoPoonen.integerLinearForm
+#print OdlyzkoPoonen.latticeCoordinateMatrix
+#print OdlyzkoPoonen.latticeGramMatrix
 #print OdlyzkoPoonen.polynomialRootPowers
 #print OdlyzkoPoonen.poweredGaussianAmplitude
 #print OdlyzkoPoonen.truncatedPowerExpansion
@@ -24,9 +26,13 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.normalizedCentralBinomialSquare
 #print OdlyzkoPoonen.cyclotomicDegreeCutoff
 #print OdlyzkoPoonen.scaledCyclotomicCutoff
+#print OdlyzkoPoonen.reducibilityLeadingCoefficient
+#print OdlyzkoPoonen.reducibilitySecondCoefficient
 #print OdlyzkoPoonen.HasBoundedDegreeCyclotomicDivisor
 #print OdlyzkoPoonen.fourCyclotomicMainTerm
 #print OdlyzkoPoonen.minusOneRelativeCorrection
+#print OdlyzkoPoonen.monicDivisorGramMatrix
+#print OdlyzkoPoonen.monicDivisorGaussianVolume
 #print OdlyzkoPoonen.monicDivisorAmplitude
 #print OdlyzkoPoonen.smallCyclotomicOrders
 #print OdlyzkoPoonen.anchoredSetFamily
@@ -126,6 +132,14 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.nat_affine_rpow_isTheta
 #print OdlyzkoPoonen.half_power_expansion_affine
 #print axioms OdlyzkoPoonen.half_power_expansion_affine
+#print OdlyzkoPoonen.analytic_sub_value_isBigO
+#print axioms OdlyzkoPoonen.analytic_sub_value_isBigO
+#print OdlyzkoPoonen.affine_power_analyticAt
+#print axioms OdlyzkoPoonen.affine_power_analyticAt
+#print OdlyzkoPoonen.affine_power_inverse_error
+#print axioms OdlyzkoPoonen.affine_power_inverse_error
+#print OdlyzkoPoonen.affine_rpow_leading_error
+#print axioms OdlyzkoPoonen.affine_rpow_leading_error
 #print OdlyzkoPoonen.scalar_multilinear_diagonal
 #print axioms OdlyzkoPoonen.scalar_multilinear_diagonal
 #print OdlyzkoPoonen.analytic_inverse_sqrt_expansion
@@ -226,6 +240,12 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.finiteCharacterAmplitude_eq_character_average
 #print OdlyzkoPoonen.analytic_gaussian_amplitude_expansion
 #print axioms OdlyzkoPoonen.analytic_gaussian_amplitude_expansion
+#print OdlyzkoPoonen.integral_gaussian_linearMap
+#print axioms OdlyzkoPoonen.integral_gaussian_linearMap
+#print OdlyzkoPoonen.matrix_gram_quadratic_eq_norm_sq
+#print axioms OdlyzkoPoonen.matrix_gram_quadratic_eq_norm_sq
+#print OdlyzkoPoonen.integral_gaussian_posDef
+#print axioms OdlyzkoPoonen.integral_gaussian_posDef
 #print OdlyzkoPoonen.gaussian_weighted_remainder_isBigO
 #print axioms OdlyzkoPoonen.gaussian_weighted_remainder_isBigO
 #print OdlyzkoPoonen.gaussian_tail_isBigO
@@ -314,6 +334,16 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.lattice_cosine_quadratic_coercive
 #print OdlyzkoPoonen.lattice_cosine_product_gaussian_bound
 #print axioms OdlyzkoPoonen.lattice_cosine_product_gaussian_bound
+#print OdlyzkoPoonen.lattice_cosine_integral_leading_term
+#print axioms OdlyzkoPoonen.lattice_cosine_integral_leading_term
+#print OdlyzkoPoonen.latticeGramMatrix_quadratic
+#print axioms OdlyzkoPoonen.latticeGramMatrix_quadratic
+#print OdlyzkoPoonen.latticeGramMatrix_posDef
+#print axioms OdlyzkoPoonen.latticeGramMatrix_posDef
+#print OdlyzkoPoonen.lattice_cosine_quadratic_eq_gram
+#print axioms OdlyzkoPoonen.lattice_cosine_quadratic_eq_gram
+#print OdlyzkoPoonen.lattice_gaussian_volume
+#print axioms OdlyzkoPoonen.lattice_gaussian_volume
 #print OdlyzkoPoonen.eventually_log_pow_le_nat_div_log_pow
 #print axioms OdlyzkoPoonen.eventually_log_pow_le_nat_div_log_pow
 #print OdlyzkoPoonen.log_nat_pow_isLittleO_nat
@@ -610,6 +640,20 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.differenceMultisetFamily_error_bound
 #print OdlyzkoPoonen.differenceMultisetFamily_asymptotic
 #print axioms OdlyzkoPoonen.differenceMultisetFamily_asymptotic
+#print OdlyzkoPoonen.nat_rpow_neg_two
+#print axioms OdlyzkoPoonen.nat_rpow_neg_two
+#print OdlyzkoPoonen.nat_rpow_error_weaken
+#print axioms OdlyzkoPoonen.nat_rpow_error_weaken
+#print OdlyzkoPoonen.minus_one_correction_power_identity
+#print axioms OdlyzkoPoonen.minus_one_correction_power_identity
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_two_correction
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_two_correction
+#print OdlyzkoPoonen.cyclotomic_pair_product_dvd_iff
+#print axioms OdlyzkoPoonen.cyclotomic_pair_product_dvd_iff
+#print OdlyzkoPoonen.fourCyclotomicMainTerm_explicit_expansion
+#print axioms OdlyzkoPoonen.fourCyclotomicMainTerm_explicit_expansion
+#print OdlyzkoPoonen.binaryProbability_reducible_three_term_expansion
+#print axioms OdlyzkoPoonen.binaryProbability_reducible_three_term_expansion
 #print OdlyzkoPoonen.hasBoundedDegreeCyclotomicDivisor_iff_finite
 #print axioms OdlyzkoPoonen.hasBoundedDegreeCyclotomicDivisor_iff_finite
 #print OdlyzkoPoonen.HasBinaryEndpoints.reducible_of_bounded_cyclotomic
@@ -664,6 +708,18 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.binaryProbability_minus_one_even_error
 #print OdlyzkoPoonen.binaryProbability_minus_one_odd_error
 #print axioms OdlyzkoPoonen.binaryProbability_minus_one_odd_error
+#print OdlyzkoPoonen.monicDivisorGaussianVolume_eq
+#print axioms OdlyzkoPoonen.monicDivisorGaussianVolume_eq
+#print OdlyzkoPoonen.degreeProbability_monic_determinant_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_monic_determinant_leading_term
+#print OdlyzkoPoonen.binaryProbability_monic_gaussian_leading_term
+#print axioms OdlyzkoPoonen.binaryProbability_monic_gaussian_leading_term
+#print OdlyzkoPoonen.degreeProbability_monic_gaussian_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_monic_gaussian_leading_term
+#print OdlyzkoPoonen.monicDivisorAmplitude_zero
+#print axioms OdlyzkoPoonen.monicDivisorAmplitude_zero
+#print OdlyzkoPoonen.binaryProbability_periodic_monic_block_leading_term
+#print axioms OdlyzkoPoonen.binaryProbability_periodic_monic_block_leading_term
 #print OdlyzkoPoonen.binaryProbability_monic_residue_expansion
 #print axioms OdlyzkoPoonen.binaryProbability_monic_residue_expansion
 #print OdlyzkoPoonen.degreeProbability_monic_residue_expansion
@@ -724,6 +780,40 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.bounded_cyclotomic_four_iff
 #print OdlyzkoPoonen.binaryProbability_reducible_four_cyclotomic_approximation
 #print axioms OdlyzkoPoonen.binaryProbability_reducible_four_cyclotomic_approximation
+#print OdlyzkoPoonen.small_cyclotomic_degree_two_constant
+#print axioms OdlyzkoPoonen.small_cyclotomic_degree_two_constant
+#print OdlyzkoPoonen.rpow_three_halves_eq_mul_sqrt
+#print axioms OdlyzkoPoonen.rpow_three_halves_eq_mul_sqrt
+#print OdlyzkoPoonen.small_cyclotomic_degree_three_constant
+#print axioms OdlyzkoPoonen.small_cyclotomic_degree_three_constant
+#print OdlyzkoPoonen.monicDivisorGramMatrix_det_eq_remainder_table
+#print axioms OdlyzkoPoonen.monicDivisorGramMatrix_det_eq_remainder_table
+#print OdlyzkoPoonen.cyclotomic_three_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_three_gram_determinant
+#print OdlyzkoPoonen.cyclotomic_four_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_four_gram_determinant
+#print OdlyzkoPoonen.cyclotomic_six_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_six_gram_determinant
+#print OdlyzkoPoonen.cyclotomic_two_three_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_two_three_gram_determinant
+#print OdlyzkoPoonen.cyclotomic_two_four_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_two_four_gram_determinant
+#print OdlyzkoPoonen.cyclotomic_two_six_gram_determinant
+#print axioms OdlyzkoPoonen.cyclotomic_two_six_gram_determinant
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_product_determinant_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_product_determinant_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_three_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_three_leading_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_four_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_four_leading_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_six_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_six_leading_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_two_three_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_two_three_leading_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_two_four_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_two_four_leading_term
+#print OdlyzkoPoonen.degreeProbability_cyclotomic_two_six_leading_term
+#print axioms OdlyzkoPoonen.degreeProbability_cyclotomic_two_six_leading_term
 #print OdlyzkoPoonen.mem_anchoredSetFamily_iff
 #print axioms OdlyzkoPoonen.mem_anchoredSetFamily_iff
 #print OdlyzkoPoonen.differenceMultiset_mem_iff
@@ -1596,6 +1686,22 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.differenceMultiset_reflectedSet
 #print OdlyzkoPoonen.card_reflection_fixed_binarySetFamily
 #print axioms OdlyzkoPoonen.card_reflection_fixed_binarySetFamily
+#print OdlyzkoPoonen.power_modByMonic_eq_of_certificate
+#print axioms OdlyzkoPoonen.power_modByMonic_eq_of_certificate
+#print OdlyzkoPoonen.cyclotomic_three_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_three_power_remainders
+#print OdlyzkoPoonen.cyclotomic_four_int
+#print axioms OdlyzkoPoonen.cyclotomic_four_int
+#print OdlyzkoPoonen.cyclotomic_four_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_four_power_remainders
+#print OdlyzkoPoonen.cyclotomic_six_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_six_power_remainders
+#print OdlyzkoPoonen.cyclotomic_two_three_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_two_three_power_remainders
+#print OdlyzkoPoonen.cyclotomic_two_four_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_two_four_power_remainders
+#print OdlyzkoPoonen.cyclotomic_two_six_power_remainders
+#print axioms OdlyzkoPoonen.cyclotomic_two_six_power_remainders
 #print OdlyzkoPoonen.word_eq_of_sparse_divisibility
 #print axioms OdlyzkoPoonen.word_eq_of_sparse_divisibility
 #print OdlyzkoPoonen.expand_contract_of_coeff_eq_zero

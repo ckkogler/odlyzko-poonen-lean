@@ -1,17 +1,16 @@
 # Mathematical coverage
 
-The library contains 928 proved declarations and 115 definitions or
-structures in 249 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
+The library contains 978 proved declarations and 121 definitions or
+structures in 261 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
 periodic half-power expansions are proved. The explicit coefficients through
-degree minus three halves remain in progress; the minus-one correction is
-proved. Final
+degree minus three halves, including their parity correction, are proved. Final
 submission verification must be repeated for the completed source snapshot.
 Historical verification records certify only their recorded snapshots.
 
 ## Challenge claims
 
 [Challenge.lean](Challenge.lean) supplies explicit definitions and independent
-statements. [comparator.json](comparator.json) selects its 30 claims;
+statements. [comparator.json](comparator.json) selects its 31 claims;
 [Solution.lean](Solution.lean) imports the proved library.
 
 | Claim | Declaration and proof module |
@@ -48,6 +47,8 @@ statements. [comparator.json](comparator.json) selects its 30 claims;
 
 
 | The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period. | [`binaryProbability_reducible_periodic_expansion`](OdlyzkoPoonen/Asymptotics/ReducibilityExpansion.lean) |
+
+| The reducibility probability is A*n^(-1/2)+B*n^(-1)+A*(delta_n-2*B)*n^(-3/2)+O(n^(-2)), with A=sqrt(2/pi), B=4*(1+sqrt(3))/pi and delta_n=-17/4 for even n, 1/4 for odd n. | [`binaryProbability_reducible_three_term_expansion`](OdlyzkoPoonen/Asymptotics/ExplicitReducibilityExpansion.lean) |
 
 ## Supporting arguments
 
@@ -101,6 +102,10 @@ lists of every theorem and lemma. File links identify the actual proofs.
 ### [OdlyzkoPoonen.Analysis.AffineHalfPowerExpansion](OdlyzkoPoonen/Analysis/AffineHalfPowerExpansion.lean)
 
 Proved declarations: `nat_affine_tendsto`, `nat_affine_rpow_isTheta`, `half_power_expansion_affine`.
+
+### [OdlyzkoPoonen.Analysis.AffinePowerLeadingTerm](OdlyzkoPoonen/Analysis/AffinePowerLeadingTerm.lean)
+
+Proved declarations: `analytic_sub_value_isBigO`, `affine_power_analyticAt`, `affine_power_inverse_error`, `affine_rpow_leading_error`.
 
 ### [OdlyzkoPoonen.Analysis.AnalyticInverseSquareRoot](OdlyzkoPoonen/Analysis/AnalyticInverseSquareRoot.lean)
 
@@ -164,6 +169,10 @@ Definitions: `gaussianAmplitudeCoefficient`.
 
 Proved declarations: `analytic_gaussian_amplitude_expansion`.
 
+### [OdlyzkoPoonen.Analysis.GaussianDeterminant](OdlyzkoPoonen/Analysis/GaussianDeterminant.lean)
+
+Proved declarations: `integral_gaussian_linearMap`, `matrix_gram_quadratic_eq_norm_sq`, `integral_gaussian_posDef`.
+
 ### [OdlyzkoPoonen.Analysis.GaussianIntegralAsymptotics](OdlyzkoPoonen/Analysis/GaussianIntegralAsymptotics.lean)
 
 Proved declarations: `gaussian_weighted_remainder_isBigO`, `gaussian_tail_isBigO`, `multilinear_diagonal_bound`, `multilinear_diagonal_homogeneous`, `integrable_multilinear_gaussian`, `multilinear_gaussian_integral`.
@@ -215,6 +224,16 @@ Proved declarations: `lattice_cosine_integral_half_expansion`.
 ### [OdlyzkoPoonen.Analysis.LatticeCosineGaussianBound](OdlyzkoPoonen/Analysis/LatticeCosineGaussianBound.lean)
 
 Proved declarations: `integerLinearForm_standard_basis`, `lattice_cosine_quadratic_coercive`, `lattice_cosine_product_gaussian_bound`.
+
+### [OdlyzkoPoonen.Analysis.LatticeGaussianLeadingTerm](OdlyzkoPoonen/Analysis/LatticeGaussianLeadingTerm.lean)
+
+Proved declarations: `lattice_cosine_integral_leading_term`.
+
+### [OdlyzkoPoonen.Analysis.LatticeGaussianVolume](OdlyzkoPoonen/Analysis/LatticeGaussianVolume.lean)
+
+Definitions: `latticeCoordinateMatrix`, `latticeGramMatrix`.
+
+Proved declarations: `latticeGramMatrix_quadratic`, `latticeGramMatrix_posDef`, `lattice_cosine_quadratic_eq_gram`, `lattice_gaussian_volume`.
 
 ### [OdlyzkoPoonen.Analysis.LogarithmicDomination](OdlyzkoPoonen/Analysis/LogarithmicDomination.lean)
 
@@ -400,6 +419,12 @@ Proved declarations: `binaryProbability_cyclotomic_union_inclusion_exclusion`, `
 
 Proved declarations: `difference_multiset_exception_scale_le`, `difference_multiset_reflection_scale_le`, `twelve_pow_block_le_rpow`, `differenceMultisetFamily_error_bound`, `differenceMultisetFamily_asymptotic`.
 
+### [OdlyzkoPoonen.Asymptotics.ExplicitReducibilityExpansion](OdlyzkoPoonen/Asymptotics/ExplicitReducibilityExpansion.lean)
+
+Definitions: `reducibilityLeadingCoefficient`, `reducibilitySecondCoefficient`.
+
+Proved declarations: `nat_rpow_neg_two`, `nat_rpow_error_weaken`, `minus_one_correction_power_identity`, `degreeProbability_cyclotomic_two_correction`, `cyclotomic_pair_product_dvd_iff`, `fourCyclotomicMainTerm_explicit_expansion`, `binaryProbability_reducible_three_term_expansion`.
+
 ### [OdlyzkoPoonen.Asymptotics.FiniteCyclotomicApproximation](OdlyzkoPoonen/Asymptotics/FiniteCyclotomicApproximation.lean)
 
 Definitions: `HasBoundedDegreeCyclotomicDivisor`.
@@ -441,6 +466,22 @@ Proved declarations: `binaryProbability_minus_one_odd_first_correction`.
 ### [OdlyzkoPoonen.Asymptotics.MinusOneParity](OdlyzkoPoonen/Asymptotics/MinusOneParity.lean)
 
 Proved declarations: `binaryProbability_minus_one_even_error`, `binaryProbability_minus_one_odd_error`.
+
+### [OdlyzkoPoonen.Asymptotics.MonicDeterminantLeadingTerm](OdlyzkoPoonen/Asymptotics/MonicDeterminantLeadingTerm.lean)
+
+Definitions: `monicDivisorGramMatrix`.
+
+Proved declarations: `monicDivisorGaussianVolume_eq`, `degreeProbability_monic_determinant_leading_term`.
+
+### [OdlyzkoPoonen.Asymptotics.MonicDivisorLeadingTerm](OdlyzkoPoonen/Asymptotics/MonicDivisorLeadingTerm.lean)
+
+Proved declarations: `binaryProbability_monic_gaussian_leading_term`, `degreeProbability_monic_gaussian_leading_term`.
+
+### [OdlyzkoPoonen.Asymptotics.MonicGaussianLeadingTerm](OdlyzkoPoonen/Asymptotics/MonicGaussianLeadingTerm.lean)
+
+Definitions: `monicDivisorGaussianVolume`.
+
+Proved declarations: `monicDivisorAmplitude_zero`, `binaryProbability_periodic_monic_block_leading_term`.
 
 ### [OdlyzkoPoonen.Asymptotics.PeriodicMonicExpansion](OdlyzkoPoonen/Asymptotics/PeriodicMonicExpansion.lean)
 
@@ -485,6 +526,18 @@ Proved declarations: `eventually_fixed_residue_scale_le_one`, `binaryProbability
 ### [OdlyzkoPoonen.Asymptotics.SmallCyclotomicApproximation](OdlyzkoPoonen/Asymptotics/SmallCyclotomicApproximation.lean)
 
 Proved declarations: `positive_totient_lt_four_iff`, `HasBinaryEndpoints.bounded_cyclotomic_four_iff`, `binaryProbability_reducible_four_cyclotomic_approximation`.
+
+### [OdlyzkoPoonen.Asymptotics.SmallCyclotomicConstants](OdlyzkoPoonen/Asymptotics/SmallCyclotomicConstants.lean)
+
+Proved declarations: `small_cyclotomic_degree_two_constant`, `rpow_three_halves_eq_mul_sqrt`, `small_cyclotomic_degree_three_constant`.
+
+### [OdlyzkoPoonen.Asymptotics.SmallCyclotomicDeterminants](OdlyzkoPoonen/Asymptotics/SmallCyclotomicDeterminants.lean)
+
+Proved declarations: `monicDivisorGramMatrix_det_eq_remainder_table`, `cyclotomic_three_gram_determinant`, `cyclotomic_four_gram_determinant`, `cyclotomic_six_gram_determinant`, `cyclotomic_two_three_gram_determinant`, `cyclotomic_two_four_gram_determinant`, `cyclotomic_two_six_gram_determinant`.
+
+### [OdlyzkoPoonen.Asymptotics.SmallCyclotomicLeadingTerms](OdlyzkoPoonen/Asymptotics/SmallCyclotomicLeadingTerms.lean)
+
+Proved declarations: `degreeProbability_cyclotomic_product_determinant_term`, `degreeProbability_cyclotomic_three_leading_term`, `degreeProbability_cyclotomic_four_leading_term`, `degreeProbability_cyclotomic_six_leading_term`, `degreeProbability_cyclotomic_two_three_leading_term`, `degreeProbability_cyclotomic_two_four_leading_term`, `degreeProbability_cyclotomic_two_six_leading_term`.
 
 ### [OdlyzkoPoonen.Combinatorics.AnchoredDifferences](OdlyzkoPoonen/Combinatorics/AnchoredDifferences.lean)
 
@@ -987,6 +1040,10 @@ Proved declarations: `mem_polynomialRootRatios`, `card_polynomialRootRatios_le`,
 Definitions: `reflectedSet`.
 
 Proved declarations: `reflectedSet_mem_binarySetFamily`, `setPolynomial_reflectedSet`, `reflectedSet_eq_self_iff`, `differenceMultiset_reflectedSet`, `card_reflection_fixed_binarySetFamily`.
+
+### [OdlyzkoPoonen.Polynomial.SmallCyclotomicRemainders](OdlyzkoPoonen/Polynomial/SmallCyclotomicRemainders.lean)
+
+Proved declarations: `power_modByMonic_eq_of_certificate`, `cyclotomic_three_power_remainders`, `cyclotomic_four_int`, `cyclotomic_four_power_remainders`, `cyclotomic_six_power_remainders`, `cyclotomic_two_three_power_remainders`, `cyclotomic_two_four_power_remainders`, `cyclotomic_two_six_power_remainders`.
 
 ### [OdlyzkoPoonen.Polynomial.SparseDivisorUniqueness](OdlyzkoPoonen/Polynomial/SparseDivisorUniqueness.lean)
 

@@ -31,7 +31,8 @@
     "OdlyzkoPoonen.anchoredDifferenceMultisetFamily_asymptotic",
     "OdlyzkoPoonen.binaryProbability_reducible_finite_cyclotomic_approximation",
     "OdlyzkoPoonen.binaryProbability_minus_one_first_correction_asymptotic",
-    "OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion"
+    "OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion",
+    "OdlyzkoPoonen.binaryProbability_reducible_three_term_expansion"
   ],
   "definition_names": [],
   "permitted_axioms": [

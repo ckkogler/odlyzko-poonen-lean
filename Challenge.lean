@@ -353,4 +353,21 @@ theorem binaryProbability_reducible_periodic_expansion (R : ℕ) (hR : 1 ≤ R) 
             (fun n : ℕ ↦ (n : ℝ) ^ (-(R : ℝ))) := by
   sorry
 
+/-- Coefficient of the inverse square root of the degree. -/
+noncomputable def reducibilityLeadingCoefficient : ℝ := Real.sqrt (2 / Real.pi)
+
+/-- Coefficient of the inverse degree. -/
+noncomputable def reducibilitySecondCoefficient : ℝ := 4 * (1 + Real.sqrt 3) / Real.pi
+
+/-- The reducibility probability is A*n^(-1/2)+B*n^(-1)+A*(delta_n-2*B)*n^(-3/2)+O(n^(-2)), with A=sqrt(2/pi), B=4*(1+sqrt(3))/pi and delta_n=-17/4 for even n, 1/4 for odd n. -/
+theorem binaryProbability_reducible_three_term_expansion :
+    (fun n : ℕ ↦ binaryProbability (n - 1) ReducibleOverRat -
+      (reducibilityLeadingCoefficient * (n : ℝ) ^ (-1 / 2 : ℝ) +
+        reducibilitySecondCoefficient * (n : ℝ) ^ (-1 : ℝ) +
+        reducibilityLeadingCoefficient *
+          (minusOneRelativeCorrection n - 2 * reducibilitySecondCoefficient) *
+          (n : ℝ) ^ (-3 / 2 : ℝ)))
+      =O[atTop] (fun n : ℕ ↦ ((n : ℝ) ^ 2)⁻¹) := by
+  sorry
+
 end OdlyzkoPoonen
