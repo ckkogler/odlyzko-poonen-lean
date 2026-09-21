@@ -79,9 +79,12 @@ for rel,digest in json.loads((root/'verification/proof-source-baseline.json').re
 for e in json.loads((root/'provenance/reused-source.json').read_text())['files']:
     assert hashlib.sha256((root/e['destination']).read_bytes()).hexdigest()==e['destination_sha256']
 assert (root/'lean-toolchain').read_text().strip()=='leanprover/lean4:v4.34.0-rc2'
+mathlib_toolchain=root/'.lake/packages/mathlib/lean-toolchain'
+assert mathlib_toolchain.is_file(), 'Resolve the pinned Mathlib dependency before validation'
+assert mathlib_toolchain.read_text().strip()==(root/'lean-toolchain').read_text().strip(), 'Project and pinned Mathlib toolchains must match exactly'
 assert not (root/'lakefile.lean').exists()
 print('Metadata: v0.4 schema, attribution, source relationships, classification and license passed.')
 print(f'Challenge: {len(text.splitlines())} lines, {len(text.encode())} bytes; {claim_count} independent claims, no definition holes.')
 print(f'Solution: all {len(expected_modules)} proof modules, default root and Solution; no Challenge import or unchecked shortcut.')
-print(f'All {claim_count} claims aligned and covered by full Verification.lean; exact public Git pins and contained reuse.')
+print(f'All {claim_count} claims aligned and covered by full Verification.lean; exact public Git pins, matching Mathlib toolchain and contained reuse.')
 print('This structural validation does not replace kernel checking, full semantic review or registry review.')

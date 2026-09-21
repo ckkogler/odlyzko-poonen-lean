@@ -41,7 +41,7 @@ jobs:
           cache: false
       - name: Install the pinned Rust toolchain
         run: rustup toolchain install 1.88.0 --profile minimal
-      - name: Compare all twenty independent statements and replay in NanoDa
+      - name: Compare all independent statements and replay in both kernels
         run: python3 scripts/check_official.py ci-comparator python3 scripts/verify_palomar.py
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         if: always()
