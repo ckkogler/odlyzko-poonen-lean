@@ -13,6 +13,10 @@ project:
     Signed difference multisets satisfy exact counting bounds with exponential
     error. Reducibility has an explicit three-term expansion, including its
     parity correction, and a periodic half-power expansion to every fixed order.
+    A cyclotomic product times one irreducible noncyclotomic integer polynomial
+    occurs with logarithmic exponential probability; the cyclotomic part has
+    degree at most sqrt(n) with square-root exponential probability. The
+    strengthened reciprocal-divisor estimate and finite cutoff are also proved.
   authors: [Constantin Kogler]
   responsible_maintainers: [Constantin Kogler]
   license: 0BSD
@@ -23,7 +27,7 @@ sources:
   - title: The Odlyzko–Poonen conjecture
     authors: [Constantin Kogler]
     type: paper
-    location: Theorems 1.1–1.2, Proposition 2.1, Corollary 2.2, Lemmas 3.1–3.2, Remark 3.3 and their supporting arguments
+    location: Theorems 1.1–1.3, Propositions 2.1 and 3.3, Corollary 2.2, Lemmas 3.1–3.2, Remark 3.4 and their supporting arguments
     relationship: formalizes
     note: >-
       The contribution statement credits GPT-6 Astra with the original proof
@@ -84,8 +88,10 @@ status:
     Submission preparation is in progress. The proved development includes
     irreducibility, the sharp leading reducibility term, difference-multiset
     counts with exponential error, and arbitrary-order periodic half-power expansions. The explicit
-    expansion through degree minus three halves is also proved. Final submission
-    verification is in progress. Historical verification
+    expansion through degree minus three halves is also proved. The cyclotomic
+    factorization theorem, its square-root degree bound, the stronger reciprocal
+    divisor proposition and explicit concentration estimates are proved. Final
+    submission verification is in progress. Historical verification
     records apply only to their recorded source snapshots.
   sorry_count: 0
   sorry_in_definitions: 0
@@ -166,7 +172,7 @@ alignment:
       lean: OdlyzkoPoonen.binaryProbability_reducible_asymptotic
       module: OdlyzkoPoonen.Asymptotics.Reducibility
       status: proved
-    - source: "Theorem 1.2: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4)."
+    - source: "Theorem 1.3: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4)."
       lean: OdlyzkoPoonen.mod_four_companion_probability
       module: OdlyzkoPoonen.ModFour.CompanionProbability
       status: proved
@@ -182,27 +188,27 @@ alignment:
       lean: OdlyzkoPoonen.reciprocal_gcd_probability_le_eight
       module: OdlyzkoPoonen.Asymptotics.ReciprocalBounds
       status: proved
-    - source: "Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed."
+    - source: "Auxiliary fixed-factor estimate: one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed."
       lean: OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound
       module: OdlyzkoPoonen.Probability.NoncyclotomicFactor
       status: proved
-    - source: "Estimate (3.2), also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases."
+    - source: "Auxiliary fixed-factor estimate, also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases."
       lean: OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
       module: OdlyzkoPoonen.Probability.NoncyclotomicFactor
       status: proved
-    - source: "Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L."
+    - source: "Auxiliary finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L."
       lean: OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound_eight
       module: OdlyzkoPoonen.Asymptotics.ReciprocalBounds
       status: proved
-    - source: "Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0."
+    - source: "Auxiliary estimate: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0."
       lean: OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
       module: OdlyzkoPoonen.Asymptotics.ReciprocalDivisorNormalization
       status: proved
-    - source: "Estimate (3.3): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0."
+    - source: "Estimate (3.2): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0."
       lean: OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO
       module: OdlyzkoPoonen.Asymptotics.ReducibleNoncyclotomic
       status: proved
-    - source: "Estimate (3.4): the probability of a cyclotomic factor of degree at least two is O(1/n)."
+    - source: "Estimate (3.3): the probability of a cyclotomic factor of degree at least two is O(1/n)."
       lean: OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO
       module: OdlyzkoPoonen.Asymptotics.HigherCyclotomic
       status: proved
@@ -264,4 +270,20 @@ alignment:
       module: OdlyzkoPoonen.Asymptotics.ExplicitReducibilityExpansion
       status: proved
 
+    - source: "Theorem 1.2: a cyclotomic product times one irreducible noncyclotomic integer polynomial, with logarithmic exponential probability; a square-root degree bound for the cyclotomic part with square-root exponential probability, using the same constants."
+      lean: OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability
+      module: OdlyzkoPoonen.Reducibility.CyclotomicIrreducibleProbability
+      status: proved
+    - source: "Finite cutoff: cyclotomic degree below L, for 1<=L<=n, with logarithmic exponential error plus 8*2^(-L/2)."
+      lean: OdlyzkoPoonen.cyclotomic_irreducible_factorization_cutoff_probability
+      module: OdlyzkoPoonen.Reducibility.CyclotomicCutoffProbability
+      status: proved
+    - source: "Proposition 3.3: a monic reciprocal divisor that is not a cyclotomic product has logarithmic exponential probability, without restricting the sampled polynomial."
+      lean: OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_probability
+      module: OdlyzkoPoonen.Probability.NoncyclotomicReciprocalDivisor
+      status: proved
+    - source: "Lemma 3.2: the probability of any monic reciprocal integer divisor of degree at least L is at most 8*2^(-L/2)."
+      lean: OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le_eight
+      module: OdlyzkoPoonen.Probability.ReciprocalDivisorTail
+      status: proved
 acknowledgements: Lean, Mathlib, Comparator, lean4export, NanoDa, Landrun and their contributors. Third-party materials retain their licenses.

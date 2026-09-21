@@ -11,7 +11,8 @@ import Mathlib.Tactic
 
 For degree n>=1, choose uniformly among the 2^(n-1) monic integer
 polynomials with constant one and all remaining coefficients in {0,1}.
-Irreducibility is over the rationals. This file independently specifies both
+Irreducibility is over the rationals, except that the factorization theorem
+uses the ordinary integer-polynomial predicate. This file specifies all three
 main theorems, the factor-pair proposition, both numbered lemmas and the
 principal estimates, together with the exact finite probability model.
 
@@ -141,6 +142,33 @@ def HasBoundedDegreeCyclotomicDivisor (D : ℕ) (p : ℤ[X]) : Prop :=
 noncomputable def minusOneRelativeCorrection (n : ℕ) : ℝ :=
   if n % 2 = 0 then -17 / 4 else 1 / 4
 
+/-- A finite product of positive-order cyclotomic polynomials, allowing multiplicity and the empty product. -/
+def IsCyclotomicProduct (P : ℤ[X]) : Prop :=
+  ∃ ks : List ℕ, (∀ k ∈ ks, 0 < k) ∧ P = (ks.map (fun k ↦ cyclotomic k ℤ)).prod
+
+/-- A monic reciprocal integer divisor that is not a cyclotomic product. -/
+def HasNoncyclotomicReciprocalDivisor (P : ℤ[X]) : Prop :=
+  ∃ H : ℤ[X], H.Monic ∧ H ∣ P ∧ H.reverse = H ∧ ¬ IsCyclotomicProduct H
+
+/-- A cyclotomic product times one irreducible integer polynomial with no cyclotomic divisor. -/
+def HasIrreducibleNoncyclotomicPart (P : ℤ[X]) : Prop :=
+  ∃ Q R : ℤ[X], P = Q * R ∧ IsCyclotomicProduct Q ∧
+    Irreducible R ∧ ¬ HasCyclotomicDivisor R
+
+/-- The same factorization with the cyclotomic degree strictly below a natural cutoff. -/
+def HasIrreducibleNoncyclotomicPartBelow (L : ℕ) (P : ℤ[X]) : Prop :=
+  ∃ Q R : ℤ[X], P = Q * R ∧ IsCyclotomicProduct Q ∧
+    Irreducible R ∧ ¬ HasCyclotomicDivisor R ∧ Q.natDegree < L
+
+/-- The same factorization with a real upper bound on the cyclotomic degree. -/
+def HasIrreducibleNoncyclotomicPartWithDegree (B : ℝ) (P : ℤ[X]) : Prop :=
+  ∃ Q R : ℤ[X], P = Q * R ∧ IsCyclotomicProduct Q ∧
+    Irreducible R ∧ ¬ HasCyclotomicDivisor R ∧ (Q.natDegree : ℝ) ≤ B
+
+/-- A monic reciprocal integer divisor of degree at least L. -/
+def HasLargeReciprocalIntegerDivisor (L : ℕ) (p : ℤ[X]) : Prop :=
+  ∃ J : ℤ[X], J.Monic ∧ J ∣ p ∧ J.reverse = J ∧ L ≤ J.natDegree
+
 /-- Model: the sampled family consists exactly of monic endpoint-one binary polynomials of degree m+1. -/
 lemma mem_binaryFamily_iff {m : ℕ} {p : ℤ[X]} :
     p ∈ binaryFamily m ↔ HasBinaryEndpoints (m + 1) p := by
@@ -183,7 +211,7 @@ theorem binaryProbability_reducible_asymptotic :
       Real.sqrt (2 / (Real.pi * (n : ℝ)))) =O[atTop] (fun n : ℕ ↦ 1 / (n : ℝ)) := by
   sorry
 
-/-- Theorem 1.2: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4). -/
+/-- Theorem 1.3: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4). -/
 theorem mod_four_companion_probability (n : ℕ) (hn : 1 ≤ n) :
     binaryProbability (n - 1) (HasModFourCompanion n) ≤
         (∑ d ∈ Finset.Icc 1 (n / 2), (3 / 4 : ℝ) ^ ((n - d - 1) / 2)) ∧
@@ -215,7 +243,7 @@ theorem reciprocal_gcd_probability_le_eight {n : ℕ} (hn : 1 ≤ n) (L : ℕ) :
       8 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
   sorry
 
-/-- Estimate (3.2): one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed. -/
+/-- Auxiliary fixed-factor estimate: one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed. -/
 lemma exists_uniform_noncyclotomic_factor_bound :
     ∃ a : ℝ, 0 < a ∧ ∃ N : ℕ, 2 ≤ N ∧ ∀ n : ℕ, N ≤ n →
       ∀ J : ℤ[X], Irreducible (J.map (Int.castRingHom ℚ)) →
@@ -224,7 +252,7 @@ lemma exists_uniform_noncyclotomic_factor_bound :
           Real.exp (-a * (n : ℝ) / Real.log (n : ℝ) ^ 4) := by
   sorry
 
-/-- Estimate (3.2), also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases. -/
+/-- Auxiliary fixed-factor estimate, also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases. -/
 lemma exists_uniform_integer_irreducible_noncyclotomic_factor_bound :
     ∃ a : ℝ, 0 < a ∧ ∃ N : ℕ, 2 ≤ N ∧ ∀ n : ℕ, N ≤ n →
       ∀ J : ℤ[X], Irreducible J → (¬ HasCyclotomicDivisor J) →
@@ -232,7 +260,7 @@ lemma exists_uniform_integer_irreducible_noncyclotomic_factor_bound :
           Real.exp (-a * (n : ℝ) / Real.log (n : ℝ) ^ 4) := by
   sorry
 
-/-- Lemma 3.2, finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L. -/
+/-- Auxiliary finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L. -/
 theorem exists_unrestricted_reciprocal_finite_bound_eight :
     ∃ a : ℝ, 0 < a ∧ ∃ N : ℕ, 2 ≤ N ∧ ∀ n : ℕ, N ≤ n → ∀ L : ℕ,
       binaryProbability (n - 1) (fun P ↦
@@ -242,7 +270,7 @@ theorem exists_unrestricted_reciprocal_finite_bound_eight :
           8 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
   sorry
 
-/-- Lemma 3.2: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0. -/
+/-- Auxiliary estimate: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0. -/
 lemma binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
     (A : ℝ) (hA : 0 < A) :
     (fun n : ℕ ↦ binaryProbability (n - 1) (fun P ↦
@@ -251,14 +279,14 @@ lemma binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO
       (fun n : ℕ ↦ (n : ℝ) ^ (-A)) := by
   sorry
 
-/-- Estimate (3.3): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0. -/
+/-- Estimate (3.2): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0. -/
 lemma binaryProbability_reducible_noncyclotomic_isBigO (A : ℝ) (hA : 0 < A) :
     (fun n : ℕ ↦ binaryProbability (n - 1) (fun P ↦
       ReducibleOverRat P ∧ ¬ HasCyclotomicDivisor P)) =O[atTop]
         (fun n : ℕ ↦ (n : ℝ) ^ (-A)) := by
   sorry
 
-/-- Estimate (3.4): the probability of a cyclotomic factor of degree at least two is O(1/n). -/
+/-- Estimate (3.3): the probability of a cyclotomic factor of degree at least two is O(1/n). -/
 theorem binaryProbability_higher_cyclotomic_isBigO :
     (fun n : ℕ ↦ binaryProbability (n - 1) HasHigherCyclotomicDivisor) =O[atTop]
       (fun n : ℕ ↦ 1 / (n : ℝ)) := by
@@ -357,7 +385,8 @@ theorem binaryProbability_reducible_periodic_expansion (R : ℕ) (hR : 1 ≤ R) 
 noncomputable def reducibilityLeadingCoefficient : ℝ := Real.sqrt (2 / Real.pi)
 
 /-- Coefficient of the inverse degree. -/
-noncomputable def reducibilitySecondCoefficient : ℝ := 4 * (1 + Real.sqrt 3) / Real.pi
+noncomputable def reducibilitySecondCoefficient : ℝ :=
+  ((4 : ℕ) : ℝ) * (1 + Real.sqrt (3 : ℕ)) / Real.pi
 
 /-- The reducibility probability is A*n^(-1/2)+B*n^(-1)+A*(delta_n-2*B)*n^(-3/2)+O(n^(-2)), with A=sqrt(2/pi), B=4*(1+sqrt(3))/pi and delta_n=-17/4 for even n, 1/4 for odd n. -/
 theorem binaryProbability_reducible_three_term_expansion :
@@ -368,6 +397,38 @@ theorem binaryProbability_reducible_three_term_expansion :
           (minusOneRelativeCorrection n - 2 * reducibilitySecondCoefficient) *
           (n : ℝ) ^ (-3 / 2 : ℝ)))
       =O[atTop] (fun n : ℕ ↦ ((n : ℝ) ^ 2)⁻¹) := by
+  sorry
+
+/-- Theorem 1.2: a cyclotomic product times one irreducible noncyclotomic integer polynomial, with logarithmic exponential probability; a square-root degree bound for the cyclotomic part with square-root exponential probability, using the same constants. -/
+theorem cyclotomic_irreducible_factorization_probability :
+    ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∀ n : ℕ, 3 ≤ n →
+      (1 - C * Real.exp (-c * n / Real.log (n : ℝ) ^ 4) ≤
+        binaryProbability (n - 1) HasIrreducibleNoncyclotomicPart) ∧
+      (1 - C * Real.exp (-c * Real.sqrt (n : ℝ)) ≤
+        binaryProbability (n - 1)
+          (HasIrreducibleNoncyclotomicPartWithDegree (Real.sqrt (n : ℝ)))) := by
+  sorry
+
+/-- Finite cutoff: cyclotomic degree below L, for 1<=L<=n, with logarithmic exponential error plus 8*2^(-L/2). -/
+theorem cyclotomic_irreducible_factorization_cutoff_probability :
+    ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∀ n L : ℕ, 3 ≤ n → 1 ≤ L → L ≤ n →
+      1 - C * Real.exp (-c * n / Real.log (n : ℝ) ^ 4) -
+        8 * (2 : ℝ) ^ (-(L : ℝ) / 2) ≤
+          binaryProbability (n - 1) (HasIrreducibleNoncyclotomicPartBelow L) := by
+  sorry
+
+/-- Proposition 3.3: a monic reciprocal divisor that is not a cyclotomic product has logarithmic exponential probability, without restricting the sampled polynomial. -/
+theorem noncyclotomic_reciprocal_divisor_probability :
+    ∃ c C : ℝ, 0 < c ∧ 0 < C ∧ ∀ n : ℕ, 3 ≤ n →
+      binaryProbability (n - 1) HasNoncyclotomicReciprocalDivisor ≤
+        C * Real.exp (-c * n / Real.log (n : ℝ) ^ 4) := by
+  sorry
+
+/-- Lemma 3.2: the probability of any monic reciprocal integer divisor of degree at least L is at most 8*2^(-L/2). -/
+theorem binaryProbability_large_reciprocal_divisor_le_eight {n : ℕ}
+    (hn : 1 ≤ n) (L : ℕ) :
+    binaryProbability (n - 1) (HasLargeReciprocalIntegerDivisor L) ≤
+      8 * (2 : ℝ) ^ (-(L : ℝ) / 2) := by
   sorry
 
 end OdlyzkoPoonen

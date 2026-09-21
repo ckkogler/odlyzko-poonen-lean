@@ -20,6 +20,7 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.unitFourierCube
 #print OdlyzkoPoonen.closedUnitFourierCube
 #print OdlyzkoPoonen.goodRootPowerPrimes
+#print OdlyzkoPoonen.oppositeResiduePairs
 #print OdlyzkoPoonen.primesInInterval
 #print OdlyzkoPoonen.primeIntervalProduct
 #print OdlyzkoPoonen.centralBinomialMass
@@ -77,10 +78,13 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.AgreeOnOuter
 #print OdlyzkoPoonen.HasCyclotomicDivisor
 #print OdlyzkoPoonen.HasHigherCyclotomicDivisor
+#print OdlyzkoPoonen.IsCyclotomicProduct
 #print OdlyzkoPoonen.cyclotomicProduct
 #print OdlyzkoPoonen.differenceMultiset
 #print OdlyzkoPoonen.smallDivisorCandidates
+#print OdlyzkoPoonen.monicIrreducibleDivisorFamily
 #print OdlyzkoPoonen.alternatingComplement
+#print OdlyzkoPoonen.wordReciprocalSum
 #print OdlyzkoPoonen.ReducibleOverRat
 #print OdlyzkoPoonen.reducePolynomial
 #print OdlyzkoPoonen.zeroOneLift
@@ -105,17 +109,24 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.TogglesOn
 #print OdlyzkoPoonen.freshBitCorrection
 #print OdlyzkoPoonen.shiftedWordIndex
+#print OdlyzkoPoonen.HasNoncyclotomicReciprocalDivisor
 #print OdlyzkoPoonen.lowerWordIndex
 #print OdlyzkoPoonen.upperWordIndex
 #print OdlyzkoPoonen.centerWordIndex
+#print OdlyzkoPoonen.concentrationPrimes
+#print OdlyzkoPoonen.primeOppositePairs
+#print OdlyzkoPoonen.HasSparseOppositePrimePairs
 #print OdlyzkoPoonen.assembleOppositeWord
 #print OdlyzkoPoonen.oppositeWordEquiv
 #print OdlyzkoPoonen.prescribedBitsEquiv
 #print OdlyzkoPoonen.HasLargeReciprocalIntegerDivisor
+#print OdlyzkoPoonen.IsResidueDeterminingFactor
+#print OdlyzkoPoonen.HasSeparatedReciprocalSumDivisor
 #print OdlyzkoPoonen.reciprocalGeometricTail
 #print OdlyzkoPoonen.residueIndex
 #print OdlyzkoPoonen.residueFiberEquiv
 #print OdlyzkoPoonen.residueBlockCoefficient
+#print OdlyzkoPoonen.selectedTrueCount
 #print OdlyzkoPoonen.signedBitComplement
 #print OdlyzkoPoonen.negativeSignCount
 #print OdlyzkoPoonen.signedBitSum
@@ -123,9 +134,12 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.triangularBitMap
 #print OdlyzkoPoonen.uniformAverage
 #print OdlyzkoPoonen.groupWordEquiv
+#print OdlyzkoPoonen.oppositePairMask
 #print OdlyzkoPoonen.wordPrefix
 #print OdlyzkoPoonen.prefixWordEquiv
-
+#print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartWithDegree
+#print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPart
+#print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow
 #print OdlyzkoPoonen.nat_affine_tendsto
 #print axioms OdlyzkoPoonen.nat_affine_tendsto
 #print OdlyzkoPoonen.nat_affine_rpow_isTheta
@@ -226,6 +240,16 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.prod_cosine_half_sq_le_gaussian
 #print OdlyzkoPoonen.prod_cosine_half_sq_le_selected_gaussian
 #print axioms OdlyzkoPoonen.prod_cosine_half_sq_le_selected_gaussian
+#print OdlyzkoPoonen.extend_scaled_exponential_bound
+#print axioms OdlyzkoPoonen.extend_scaled_exponential_bound
+#print OdlyzkoPoonen.reciprocal_tail_le_exp
+#print axioms OdlyzkoPoonen.reciprocal_tail_le_exp
+#print OdlyzkoPoonen.sqrt_degree_cutoff
+#print axioms OdlyzkoPoonen.sqrt_degree_cutoff
+#print OdlyzkoPoonen.nat_degree_le_sqrt_of_lt_cutoff
+#print axioms OdlyzkoPoonen.nat_degree_le_sqrt_of_lt_cutoff
+#print OdlyzkoPoonen.exists_threshold_logarithmic_rate_ge_sqrt
+#print axioms OdlyzkoPoonen.exists_threshold_logarithmic_rate_ge_sqrt
 #print OdlyzkoPoonen.finiteCharacterAmplitude_continuous
 #print axioms OdlyzkoPoonen.finiteCharacterAmplitude_continuous
 #print OdlyzkoPoonen.finiteCharacterAmplitude_analyticAt
@@ -238,6 +262,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.finiteCharacterAmplitude_even
 #print OdlyzkoPoonen.finiteCharacterAmplitude_eq_character_average
 #print axioms OdlyzkoPoonen.finiteCharacterAmplitude_eq_character_average
+#print OdlyzkoPoonen.extend_logarithmic_exponential_bound
+#print axioms OdlyzkoPoonen.extend_logarithmic_exponential_bound
 #print OdlyzkoPoonen.analytic_gaussian_amplitude_expansion
 #print axioms OdlyzkoPoonen.analytic_gaussian_amplitude_expansion
 #print OdlyzkoPoonen.integral_gaussian_linearMap
@@ -438,6 +464,10 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.prod_max_norm_option_root_powers
 #print OdlyzkoPoonen.isBigO_of_residue_classes
 #print axioms OdlyzkoPoonen.isBigO_of_residue_classes
+#print OdlyzkoPoonen.three_quarters_pow_le_exp
+#print axioms OdlyzkoPoonen.three_quarters_pow_le_exp
+#print OdlyzkoPoonen.exists_threshold_absorb_quadratic_logarithmic_exp
+#print axioms OdlyzkoPoonen.exists_threshold_absorb_quadratic_logarithmic_exp
 #print OdlyzkoPoonen.prime_family_mahler_power_inequality
 #print axioms OdlyzkoPoonen.prime_family_mahler_power_inequality
 #print OdlyzkoPoonen.prime_family_mahler_log_inequality
@@ -488,6 +518,16 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.sum_goodRootPowerPrimes_le
 #print OdlyzkoPoonen.exists_threshold_good_root_power_prime_weight
 #print axioms OdlyzkoPoonen.exists_threshold_good_root_power_prime_weight
+#print OdlyzkoPoonen.exists_half_residue
+#print axioms OdlyzkoPoonen.exists_half_residue
+#print OdlyzkoPoonen.oppositeResiduePairs_positions
+#print axioms OdlyzkoPoonen.oppositeResiduePairs_positions
+#print OdlyzkoPoonen.oppositeResiduePairs_card_ge
+#print axioms OdlyzkoPoonen.oppositeResiduePairs_card_ge
+#print OdlyzkoPoonen.oppositeResiduePairs_card_add_one_ge
+#print axioms OdlyzkoPoonen.oppositeResiduePairs_card_add_one_ge
+#print OdlyzkoPoonen.oppositeResiduePairs_card_ge_degree
+#print axioms OdlyzkoPoonen.oppositeResiduePairs_card_ge_degree
 #print OdlyzkoPoonen.card_mul_log_lower_le_prime_weight
 #print axioms OdlyzkoPoonen.card_mul_log_lower_le_prime_weight
 #print OdlyzkoPoonen.prime_weight_le_card_mul_log_upper
@@ -1352,6 +1392,22 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_alternative
 #print OdlyzkoPoonen.HasBinaryEndpoints.hasCyclotomicDivisor_iff
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.hasCyclotomicDivisor_iff
+#print OdlyzkoPoonen.isCyclotomicProduct_one
+#print axioms OdlyzkoPoonen.isCyclotomicProduct_one
+#print OdlyzkoPoonen.IsCyclotomicProduct.monic
+#print axioms OdlyzkoPoonen.IsCyclotomicProduct.monic
+#print OdlyzkoPoonen.IsCyclotomicProduct.cyclotomic_mul
+#print axioms OdlyzkoPoonen.IsCyclotomicProduct.cyclotomic_mul
+#print OdlyzkoPoonen.IsCyclotomicProduct.mul
+#print axioms OdlyzkoPoonen.IsCyclotomicProduct.mul
+#print OdlyzkoPoonen.exists_cyclotomic_factorization
+#print axioms OdlyzkoPoonen.exists_cyclotomic_factorization
+#print OdlyzkoPoonen.exists_noncyclotomic_irreducible_divisor_of_not_product
+#print axioms OdlyzkoPoonen.exists_noncyclotomic_irreducible_divisor_of_not_product
+#print OdlyzkoPoonen.IsCyclotomicProduct.hasCyclotomicDivisor_of_monic_nonconstant_dvd
+#print axioms OdlyzkoPoonen.IsCyclotomicProduct.hasCyclotomicDivisor_of_monic_nonconstant_dvd
+#print OdlyzkoPoonen.not_isCyclotomicProduct_of_monic_nonconstant_noncyclotomic
+#print axioms OdlyzkoPoonen.not_isCyclotomicProduct_of_monic_nonconstant_noncyclotomic
 #print OdlyzkoPoonen.cyclotomicProduct_monic
 #print axioms OdlyzkoPoonen.cyclotomicProduct_monic
 #print OdlyzkoPoonen.cyclotomicProduct_natDegree
@@ -1366,6 +1422,12 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.cyclotomicProduct_dvd_geom_sum
 #print OdlyzkoPoonen.cyclotomicProduct_common_period
 #print axioms OdlyzkoPoonen.cyclotomicProduct_common_period
+#print OdlyzkoPoonen.cyclotomic_reverse_eq
+#print axioms OdlyzkoPoonen.cyclotomic_reverse_eq
+#print OdlyzkoPoonen.IsCyclotomicProduct.reverse_eq_of_not_one_dvd
+#print axioms OdlyzkoPoonen.IsCyclotomicProduct.reverse_eq_of_not_one_dvd
+#print OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_product_reciprocal
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_product_reciprocal
 #print OdlyzkoPoonen.count_differenceMultiset
 #print axioms OdlyzkoPoonen.count_differenceMultiset
 #print OdlyzkoPoonen.IsBinary.eq_sum_support_X_pow
@@ -1452,6 +1514,12 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.monic_reducibleOverRat_of_integer_root
 #print OdlyzkoPoonen.HasBinaryEndpoints.reducible_of_minus_one
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.reducible_of_minus_one
+#print OdlyzkoPoonen.normalizedFactors_card_le_natDegree
+#print axioms OdlyzkoPoonen.normalizedFactors_card_le_natDegree
+#print OdlyzkoPoonen.mem_monicIrreducibleDivisorFamily
+#print axioms OdlyzkoPoonen.mem_monicIrreducibleDivisorFamily
+#print OdlyzkoPoonen.monicIrreducibleDivisorFamily_card_le
+#print axioms OdlyzkoPoonen.monicIrreducibleDivisorFamily_card_le
 #print OdlyzkoPoonen.exists_uniform_logarithmic_root_power_prime
 #print axioms OdlyzkoPoonen.exists_uniform_logarithmic_root_power_prime
 #print OdlyzkoPoonen.alternatingComplement_involutive
@@ -1488,6 +1556,22 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.coeff_autocorrelation_outer
 #print OdlyzkoPoonen.HasBinaryEndpoints.autocorrelation_outer_difference
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.autocorrelation_outer_difference
+#print OdlyzkoPoonen.coeff_reverse_wordPolynomial_internal
+#print axioms OdlyzkoPoonen.coeff_reverse_wordPolynomial_internal
+#print OdlyzkoPoonen.wordReciprocalSum_coeff_zero
+#print axioms OdlyzkoPoonen.wordReciprocalSum_coeff_zero
+#print OdlyzkoPoonen.wordReciprocalSum_ne_zero
+#print axioms OdlyzkoPoonen.wordReciprocalSum_ne_zero
+#print OdlyzkoPoonen.wordReciprocalSum_natDegree
+#print axioms OdlyzkoPoonen.wordReciprocalSum_natDegree
+#print OdlyzkoPoonen.assembleOppositeWord_pair_sum_eq
+#print axioms OdlyzkoPoonen.assembleOppositeWord_pair_sum_eq
+#print OdlyzkoPoonen.wordReciprocalSum_assemble_eq
+#print axioms OdlyzkoPoonen.wordReciprocalSum_assemble_eq
+#print OdlyzkoPoonen.assembleOppositeWord_agree_outside
+#print axioms OdlyzkoPoonen.assembleOppositeWord_agree_outside
+#print OdlyzkoPoonen.wordReciprocalSum_assemble_eq_iff
+#print axioms OdlyzkoPoonen.wordReciprocalSum_assemble_eq_iff
 #print OdlyzkoPoonen.HasBinaryEndpoints.eval_real_ge_one
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.eval_real_ge_one
 #print OdlyzkoPoonen.HasBinaryEndpoints.eval_real_pos
@@ -1556,6 +1640,10 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.wordPolynomial_remainderCoordinates
 #print OdlyzkoPoonen.dvd_wordPolynomial_iff_remainderCoordinates_eq_zero
 #print axioms OdlyzkoPoonen.dvd_wordPolynomial_iff_remainderCoordinates_eq_zero
+#print OdlyzkoPoonen.word_eq_of_residue_divisibility
+#print axioms OdlyzkoPoonen.word_eq_of_residue_divisibility
+#print OdlyzkoPoonen.word_eq_of_rational_irreducible_residue_divisibility
+#print axioms OdlyzkoPoonen.word_eq_of_rational_irreducible_residue_divisibility
 #print OdlyzkoPoonen.X_pow_sub_one_dvd_pow_sub_residue
 #print axioms OdlyzkoPoonen.X_pow_sub_one_dvd_pow_sub_residue
 #print OdlyzkoPoonen.wordPolynomial_sub_residue_dvd
@@ -1566,6 +1654,18 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial
 #print OdlyzkoPoonen.coeff_wordResiduePolynomial_above
 #print axioms OdlyzkoPoonen.coeff_wordResiduePolynomial_above
+#print OdlyzkoPoonen.expand_contract_shifted_of_residue_support
+#print axioms OdlyzkoPoonen.expand_contract_shifted_of_residue_support
+#print OdlyzkoPoonen.coeff_wordPolynomial_sub_eq_zero_of_residue
+#print axioms OdlyzkoPoonen.coeff_wordPolynomial_sub_eq_zero_of_residue
+#print OdlyzkoPoonen.residue_word_difference_expand
+#print axioms OdlyzkoPoonen.residue_word_difference_expand
+#print OdlyzkoPoonen.norm_coeff_contract_shifted_word_difference_le_one
+#print axioms OdlyzkoPoonen.norm_coeff_contract_shifted_word_difference_le_one
+#print OdlyzkoPoonen.support_contract_shifted_word_difference_subset
+#print axioms OdlyzkoPoonen.support_contract_shifted_word_difference_subset
+#print OdlyzkoPoonen.mahlerMeasure_contract_shifted_word_difference_le
+#print axioms OdlyzkoPoonen.mahlerMeasure_contract_shifted_word_difference_le
 #print OdlyzkoPoonen.resultant_map_injective
 #print axioms OdlyzkoPoonen.resultant_map_injective
 #print OdlyzkoPoonen.monic_resultant_right_degree
@@ -1726,6 +1826,14 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_multiplicity
 #print OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_eq_zero_of_lt
 #print axioms OdlyzkoPoonen.hasseDeriv_prod_X_sub_C_eval_eq_zero_of_lt
+#print OdlyzkoPoonen.exists_uniform_residue_determining_prime
+#print axioms OdlyzkoPoonen.exists_uniform_residue_determining_prime
+#print OdlyzkoPoonen.uniformProbability_singleton
+#print axioms OdlyzkoPoonen.uniformProbability_singleton
+#print OdlyzkoPoonen.uniformProbability_subsingleton_le
+#print axioms OdlyzkoPoonen.uniformProbability_subsingleton_le
+#print OdlyzkoPoonen.uniformProbability_adaptive_selected_le
+#print axioms OdlyzkoPoonen.uniformProbability_adaptive_selected_le
 #print OdlyzkoPoonen.asymmetry_weight_factor
 #print axioms OdlyzkoPoonen.asymmetry_weight_factor
 #print OdlyzkoPoonen.sum_two_thirds_positive
@@ -1784,6 +1892,10 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.uniformAverage_half_pow_trueBitCount
 #print OdlyzkoPoonen.uniformAverage_triangular_half_weight
 #print axioms OdlyzkoPoonen.uniformAverage_triangular_half_weight
+#print OdlyzkoPoonen.logarithmic_exp_antitone_rate
+#print axioms OdlyzkoPoonen.logarithmic_exp_antitone_rate
+#print OdlyzkoPoonen.mod_four_companion_logarithmic_exponential_bound
+#print axioms OdlyzkoPoonen.mod_four_companion_logarithmic_exponential_bound
 #print OdlyzkoPoonen.binaryProbability_cyclotomic_degree_range_fixed_le
 #print axioms OdlyzkoPoonen.binaryProbability_cyclotomic_degree_range_fixed_le
 #print OdlyzkoPoonen.binaryProbability_cyclotomic_degree_range_le
@@ -1908,6 +2020,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.shiftedWordIndex_injective
 #print OdlyzkoPoonen.trueBitCount_eq_shifted
 #print axioms OdlyzkoPoonen.trueBitCount_eq_shifted
+#print OdlyzkoPoonen.logarithmic_opposite_prime_pairs_concentration
+#print axioms OdlyzkoPoonen.logarithmic_opposite_prime_pairs_concentration
 #print OdlyzkoPoonen.uniformProbability_alternatingComplement
 #print axioms OdlyzkoPoonen.uniformProbability_alternatingComplement
 #print OdlyzkoPoonen.eval_wordPolynomial_minus_one_odd
@@ -1928,6 +2042,12 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound
 #print OdlyzkoPoonen.exists_uniform_noncyclotomic_monic_factor_bound
 #print axioms OdlyzkoPoonen.exists_uniform_noncyclotomic_monic_factor_bound
+#print OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_witness
+#print axioms OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_witness
+#print OdlyzkoPoonen.exists_noncyclotomic_reciprocal_divisor_prefactor_bound
+#print axioms OdlyzkoPoonen.exists_noncyclotomic_reciprocal_divisor_prefactor_bound
+#print OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_probability
+#print axioms OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_probability
 #print OdlyzkoPoonen.lowerWordIndex_val
 #print axioms OdlyzkoPoonen.lowerWordIndex_val
 #print OdlyzkoPoonen.upperWordIndex_val
@@ -1944,6 +2064,14 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.centerWordIndex_rev
 #print OdlyzkoPoonen.center_index_of_not_outer
 #print axioms OdlyzkoPoonen.center_index_of_not_outer
+#print OdlyzkoPoonen.uniformProbability_selected_count_lt_le_exp
+#print axioms OdlyzkoPoonen.uniformProbability_selected_count_lt_le_exp
+#print OdlyzkoPoonen.concentrationPrimes_card_le
+#print axioms OdlyzkoPoonen.concentrationPrimes_card_le
+#print OdlyzkoPoonen.primeOppositePairs_card_ge
+#print axioms OdlyzkoPoonen.primeOppositePairs_card_ge
+#print OdlyzkoPoonen.opposite_prime_pairs_concentration
+#print axioms OdlyzkoPoonen.opposite_prime_pairs_concentration
 #print OdlyzkoPoonen.assembleOppositeWord_lower
 #print axioms OdlyzkoPoonen.assembleOppositeWord_lower
 #print OdlyzkoPoonen.assembleOppositeWord_upper
@@ -1980,6 +2108,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.hasLargeReciprocalIntegerDivisor_iff
 #print OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_unrestricted
 #print axioms OdlyzkoPoonen.binaryProbability_reciprocal_noncyclotomic_unrestricted
+#print OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le_eight
+#print axioms OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le_eight
 #print OdlyzkoPoonen.HasBinaryEndpoints.gcd_degree_of_large_reciprocal_divisor
 #print axioms OdlyzkoPoonen.HasBinaryEndpoints.gcd_degree_of_large_reciprocal_divisor
 #print OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le
@@ -1990,6 +2120,12 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.card_reciprocal_f2Family
 #print OdlyzkoPoonen.exists_noncyclotomic_reciprocal_finite_bound
 #print axioms OdlyzkoPoonen.exists_noncyclotomic_reciprocal_finite_bound
+#print OdlyzkoPoonen.binaryProbability_reciprocalSumDivisor_le_exp
+#print axioms OdlyzkoPoonen.binaryProbability_reciprocalSumDivisor_le_exp
+#print OdlyzkoPoonen.uniformProbability_reciprocalSumDivisor_conditioned_le
+#print axioms OdlyzkoPoonen.uniformProbability_reciprocalSumDivisor_conditioned_le
+#print OdlyzkoPoonen.binaryProbability_reciprocalSumDivisor_le
+#print axioms OdlyzkoPoonen.binaryProbability_reciprocalSumDivisor_le
 #print OdlyzkoPoonen.reciprocal_counting_summand
 #print axioms OdlyzkoPoonen.reciprocal_counting_summand
 #print OdlyzkoPoonen.reciprocalGeometricTail_nonneg
@@ -2022,6 +2158,16 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.uniformProbability_residueBlockCoefficient_le
 #print OdlyzkoPoonen.cyclotomic_dvd_determines_low_residue_coefficients
 #print axioms OdlyzkoPoonen.cyclotomic_dvd_determines_low_residue_coefficients
+#print OdlyzkoPoonen.uniformAverage_bool_product
+#print axioms OdlyzkoPoonen.uniformAverage_bool_product
+#print OdlyzkoPoonen.uniformAverage_selectedTrueWeight
+#print axioms OdlyzkoPoonen.uniformAverage_selectedTrueWeight
+#print OdlyzkoPoonen.uniformAverage_selectedTrueHalfWeight
+#print axioms OdlyzkoPoonen.uniformAverage_selectedTrueHalfWeight
+#print OdlyzkoPoonen.uniformProbability_selectedTrueCount_lower_tail
+#print axioms OdlyzkoPoonen.uniformProbability_selectedTrueCount_lower_tail
+#print OdlyzkoPoonen.uniformProbability_selectedTrueCount_lower_tail_exp
+#print axioms OdlyzkoPoonen.uniformProbability_selectedTrueCount_lower_tail_exp
 #print OdlyzkoPoonen.uniformProbability_selected_coordinates_le
 #print axioms OdlyzkoPoonen.uniformProbability_selected_coordinates_le
 #print OdlyzkoPoonen.negativeSignCount_eq_sum
@@ -2068,8 +2214,32 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.uniformProbability_groupWord
 #print OdlyzkoPoonen.uniformProbability_groupWord_pi
 #print axioms OdlyzkoPoonen.uniformProbability_groupWord_pi
+#print OdlyzkoPoonen.oppositePairMask_assemble
+#print axioms OdlyzkoPoonen.oppositePairMask_assemble
+#print OdlyzkoPoonen.oppositePairMask_eq_of_reciprocalSum_eq
+#print axioms OdlyzkoPoonen.oppositePairMask_eq_of_reciprocalSum_eq
+#print OdlyzkoPoonen.uniformProbability_oppositePairMask
+#print axioms OdlyzkoPoonen.uniformProbability_oppositePairMask
+#print OdlyzkoPoonen.word_opposite_prime_pairs_concentration
+#print axioms OdlyzkoPoonen.word_opposite_prime_pairs_concentration
+#print OdlyzkoPoonen.sparseOppositePrimePairs_iff_of_reciprocalSum_eq
+#print axioms OdlyzkoPoonen.sparseOppositePrimePairs_iff_of_reciprocalSum_eq
 #print OdlyzkoPoonen.uniformAverage_wordPrefix
 #print axioms OdlyzkoPoonen.uniformAverage_wordPrefix
+#print OdlyzkoPoonen.cyclotomic_cutoff_failure_probability_le
+#print axioms OdlyzkoPoonen.cyclotomic_cutoff_failure_probability_le
+#print OdlyzkoPoonen.cyclotomic_irreducible_factorization_cutoff_probability
+#print axioms OdlyzkoPoonen.cyclotomic_irreducible_factorization_cutoff_probability
+#print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow.sqrt_degree
+#print axioms OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow.sqrt_degree
+#print OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability
+#print axioms OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability
+#print OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_remainder_one_or_irreducible
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.cyclotomic_remainder_one_or_irreducible
+#print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow.forget
+#print axioms OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow.forget
+#print OdlyzkoPoonen.HasBinaryEndpoints.irreducibleNoncyclotomicPartBelow
+#print axioms OdlyzkoPoonen.HasBinaryEndpoints.irreducibleNoncyclotomicPartBelow
 #print OdlyzkoPoonen.reducible_without_cyclotomic_probability_le
 #print axioms OdlyzkoPoonen.reducible_without_cyclotomic_probability_le
 #print OdlyzkoPoonen.reducible_sub_minus_one_probability_eq

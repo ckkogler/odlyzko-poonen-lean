@@ -18,7 +18,8 @@ open scoped BigOperators Classical
 noncomputable def reducibilityLeadingCoefficient : ℝ := Real.sqrt (2 / Real.pi)
 
 /-- Coefficient of the inverse degree. -/
-noncomputable def reducibilitySecondCoefficient : ℝ := 4 * (1 + Real.sqrt 3) / Real.pi
+noncomputable def reducibilitySecondCoefficient : ℝ :=
+  ((4 : ℕ) : ℝ) * (1 + Real.sqrt (3 : ℕ)) / Real.pi
 
 lemma nat_rpow_neg_two (n : ℕ) : (n : ℝ) ^ (-2 : ℝ) = ((n : ℝ) ^ 2)⁻¹ := by
   rw [Real.rpow_neg (Nat.cast_nonneg n), Real.rpow_two]
