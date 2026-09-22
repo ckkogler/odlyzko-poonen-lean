@@ -2,10 +2,13 @@
 
 The library contains 1056 proved declarations and 136 definitions or
 structures in 287 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
-periodic half-power expansions are proved. The explicit coefficients through
-degree minus three halves, including their parity correction, are proved. Final
-submission verification must be repeated for the completed source snapshot.
-Historical verification records certify only their recorded snapshots.
+periodic half-power expansions and the explicit coefficients through degree
+minus three halves, including their parity correction, are proved. The complete
+build, statement/axiom audit, strict comparison and both kernel replays passed.
+An independent checkout compiled all authored modules afresh and reproduced the
+full statement output. [Verification evidence](verification/README.md) identifies
+the checked snapshots and distinguishes them from historical records.
+Phase-retrieval applications are outside the selected scope.
 
 ## Challenge claims
 
@@ -46,6 +49,10 @@ statements. [comparator.json](comparator.json) selects its 35 claims;
 | The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity. | [`binaryProbability_minus_one_first_correction_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneExpansion.lean) |
 | The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period. | [`binaryProbability_reducible_periodic_expansion`](OdlyzkoPoonen/Asymptotics/ReducibilityExpansion.lean) |
 | The reducibility probability is A*n^(-1/2)+B*n^(-1)+A*(delta_n-2*B)*n^(-3/2)+O(n^(-2)), with A=sqrt(2/pi), B=4*(1+sqrt(3))/pi and delta_n=-17/4 for even n, 1/4 for odd n. | [`binaryProbability_reducible_three_term_expansion`](OdlyzkoPoonen/Asymptotics/ExplicitReducibilityExpansion.lean) |
+| Theorem 1.2: for every n>=3, the cyclotomic/irreducible factorization has probability at least 1-C*exp(-c*n/(log n)^4); the same factorization with cyclotomic degree at most sqrt(n) has probability at least 1-C*exp(-c*sqrt(n)), using the same absolute positive constants. | [`cyclotomic_irreducible_factorization_probability`](OdlyzkoPoonen/Reducibility/CyclotomicIrreducibleProbability.lean) |
+| Finite cutoff: cyclotomic degree below L, for 1<=L<=n, with logarithmic exponential error plus 8*2^(-L/2). | [`cyclotomic_irreducible_factorization_cutoff_probability`](OdlyzkoPoonen/Reducibility/CyclotomicCutoffProbability.lean) |
+| Proposition 3.3: for every n>=3, the probability of a monic reciprocal divisor that is not a cyclotomic product is at most C*exp(-c*n/(log n)^4), without restricting the sampled polynomial. | [`noncyclotomic_reciprocal_divisor_probability`](OdlyzkoPoonen/Probability/NoncyclotomicReciprocalDivisor.lean) |
+| Lemma 3.2: the probability of any monic reciprocal integer divisor of degree at least L is at most 8*2^(-L/2). | [`binaryProbability_large_reciprocal_divisor_le_eight`](OdlyzkoPoonen/Probability/ReciprocalDivisorTail.lean) |
 
 ## Supporting arguments
 
@@ -91,15 +98,6 @@ The fixed-factor argument uses the proved controlled-prime separation and
 quantitative Mahler bound. It does not assert the stronger general versions of
 external results. See the arithmetic, linear algebra and analysis modules below.
 
-
-## Cyclotomic factorization and strengthened reciprocal bound
-
-| Result | Declaration |
-| --- | --- |
-| Theorem 1.2: a cyclotomic product times one irreducible noncyclotomic integer polynomial, with logarithmic exponential probability; a square-root degree bound for the cyclotomic part with square-root exponential probability, using the same constants. | [`cyclotomic_irreducible_factorization_probability`](OdlyzkoPoonen/Reducibility/CyclotomicIrreducibleProbability.lean) |
-| Finite cutoff: cyclotomic degree below L, for 1<=L<=n, with logarithmic exponential error plus 8*2^(-L/2). | [`cyclotomic_irreducible_factorization_cutoff_probability`](OdlyzkoPoonen/Reducibility/CyclotomicCutoffProbability.lean) |
-| Proposition 3.3: a monic reciprocal divisor that is not a cyclotomic product has logarithmic exponential probability, without restricting the sampled polynomial. | [`noncyclotomic_reciprocal_divisor_probability`](OdlyzkoPoonen/Probability/NoncyclotomicReciprocalDivisor.lean) |
-| Lemma 3.2: the probability of any monic reciprocal integer divisor of degree at least L is at most 8*2^(-L/2). | [`binaryProbability_large_reciprocal_divisor_le_eight`](OdlyzkoPoonen/Probability/ReciprocalDivisorTail.lean) |
 
 The supporting proofs include exact reciprocal-sum fibers, finite adaptive
 conditioning, a finite prime concentration bound, uniform separated root

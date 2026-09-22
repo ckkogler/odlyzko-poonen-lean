@@ -14,8 +14,9 @@ project:
     error. Reducibility has an explicit three-term expansion, including its
     parity correction, and a periodic half-power expansion to every fixed order.
     A cyclotomic product times one irreducible noncyclotomic integer polynomial
-    occurs with logarithmic exponential probability; the cyclotomic part has
-    degree at most sqrt(n) with square-root exponential probability. The
+    occurs with failure probability at most C*exp(-c*n/(log n)^4); the same
+    factorization with cyclotomic degree at most sqrt(n) has failure probability
+    at most C*exp(-c*sqrt(n)), with the same absolute positive constants. The
     strengthened reciprocal-divisor estimate and finite cutoff are also proved.
   authors: [Constantin Kogler]
   responsible_maintainers: [Constantin Kogler]
@@ -85,14 +86,15 @@ related_formalizations:
       is asserted and no sibling project is a build dependency.
 status:
   scope: >-
-    Submission preparation is in progress. The proved development includes
-    irreducibility, the sharp leading reducibility term, difference-multiset
-    counts with exponential error, and arbitrary-order periodic half-power expansions. The explicit
-    expansion through degree minus three halves is also proved. The cyclotomic
-    factorization theorem, its square-root degree bound, the stronger reciprocal
-    divisor proposition and explicit concentration estimates are proved. Final
-    submission verification is in progress. Historical verification
-    records apply only to their recorded source snapshots.
+    The proved development includes irreducibility, sharp reducibility estimates,
+    cyclotomic factorization and degree bounds, a strengthened reciprocal-divisor
+    estimate, signed difference-multiset counts with exponential error, an explicit
+    three-term expansion, and periodic half-power expansions to every fixed order.
+    All selected mathematical targets are proved; the
+    phase-retrieval application is outside the selected scope. The complete
+    local build and axiom audit, strict comparison of 35 claims, NanoDa and Lean
+    kernel replays, metadata and license validation, and fresh authored checkout
+    build passed. Exact checked snapshots are recorded in verification/.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -116,8 +118,8 @@ automation:
     Costs and total model-inference time were not reliably aggregated.
 fidelity:
   divergences: >-
-    The explicit three-term and arbitrary-order periodic half-power expansions are proved.
-    Final submission verification is in progress.
+    The explicit three-term and arbitrary-order periodic half-power expansions
+    are proved and included in the completed local verification.
     Proved statements preserve their mathematical hypotheses and constants.
     The phase-retrieval application is outside the selected scope; polynomial
     autocorrelation and signed difference-multiset consequences are included.
@@ -127,6 +129,10 @@ fidelity:
     proof of the factor constants replaces the positivity argument; that positivity
     observation is separately proved. The arithmetic inputs are proved through
     controlled separating primes, confluent determinants and sparse coefficients.
+    The strengthened reciprocal-divisor proof averages selected-bit weights
+    exactly and uses a prime interval with absolute upper factor sixteen;
+    these alternatives preserve the stated final probability bounds. Separate
+    concentration results use the interval from T to 2T and the actual word law.
     No general Breuillard–Varju theorem, sharper external Mahler bound, historical
     result mentioned only for context, or historical conjecture beyond the stated
     source targets is claimed. A proved sign-normalization equivalence removes monicity from the reciprocal-divisor witnesses in the compared finite and asymptotic estimates. No confirmed mathematical source error was found.
@@ -135,11 +141,13 @@ review:
   reviewers: []
   notes: >-
     The developing agent inspected full statements, definitions, all standard-only
-    axiom lists and exact source correspondence. There is no separate human review,
-    registry acceptance, or remote CI result. Historical strict comparison,
-    kernel replay and standalone-checkout checks apply only to the source
-    snapshots identified in their records. The complete verification suite
-    must be rerun for the finished submission.
+    axiom lists, finite-model indexing, quantifier order, constants, floors,
+    real exponents and uniformity of the asymptotic errors. The actual strict
+    Comparator and both required kernel replays accepted all 35 selected claims.
+    A fresh authored checkout reproduced the full statement output. Current
+    verification records identify the exact checked proof and configuration
+    bytes; historical records retain their own scope. There is no separate
+    human review, registry acceptance, or remote CI result.
 alignment:
   namespace: OdlyzkoPoonen
   coverage_index: COVERAGE.md
@@ -270,7 +278,7 @@ alignment:
       module: OdlyzkoPoonen.Asymptotics.ExplicitReducibilityExpansion
       status: proved
 
-    - source: "Theorem 1.2: a cyclotomic product times one irreducible noncyclotomic integer polynomial, with logarithmic exponential probability; a square-root degree bound for the cyclotomic part with square-root exponential probability, using the same constants."
+    - source: "Theorem 1.2: for every n>=3, a cyclotomic product times one irreducible noncyclotomic integer polynomial has probability at least 1-C*exp(-c*n/(log n)^4); the same factorization with cyclotomic degree at most sqrt(n) has probability at least 1-C*exp(-c*sqrt(n)), using the same absolute positive constants."
       lean: OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability
       module: OdlyzkoPoonen.Reducibility.CyclotomicIrreducibleProbability
       status: proved
@@ -278,7 +286,7 @@ alignment:
       lean: OdlyzkoPoonen.cyclotomic_irreducible_factorization_cutoff_probability
       module: OdlyzkoPoonen.Reducibility.CyclotomicCutoffProbability
       status: proved
-    - source: "Proposition 3.3: a monic reciprocal divisor that is not a cyclotomic product has logarithmic exponential probability, without restricting the sampled polynomial."
+    - source: "Proposition 3.3: for every n>=3, the probability of a monic reciprocal divisor that is not a cyclotomic product is at most C*exp(-c*n/(log n)^4), without restricting the sampled polynomial."
       lean: OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_probability
       module: OdlyzkoPoonen.Probability.NoncyclotomicReciprocalDivisor
       status: proved

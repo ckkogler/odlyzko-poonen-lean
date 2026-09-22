@@ -1,0 +1,93 @@
+{
+  "recorded_utc": "2026-09-22T00:56:00.735512+00:00",
+  "scope": "Actual local full build, complete statement/axiom audit, strict Comparator, NanoDa and Lean kernel replay, metadata and license checks. No hosted CI or registry result is claimed.",
+  "proof_scope": {
+    "modules": 287,
+    "proved_declarations": 1056,
+    "definitions_or_structures": 136,
+    "compared_claims": 35,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "challenge_in_proved_closure": false,
+    "unchecked_proof_shortcuts": false
+  },
+  "checks": {
+    "final-build-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T17:34:06.916486+00:00",
+      "finished_utc": "2026-09-21T18:36:25.506483+00:00",
+      "output_sha256": "2c67f58e694e3c250687ff4293c1057aba005ae26baf88fb10e6b2ce8aadb4e5"
+    },
+    "final-statements-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T18:36:30.690488+00:00",
+      "finished_utc": "2026-09-21T18:45:50.061490+00:00",
+      "output_sha256": "3c9d58eeea4bd28ba8a92f714b2cbecc79cca02b2112de7266c8a6e80c902923"
+    },
+    "final-statements-audit-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T18:45:55.625485+00:00",
+      "finished_utc": "2026-09-21T18:46:02.456479+00:00",
+      "output_sha256": "7870341a07a61203bb0c4141066680fc0b23da9e43cc0f9a8c9827a9a055ffcc"
+    },
+    "final-comparator-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T18:46:06.424495+00:00",
+      "finished_utc": "2026-09-21T19:21:09.786490+00:00",
+      "output_sha256": "208af95684aa18a9b7a70803d15af51051fc84a7a60a69e83464a609710f3670"
+    },
+    "final-metadata-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T19:21:15.052486+00:00",
+      "finished_utc": "2026-09-21T19:21:28.243483+00:00",
+      "output_sha256": "f95860c2818be7e9a0caf52249f955e3cdb296ae3f4500bbf7b7191ce4cc2355"
+    },
+    "final-license-02": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-21T19:21:31.573486+00:00",
+      "finished_utc": "2026-09-21T19:21:57.047488+00:00",
+      "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
+    }
+  },
+  "compared_theorems": [
+    "OdlyzkoPoonen.mem_binaryFamily_iff",
+    "OdlyzkoPoonen.card_binaryFamily",
+    "OdlyzkoPoonen.binaryProbability_eq_count",
+    "OdlyzkoPoonen.odlyzko_poonen_irreducibility",
+    "OdlyzkoPoonen.binaryProbability_reducible_excess_isBigO",
+    "OdlyzkoPoonen.exists_reducible_probability_excess_bound",
+    "OdlyzkoPoonen.binaryProbability_reducible_asymptotic",
+    "OdlyzkoPoonen.mod_four_companion_probability",
+    "OdlyzkoPoonen.factor_pair_congruence_probability",
+    "OdlyzkoPoonen.binary_factor_reversal",
+    "OdlyzkoPoonen.reciprocal_gcd_probability_le_eight",
+    "OdlyzkoPoonen.exists_uniform_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_uniform_integer_irreducible_noncyclotomic_factor_bound",
+    "OdlyzkoPoonen.exists_unrestricted_reciprocal_finite_bound_eight",
+    "OdlyzkoPoonen.binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_reducible_noncyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_higher_cyclotomic_isBigO",
+    "OdlyzkoPoonen.binaryProbability_minus_one_odd",
+    "OdlyzkoPoonen.binaryProbability_minus_one_even",
+    "OdlyzkoPoonen.binaryProbability_minus_one_asymptotic",
+    "OdlyzkoPoonen.differenceMultiset_eq_iff_autocorrelation_eq",
+    "OdlyzkoPoonen.differenceMultiset_reflectedSet",
+    "OdlyzkoPoonen.card_reflection_fixed_binarySetFamily",
+    "OdlyzkoPoonen.differenceMultisetFamily_card_bounds",
+    "OdlyzkoPoonen.differenceMultisetFamily_asymptotic",
+    "OdlyzkoPoonen.anchoredDifferenceMultisetFamily_exponential_asymptotic",
+    "OdlyzkoPoonen.anchoredDifferenceMultisetFamily_asymptotic",
+    "OdlyzkoPoonen.binaryProbability_reducible_finite_cyclotomic_approximation",
+    "OdlyzkoPoonen.binaryProbability_minus_one_first_correction_asymptotic",
+    "OdlyzkoPoonen.binaryProbability_reducible_periodic_expansion",
+    "OdlyzkoPoonen.binaryProbability_reducible_three_term_expansion",
+    "OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability",
+    "OdlyzkoPoonen.cyclotomic_irreducible_factorization_cutoff_probability",
+    "OdlyzkoPoonen.noncyclotomic_reciprocal_divisor_probability",
+    "OdlyzkoPoonen.binaryProbability_large_reciprocal_divisor_le_eight"
+  ],
+  "full_statement_output_matches_semantic_review": true
+}

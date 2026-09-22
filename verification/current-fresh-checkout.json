@@ -1,0 +1,26 @@
+{
+  "finished_utc": "2026-09-22T00:55:40.541504+00:00",
+  "commit": "1f150ff8ad730fa0c7700ce5afd346a5f3e02056",
+  "tracked_files": 325,
+  "fresh_authored_compilation": true,
+  "original_path_absent_during_checks": true,
+  "contained_exact_dependencies": true,
+  "default_build_exit": 0,
+  "statements_exit": 0,
+  "axiom_audit_exit": 0,
+  "metadata_exit": 0,
+  "statement_output_identical": true,
+  "original_and_dependencies_restored": true,
+  "full_statement_output_sha256": "3c9d58eeea4bd28ba8a92f714b2cbecc79cca02b2112de7266c8a6e80c902923",
+  "dependency_revisions": {
+    "mathlib": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "plausible": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+    "LeanSearchClient": "ba67e212be1197b84c1f1f6299488a10a3002713",
+    "importGraph": "d8823026ac7ef130c253089d95685f9877b95323",
+    "proofwidgets": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+    "aesop": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+    "Qq": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+    "batteries": "d54dddc581e08be364c278052863524bff7a99a9",
+    "Cli": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+  }
+}

@@ -1,33 +1,51 @@
 # Verification evidence
 
-The records in this directory certify the historical 182-module development.
-They do not certify subsequent changes. The current submission is still being
-prepared; its final build, comparison, replay and standalone-checkout records
-must identify the completed source snapshot.
+The current records cover 1056 proved declarations and 136 definitions or
+structures in 287 modules. The default build and complete statement/axiom audit
+passed. Only `propext`, `Classical.choice` and `Quot.sound` occur in the theorem
+axiom lists. Full statement output agrees byte for byte with the output reviewed
+for the finite model, quantifiers, constants, floors, exponents and uniformity.
 
-The official default build and full audit checked 672 theorem statements/axiom
-lists and 82 definitions from all 182 proof modules. Only `propext`,
-`Classical.choice` and `Quot.sound` occur. Complete statement output matches the
-reviewed development output byte for byte. Full types and definitions were
-inspected for the finite model, quantifiers, constants, floors and exponents.
+The actual strict Comparator accepted all 35 independent Challenge claims.
+Both NanoDa and Lean's default kernel accepted the exported proofs. Explicit
+definition bodies are recursively compared; no definition holes are permitted.
+Challenge's intentional theorem placeholders are excluded from the proved
+Solution import closure. Metadata validation passed, and licensee 10.0.0
+detected exactly 0BSD. Compilation emitted nonfatal linter messages; a successful
+build is not a claim that the source is warning-free.
 
-The actual strict Comparator accepted all 20 Challenge claims. Both NanoDa and
-Lean's default kernel accepted the exported proofs. Explicit definition bodies
-are recursively compared; there are no permitted definition holes. Challenge's
-intentional theorem holes are excluded from the proved Solution import closure.
-Metadata and license checks passed; licensee 10.0.0 detected exactly 0BSD.
+## Current records
 
-`proof-source-baseline.json` records preserved mathematical source hashes.
-`official-source-snapshot.json` and `official-checks.json` bind the official
-checks to exact source/configuration bytes, actual exits and raw output hashes.
-These receipts summarize checks; they are not themselves proof certificates.
-`standalone-checks.json` records an actual fresh authored build, complete
-statement/axiom audit and metadata validation in a clean checkout while the
-original project path was unavailable. All nine dependency sources were checked
-for exact revisions, unchanged tracked files and contained paths. The complete
-statement output was identical to the official run. The receipt identifies the
-checked commit; `official-source-snapshot.json` identifies the proof and
-configuration bytes shared by these checks.
+- `current-source-snapshot.json` identifies the exact Lean and build/comparison
+  configuration bytes checked by the completed runs.
+- `current-checks.json` records actual exits, timestamps, raw-output hashes and
+  the 35 compared theorem names.
+- `current-fresh-checkout.json` records an actual fresh build of all authored
+  modules while the original project path was unavailable. Only the ordinary
+  dependency cache was reused. All nine dependencies had exact pinned revisions,
+  unchanged tracked sources and contained paths; the full statement output was
+  identical to the official run. The receipt identifies the checked commit and
+  confirms restoration of the original project and dependency cache.
+- `current-semantic-review.json` describes the developing agent's review of the
+  actual definitions and full compared theorem types. It is not independent
+  human review.
+- `current-policy-check.json` records the policy and schema review, including
+  exact project/Mathlib toolchain agreement and the pinned verification tools.
+- `current-final-tree-checks.json` records the post-documentation metadata,
+  license, full coverage-index and authored-tree checks.
+
+The fresh checkout's commit precedes the final documentation and evidence
+updates. Those updates leave every checked Lean and build/comparison
+configuration byte unchanged; final metadata and packaging checks are recorded
+separately. These receipts summarize actual checks and are not proof certificates.
+
+## Historical records
+
+`proof-source-baseline.json` identifies the 182 preserved original proof modules.
+`official-source-snapshot.json`, `official-checks.json`, `standalone-checks.json`
+and `classification-check.json` retain evidence for the earlier 182-module,
+672-declaration, 20-claim development. They certify only their recorded
+snapshots; use the `current-*` records for the completed 287-module development.
 
 Reproduction commands and tool prerequisites are in the main README and pinned
 CI. Each check saves its actual output, exit, timestamps and source snapshots.

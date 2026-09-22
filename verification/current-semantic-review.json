@@ -1,0 +1,20 @@
+{
+  "scope": "Developing-agent review of the actual exported definitions and complete compared theorem types; not independent human review.",
+  "full_statement_output_sha256": "3c9d58eeea4bd28ba8a92f714b2cbecc79cca02b2112de7266c8a6e80c902923",
+  "compared_statement_output_sha256": "3194842b9978afad4579a20b98eb54d58ccc0d34b0fa0295529887987987035e",
+  "reviewed_aspects": [
+    "Exact finite uniform endpoint-one binary model and degree/internal-bit indexing.",
+    "Ordinary rational irreducibility, reciprocal polynomials and exact modulo-four companion event.",
+    "Uniform fixed-factor coefficients and thresholds preceding the factor and degree.",
+    "Signed ordered differences with multiplicities, reflection, finite bounds and real exponential rates.",
+    "Fixed periodic coefficients indexed by degree n modulo a positive period, with uniform arbitrary-order error.",
+    "Explicit A, B and degree-parity coefficient through n^(-3/2), with O(n^(-2)) remainder.",
+    "All inputs in the proved closure are checked; no local-limit or analytic expansion hypothesis is assumed.",
+    "Same positive constants in both factorization probabilities; the remainder is ordinarily irreducible in the integer polynomial ring.",
+    "Cyclotomic products include repeated factors and the empty product; the finite cutoff is uniform in degree and cutoff.",
+    "The strengthened reciprocal event permits cyclotomic factors of the sampled polynomial.",
+    "Conditional sampling and concentration use the actual word law and reciprocal-sum fibers.",
+    "Exact averaging of selected-bit weights and a coarser absolute prime interval prove the same final estimates.",
+    "Phase-retrieval application excluded from the selected scope."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "2026-09-22T12:36:42.666572+00:00",
+  "scope": "Post-review metadata/license validation, full authored-tree inspection, and revalidation of raw official/fresh receipts against unchanged proof sources. No hosted registry execution is claimed.",
+  "checks": {
+    "final-tree-03-metadata": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T12:36:03.846488+00:00",
+      "finished_utc": "2026-09-22T12:36:16.558486+00:00",
+      "output_sha256": "f95860c2818be7e9a0caf52249f955e3cdb296ae3f4500bbf7b7191ce4cc2355"
+    },
+    "final-tree-03-license": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T12:36:20.669499+00:00",
+      "finished_utc": "2026-09-22T12:36:36.455481+00:00",
+      "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
+    }
+  },
+  "reviewed_files_before_this_record": 331,
+  "final_metadata_sha256": "eb988bcd26063278750c2403e74afcfe8a1a94737a8af41bf2483aadcddacd98",
+  "final_readme_sha256": "4ba7d26d7d4de2d770c2516c65d40b9a3a13d1425e1617b60de77c335cad4802",
+  "final_coverage_sha256": "5daba09a22de2b73b316d85eeb499cb1d58df633b7556a2deed61c961d40e548",
+  "final_policy_record_sha256": "62f53e382dd52261b8ce31e3a4ce857e04aceb2bc5a54cc66598c2c504f20225",
+  "full_coverage_index_checked": true,
+  "forbidden_references_absent": true,
+  "proof_configuration_bytes_unchanged": true,
+  "build_scripts_and_ci_unchanged": true,
+  "official_and_fresh_raw_evidence_revalidated": true,
+  "original_and_dependencies_restored": true,
+  "local_markdown_links_resolve": true,
+  "publication_or_registry_result_claimed": false
+}

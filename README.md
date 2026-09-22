@@ -6,12 +6,17 @@ The library proves the irreducibility, cyclotomic factorization, companion,
 counting, and asymptotic results described below, together with their supporting
 probability and arithmetic estimates.
 
-Submission preparation is in progress. The difference-multiset counting results,
-their exponential error bounds, and arbitrary-order periodic half-power
-expansions now have checked proofs, as does the explicit three-term expansion.
-Final submission verification is in progress. The historical build, Comparator,
-kernel-replay and standalone-checkout records certify their recorded snapshots;
-they do not certify the current development tree.
+The development proves a cyclotomic factorization theorem with quantitative
+probability bounds, a square-root bound for the cyclotomic degree, and the strengthened
+reciprocal-divisor estimate. It also proves signed difference-multiset counting
+bounds, an explicit three-term reducibility expansion, and periodic half-power
+expansions to every fixed order. Phase-retrieval applications are
+outside the selected scope.
+
+Local submission checks passed: the complete build and axiom audit, strict
+comparison of 35 independently stated claims, NanoDa and Lean kernel replay,
+metadata and license validation, and a fresh build of all authored modules.
+Exact checked snapshots are recorded in [verification/](verification/).
 The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
@@ -28,8 +33,8 @@ For each natural degree `n >= 1`, choose uniformly from the integer polynomials
 
     1 + p₁ X + ... + pₙ₋₁ Xⁿ⁻¹ + Xⁿ,  with each pᵢ in {0,1}.
 
-There are exactly `2^(n-1)` such polynomials. The irreducibility limit uses the standard predicate after mapping coefficients
-to the rationals. The factorization theorem uses ordinary irreducibility in
+There are exactly `2^(n-1)` such polynomials. The irreducibility limit uses the
+standard predicate after mapping coefficients to the rationals. The factorization theorem uses ordinary irreducibility in
 the integer polynomial ring. The main theorem proves
 that the probability of irreducibility tends to one. More precisely,
 
@@ -50,15 +55,18 @@ uniform polynomial model.
 The first probability difference is nonnegative for every `n >= 2`, and one
 positive constant bounds it by `C/n` beyond one natural threshold.
 
-For every degree n>=3, one pair of absolute positive constants c,C gives
+For every degree `n>=3`, one pair of absolute positive constants `c,C` gives
 probability at least `1-C*exp(-c*n/(log n)^4)` of a cyclotomic product times
 one irreducible noncyclotomic integer polynomial. With probability at least
 `1-C*exp(-c*sqrt(n))`, the cyclotomic part has degree at most `sqrt(n)`.
 Repeated cyclotomic factors and the empty product are included.
 
-The strengthened reciprocal-divisor estimate applies to the full sampled
-family, and the finite cutoff estimate is uniform in both degree and cutoff.
-These results are independently specified in [Challenge.lean](Challenge.lean).
+The probability of a monic reciprocal divisor that is not a cyclotomic product
+is at most `C*exp(-c*n/(log n)^4)` for every `n>=3`, over the full sampled family.
+A uniform finite-cutoff version of the factorization theorem gives error at most
+`C*exp(-c*n/(log n)^4)+8*2^(-L/2)` for `n>=3` and `1<=L<=n`, with cyclotomic degree strictly
+less than `L`. These results are independently specified in
+[Challenge.lean](Challenge.lean).
 
 The third main theorem bounds the probability of a binary polynomial `Q` of
 the same degree, distinct from `P` and its reciprocal, having the same
@@ -119,14 +127,16 @@ large degree threshold, both independent of the factor. Its exponential rate is
 degree, root-separation and quantitative Mahler assumptions are all discharged.
 The final versions include sign, nonmonic and impossible-divisibility cases.
 
-Lemma 3.2 retains the exact finite bound
+An auxiliary estimate retains the exact finite bound
 `exp(4*L^2-a*n/(log n)^4) + 6*2^(-L/2)` for every natural cutoff `L` and all
 sufficiently large `n`. Its normalized internal event is a nonconstant monic reciprocal divisor
 *together with absence of a cyclotomic divisor of the original polynomial*.
 The cutoff proof permits every real `A>0` in `O_A(n^(-A))`.
 `hasLargeReciprocalIntegerDivisor_iff` proves equivalence with unrestricted
-reciprocal integer divisors of a monic polynomial. The two independently
-compared Lemma 3.2 estimates use unrestricted witnesses explicitly.
+reciprocal integer divisors of a monic polynomial. The independently
+compared auxiliary estimates use unrestricted witnesses explicitly. The
+reciprocal-divisor tail in Lemma 3.2 is also stated directly for actual integer
+divisors, with coefficient eight.
 
 The arithmetic input is proved internally. In particular,
 `exists_uniform_quantitative_log_mahler_bound` gives one absolute `c>0` and
@@ -156,11 +166,13 @@ module. Supporting lemmas are separated by mathematical purpose:
 - `LinearAlgebra/`: Hasse/confluent Vandermonde matrices, repeated-node counts,
   determinant identities and upper/lower bounds.
 - `Analysis/`: Mahler measure, quantitative determinant parameters, logarithmic
-  scales, real-power estimates and cutoff arguments.
+  scales, Fourier integrals, lattice Gaussian estimates and periodic expansions.
+- `Combinatorics/`: reflection orbits and exact difference-multiset counts.
 - `Reducibility/`: canonical rational reducibility, factor alternatives and
   finite event reductions.
-- `Asymptotics/`: the cyclotomic and noncyclotomic rates, parity combination,
-  sharp reducibility asymptotics and irreducibility limit.
+- `Asymptotics/`: cyclotomic and noncyclotomic rates, difference-multiset error
+  bounds, explicit and arbitrary-order reducibility expansions, and the
+  irreducibility limit.
 
 A useful dependency order is:
 
@@ -176,7 +188,15 @@ A useful dependency order is:
    `ReciprocalNoncyclotomicFiniteBound`, followed by the cutoff asymptotics.
 6. Read the cyclotomic concentration/range modules and `Asymptotics/HigherCyclotomic`.
 7. Read `Probability/MinusOne` and the parity/asymptotic modules, then
-   `Asymptotics/Reducibility` for the final conclusions.
+   `Asymptotics/Reducibility` for the leading asymptotic and irreducibility limit.
+8. Follow `Polynomial/DifferenceMultiset`, `SetReflection` and
+   `Combinatorics/DifferenceMultisetCount` to the difference-multiset asymptotics.
+9. Follow the finite cyclotomic approximations, remainder coordinates and lattice
+   integral expansions to `Asymptotics/ReducibilityExpansion` and
+   `Asymptotics/ExplicitReducibilityExpansion` for the finer probability estimates.
+10. Follow `Polynomial/PairedWordSumFibers` and `Probability/ReciprocalSumDivisors`
+    to `Probability/NoncyclotomicReciprocalDivisor`, then the cyclotomic remainder
+    and cutoff arguments to `Reducibility/CyclotomicIrreducibleProbability`.
 
 ## Independent statement and submission files
 
@@ -208,13 +228,20 @@ lake env lean Verification.lean
 ```
 
 [Verification.lean](Verification.lean) prints all 1056 proved declarations,
-136 definitions or structures, and the complete theorem axiom lists. The current
-development check passed with only `propext`, `Classical.choice`, and `Quot.sound`.
-Metadata, license-file integrity, import isolation, and preservation of the
-182 original proof modules passed structural validation. The final official
-build, strict comparison, proof replays, license detection, and fresh-checkout
-verification remain to be run for the completed submission. Records in
-[verification/](verification/) document historical snapshots.
+136 definitions or structures, and the complete theorem axiom lists. The complete
+build and audit passed with only `propext`, `Classical.choice`, and `Quot.sound`.
+The actual strict Comparator accepted all 35 Challenge claims; both NanoDa and
+Lean's default kernel accepted their proofs. Metadata, license detection,
+Challenge import isolation, and preservation of all 182 original proof modules
+passed their checks.
+
+A clean committed checkout compiled all 287 authored modules afresh while the
+original project path was unavailable. It reused only the recorded dependency
+cache, with all nine dependency revisions and source trees checked. Its complete
+statement output matched the reviewed official output byte for byte. The
+original project and its dependency cache were restored afterward.
+[verification/](verification/) distinguishes current evidence from historical
+records and identifies the exact checked proof and configuration bytes.
 
 To reproduce the final checks after resolving the pinned dependencies:
 
