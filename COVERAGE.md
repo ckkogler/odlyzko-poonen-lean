@@ -4,8 +4,10 @@ The library contains 1057 proved declarations and 136 definitions or
 structures in 288 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
 periodic half-power expansions and the explicit coefficients through degree
 minus three halves, including their parity correction, are proved. The complete
-verification of the revised Challenge is in progress. Historical checks retain
-their exact scope in [Verification evidence](verification/README.md).
+build, statement/axiom audit, strict comparison and both kernel replays passed.
+An independent checkout compiled all authored modules afresh and reproduced the
+full statement output. [Verification evidence](verification/README.md) identifies
+the exact checked snapshots and keeps historical records separate.
 Phase-retrieval applications are outside the selected scope.
 
 ## Challenge claims

@@ -1,0 +1,122 @@
+{
+  "checked_utc": "2026-09-22T12:29:06.989740+00:00",
+  "scope": "Current public policy/schema/tool profiles from the recorded September 22 review, reused for unchanged requirements and pins; revised authored packaging assessed separately. No hosted registry execution claimed.",
+  "schema_identical_to_contained": true,
+  "supported_minimum": "v4.28.0",
+  "project_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "trusted_tools": {
+    "comparator_commit": "575674928e239f5bc452aab72d1dd7b0f1326494",
+    "landrun_commit": "811cfff51ceaf3d9843708aa6d22e9b84ccac8b4",
+    "nanoda_commit": "68d5ca9db226849b41a6fff59d796ff19d0a8840",
+    "lean4export": "release derived from the submitted Lean toolchain"
+  },
+  "challenge_lines": 153,
+  "challenge_bytes": 7541,
+  "challenge_hard_limit_lines": 1000,
+  "challenge_hard_limit_bytes": 102400,
+  "mathlib_allowlisted": true,
+  "metadata_check": "validate_palomar.py passed against identical current v0.4 schema",
+  "review_notes": [
+    "Single root project, ordinary git-pinned Mathlib closure, no submodule or LFS inputs.",
+    "Challenge imports Mathlib only and uses explicit definitions; isolated theorem placeholders are expected.",
+    "No human review or hosted CI/registry success is asserted.",
+    "The September 21 policy adds an explicit exact project/Mathlib toolchain match. Both are leanprover/lean4:v4.34.0-rc2; the submission validator now enforces this current requirement.",
+    "September 22 recheck: submission instructions, policy, schema, toolchain support, repository allowlist and trusted verifier pins are byte-identical to the prior review. The registry runner changed its confinement and resource supervision to bubblewrap and a cgroup supervisor; this does not change the stated local proof checks. No execution of the hosted registry runner is claimed.",
+    "The revised Challenge has 153 lines and 7541 bytes, within the preferred and hard limits; it states three main theorems and three preliminary model lemmas.",
+    "Actual strict comparison and both required kernel replays accepted all six selected declarations.",
+    "All 287 previous proof modules and dependency pins are unchanged; the combined Theorem 1.1 is added in a new proved module.",
+    "CI setup and verifier wrappers now use Lean\u2019s bundled compiler by default and retain explicit caller overrides. The portability correction changes no mathematical source, Lean option, dependency or verifier revision pin, and the corrected workflow passed on its recorded exact commit."
+  ],
+  "project_mathlib_toolchain_exact_match": true,
+  "authored_tree_rechecked_utc": "2026-09-22T16:15:45.242558+00:00",
+  "previous_policy_checked_utc": "2026-09-21T15:14:49.528002+00:00",
+  "public_sources": [
+    {
+      "url": "https://palomar-registry.org/how-to-submit",
+      "sha256": "abdec0d6f7476d974f8f82f07021f3ca01c15af654664a919f464f14d7ae476f",
+      "bytes": 23141,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarPolicy/main/CONTRIBUTING.md",
+      "sha256": "b0be0aca31d7c50901e6a724e89639724b67e68441550a6dac3ffed05c5392d5",
+      "bytes": 56600,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/verification-profile.json",
+      "sha256": "4131827553c344dc2bd49853ed3c1e651cdf74c5fb9cb2034ad90a38b9385c99",
+      "bytes": 902,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/formalization-profile.json",
+      "sha256": "d695b838bbab69236f6e43afda6bd4d719a91099412351f89c3c2cfeb26d5131",
+      "bytes": 2847,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/toolchains.json",
+      "sha256": "b9b749bd4c0c3fb485cbf53870d8fb791ae0e3e071db611b9ea6228d1c051bad",
+      "bytes": 50,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/scripts/verify_submission.py",
+      "sha256": "873b06d5cf66f342d717fdeb102c2ed07e07ca3634b038bcf189bc231c9071ab",
+      "bytes": 229079,
+      "unchanged_since_previous": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/v0.4.schema.json",
+      "sha256": "25ff6b25ca4511635aff4443cf20480c15e59dddf19591c730950b442ea54fce",
+      "bytes": 12694,
+      "unchanged_since_previous": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/PalomarRegistry/PalomarSubmission/main/allowed-challenge-repositories.json",
+      "sha256": "bfb114daf5ead308052ccec85b1029aa0c875bebe6eec8f642df57f2ddbd8971",
+      "bytes": 850,
+      "unchanged_since_previous": true
+    }
+  ],
+  "registry_runner_review": {
+    "changed_functions": [
+      "SupervisorLimits",
+      "_cgroup_from_status",
+      "_cgroup_supervised_run",
+      "_classify_confined_result",
+      "_cleanup_phase_cgroup",
+      "_merged_usr_symlinks",
+      "_run_filesystem_confinement_probe",
+      "_supervisor_unavailable",
+      "_systemd_seconds",
+      "_systemd_size",
+      "append_resource_outcome",
+      "build_allowlisted_roots",
+      "bwrap_command",
+      "compile_canonical_challenge",
+      "configure_bwrap",
+      "execute",
+      "get_mathlib_cache",
+      "lake_environment_value",
+      "landrun_command",
+      "lean_header",
+      "lean_source_dependencies",
+      "parser",
+      "sandboxed_run",
+      "supervisor_bootstrap",
+      "supervisor_command",
+      "supervisor_outcome",
+      "system_readable_paths",
+      "systemd_command",
+      "systemd_unit_outcome",
+      "translate_resource_properties",
+      "verify_sandbox_confinement"
+    ],
+    "scope": "Reviewed verifier diff for submission compatibility; changes concern host confinement, resource supervision and associated command arguments, with submission validation rules and proof-tool pins unchanged.",
+    "hosted_runner_executed": false
+  },
+  "challenge_preferred_limit_lines": 300,
+  "challenge_preferred_limit_bytes": 32768
+}

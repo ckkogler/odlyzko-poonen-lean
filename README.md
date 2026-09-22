@@ -14,8 +14,10 @@ expansions to every fixed order. Phase-retrieval applications are
 outside the selected scope.
 
 The Challenge states three main theorems and three preliminary lemmas for the
-finite uniform model. Verification of this compact statement surface is in
-progress; earlier checks are preserved with their exact historical scope.
+finite uniform model. The complete build and axiom audit, strict comparison,
+NanoDa and Lean kernel replay, metadata and license checks, and fresh authored
+checkout build passed. Exact checked snapshots are recorded in
+[verification/](verification/).
 The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
@@ -135,7 +137,8 @@ sufficiently large `n`. Its normalized internal event is a nonconstant monic rec
 *together with absence of a cyclotomic divisor of the original polynomial*.
 The cutoff proof permits every real `A>0` in `O_A(n^(-A))`.
 `hasLargeReciprocalIntegerDivisor_iff` proves equivalence with unrestricted
-reciprocal integer divisors of a monic polynomial. The auxiliary estimates in the library use unrestricted witnesses explicitly. The
+reciprocal integer divisors of a monic polynomial. The auxiliary estimates in
+the library use unrestricted witnesses explicitly. The
 reciprocal-divisor tail in Lemma 3.2 is also stated directly for actual integer
 divisors, with coefficient eight.
 
@@ -207,7 +210,7 @@ model. Theorem 1.1 combines the irreducibility limit and leading reducibility
 asymptotic; Theorem 1.2 gives both cyclotomic factorization bounds; Theorem 1.3
 gives the final modulo-four companion bound. The comparator selects these six
 declarations. Further results remain proved and indexed in the library.
-It imports Mathlib only. [Solution.lean](Solution.lean) imports the proved library
+Challenge imports Mathlib only. [Solution.lean](Solution.lean) imports the proved library
 and excludes the Challenge, whose deliberate theorem placeholders are confined
 to that file. The default build checks both the library and Solution.
 
@@ -233,10 +236,20 @@ lake env lean Verification.lean
 ```
 
 [Verification.lean](Verification.lean) prints all 1057 proved declarations,
-136 definitions or structures, and the complete theorem axiom lists. The
-revised comparison, build and audit are being checked. Earlier successful
-checks apply to their recorded sources; [verification/](verification/) separates
-those records from the current statement surface.
+136 definitions or structures, and the complete theorem axiom lists. The complete
+build and audit passed with only `propext`, `Classical.choice`, and `Quot.sound`.
+The strict Comparator accepted all six Challenge claims; NanoDa and Lean's
+default kernel accepted their exported proofs. Metadata, license detection,
+Challenge import isolation and preservation of all 287 previous proof modules
+passed their checks.
+
+A clean GitHub checkout compiled all 288 authored modules afresh. Only the
+recorded dependency cache was reused; its nine pinned checkout revisions were
+verified. The complete statement output matched the reviewed local output byte
+for byte. The corrected hosted workflow also passed strict comparison and both
+kernel replays using the same mathematical sources.
+[verification/](verification/) identifies the exact checked proof and configuration
+bytes and keeps historical checks separate.
 
 To reproduce the final checks after resolving the pinned dependencies:
 
@@ -254,5 +267,6 @@ python3 scripts/check_official.py local-comparator python3 scripts/verify_paloma
 Use a fresh label for each run to preserve its evidence. Comparator preparation
 requires Git, Go 1.24.0, Rust/Cargo 1.88.0 and the pinned Lean toolchain. License
 detection uses Ruby 3.3.12 and the locked Gemfile (`bundle install` first).
-The pinned CI describes the same prerequisites. No remote CI result or
-registry acceptance is claimed.
+The pinned CI describes the same prerequisites. Recorded local and GitHub
+verification results identify their exact checked sources. Registry acceptance
+is not claimed.

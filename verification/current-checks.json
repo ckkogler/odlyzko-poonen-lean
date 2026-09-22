@@ -1,0 +1,116 @@
+{
+  "recorded_utc": "2026-09-22T16:15:45.171493+00:00",
+  "scope": "Actual local checks of the unchanged mathematical sources, plus successful hosted verification of the recorded compiler-portability update. No registry acceptance or registry-hosted execution is claimed.",
+  "proof_scope": {
+    "modules": 288,
+    "proved_declarations": 1057,
+    "definitions_or_structures": 136,
+    "compared_claims": 6,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "challenge_in_proved_closure": false,
+    "unchecked_proof_shortcuts": false
+  },
+  "checks": {
+    "r3-build-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T14:12:18.754497+00:00",
+      "finished_utc": "2026-09-22T14:39:03.913486+00:00",
+      "output_sha256": "17ed7dd3e0fc3bc05e0df715a7de08bdd1ddb27725801e687eec8c903929e666"
+    },
+    "r3-statements-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T14:39:09.174511+00:00",
+      "finished_utc": "2026-09-22T14:48:51.231522+00:00",
+      "output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef"
+    },
+    "r3-statements-audit-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T14:48:54.213488+00:00",
+      "finished_utc": "2026-09-22T14:49:01.884489+00:00",
+      "output_sha256": "f328c5a58e446f4c137a7e06ff4ae19cf4a1e695adc66105a87114792ecf9120"
+    },
+    "r3-comparator-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T14:49:04.367491+00:00",
+      "finished_utc": "2026-09-22T15:22:58.754487+00:00",
+      "output_sha256": "3831d79a5ade2dee66a74e4ab113c3e12aa483ccfd6a1a5b20f054c83e541a0e"
+    },
+    "r3-metadata-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:23:03.399487+00:00",
+      "finished_utc": "2026-09-22T15:23:14.232490+00:00",
+      "output_sha256": "789db9a599136a8d3b713e0b8ce21fab4d98299f7753c6505bab59a3d21175c7"
+    },
+    "r3-license-01": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:23:16.932484+00:00",
+      "finished_utc": "2026-09-22T15:23:34.519487+00:00",
+      "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
+    }
+  },
+  "compared_theorems": [
+    "OdlyzkoPoonen.mem_binaryFamily_iff",
+    "OdlyzkoPoonen.card_binaryFamily",
+    "OdlyzkoPoonen.binaryProbability_eq_count",
+    "OdlyzkoPoonen.irreducibility_and_reducibility_asymptotic",
+    "OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability",
+    "OdlyzkoPoonen.mod_four_companion_probability_le"
+  ],
+  "full_statement_output_matches_semantic_review": true,
+  "hosted_verification": {
+    "recorded_utc": "2026-09-22T16:04:24.626968+00:00",
+    "commit": "b8605a6f2db51d996f8b73ba1984d5f904ca1f33",
+    "workflow_run": 35750071172,
+    "url": "https://github.com/ckkogler/odlyzko-poonen-lean/actions/runs/35750071172",
+    "whole_workflow_conclusion": "success",
+    "freshly_compiled_modules": 290,
+    "protected_source_count": 296,
+    "all_protected_sources_identical": true,
+    "full_statement_output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef",
+    "axiom_lists": 1057,
+    "compared_theorems": [
+      "OdlyzkoPoonen.mem_binaryFamily_iff",
+      "OdlyzkoPoonen.card_binaryFamily",
+      "OdlyzkoPoonen.binaryProbability_eq_count",
+      "OdlyzkoPoonen.irreducibility_and_reducibility_asymptotic",
+      "OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability",
+      "OdlyzkoPoonen.mod_four_companion_probability_le"
+    ],
+    "metadata_step": {
+      "actual_conclusion": "success",
+      "started_utc": "2026-09-22T15:57:44Z",
+      "finished_utc": "2026-09-22T15:57:49Z"
+    },
+    "full_workflow_log_sha256": "a7b26c5376308ec184992eadf8ae08419b2c364d34ed1ff71923f94f9f2def31",
+    "checks": {
+      "ci-build": {
+        "actual_exit": 0,
+        "started_utc": "2026-09-22T15:53:03.615916+00:00",
+        "finished_utc": "2026-09-22T15:57:38.024009+00:00",
+        "output_sha256": "f3eec0d11c5ba3209ed6b00670f199116d859f5c41ca70790532b435dc899a18"
+      },
+      "ci-statements": {
+        "actual_exit": 0,
+        "started_utc": "2026-09-22T15:57:38.114494+00:00",
+        "finished_utc": "2026-09-22T15:57:43.963962+00:00",
+        "output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef"
+      },
+      "ci-license": {
+        "actual_exit": 0,
+        "started_utc": "2026-09-22T15:57:53.306450+00:00",
+        "finished_utc": "2026-09-22T15:57:53.668720+00:00",
+        "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
+      },
+      "ci-comparator": {
+        "actual_exit": 0,
+        "started_utc": "2026-09-22T15:58:09.973658+00:00",
+        "finished_utc": "2026-09-22T16:02:30.254345+00:00",
+        "output_sha256": "75ebc1316da4d96a409a62ff1374b2430985d38b933f7c02f655971db9db9547"
+      }
+    }
+  }
+}

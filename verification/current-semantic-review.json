@@ -1,0 +1,31 @@
+{
+  "full_statement_output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef",
+  "compared_statement_output_sha256": "8457a07e085592958200934fd093557684c7444e2a3a5b78778c6028bf0363c4",
+  "checked_source_snapshot_sha256": "c284f62760dd3c78cb4d91b70f60db02c962bcfc3fc9ac90d37edcd81ac4f69d",
+  "compared_theorems": [
+    "OdlyzkoPoonen.mem_binaryFamily_iff",
+    "OdlyzkoPoonen.card_binaryFamily",
+    "OdlyzkoPoonen.binaryProbability_eq_count",
+    "OdlyzkoPoonen.irreducibility_and_reducibility_asymptotic",
+    "OdlyzkoPoonen.cyclotomic_irreducible_factorization_probability",
+    "OdlyzkoPoonen.mod_four_companion_probability_le"
+  ],
+  "retained_statement_output_identical": true,
+  "previous_reviewed_output_sha256": "3c9d58eeea4bd28ba8a92f714b2cbecc79cca02b2112de7266c8a6e80c902923",
+  "scope": "Developing-agent review of actual printed theorem types and explicit Challenge definitions, matched byte for byte to the official full statement audit. The retained 1056 proof statements/axiom lists and 136 definitions are identical to the previous reviewed output. This is not independent human review.",
+  "reviewed_utc": "2026-09-22T14:27:34.458605+00:00",
+  "new_combined_type_reviewed": true,
+  "reviewed_aspects": [
+    "The three preliminary lemmas identify exactly the monic endpoint-one binary polynomial family, cardinality 2^m, and uniform event count divided by 2^m.",
+    "Theorem 1.1 conjoins rational irreducibility tending to probability one with reducibility minus sqrt(2/(pi*n)) being O(1/n), in the same n-1 internal-bit model.",
+    "Theorem 1.2 quantifies one positive pair c,C before every n>=3 and uses that same pair in both the logarithmic-exponential factorization bound and square-root cyclotomic-degree bound.",
+    "The cyclotomic product is a finite list product of positive-order cyclotomic polynomials, with multiplicities and the empty product; the remainder is ordinarily irreducible over the integers and has no cyclotomic divisor.",
+    "Theorem 1.3 quantifies every n>=1 and bounds the genuine degree-n endpoint-one binary companion event by 8*(3/4)^floor((n-1)/4).",
+    "The companion is distinct from the sampled polynomial and its reciprocal, and its reciprocal product agrees coefficientwise modulo four; no companion or nonreciprocity hypothesis is added to the sampled polynomial.",
+    "All 17 Challenge definitions are necessary for the model or one of the three theorem events. The probability law is explicit and no definitions contain holes.",
+    "Natural-number division represents floors; logarithms and square roots are real; Big-O has a uniform eventual constant and degree-zero total extensions do not change asymptotics.",
+    "The full library retains the previously reviewed proof statements and selected mathematical scope; the new wrapper only combines two existing conclusions.",
+    "Phase retrieval remains excluded. This is an agent review, not independent human review."
+  ],
+  "development_compared_output_sha256": "6ac697773d47672a4ed6eeb88a6517affa34f003506bd6139fb04a8a6afc6678"
+}

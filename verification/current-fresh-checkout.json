@@ -1,0 +1,65 @@
+{
+  "finished_utc": "2026-09-22T16:02:30.254345+00:00",
+  "commit": "b8605a6f2db51d996f8b73ba1984d5f904ca1f33",
+  "tracked_files": 333,
+  "execution_environment": "GitHub-hosted Ubuntu 24.04 runner",
+  "workflow_run": 35750071172,
+  "workflow_url": "https://github.com/ckkogler/odlyzko-poonen-lean/actions/runs/35750071172",
+  "fresh_authored_compilation": true,
+  "freshly_compiled_modules": 290,
+  "proof_modules": 288,
+  "original_path_absent_during_checks": true,
+  "contained_exact_dependencies": true,
+  "default_build_exit": 0,
+  "statements_exit": 0,
+  "axiom_audit_exit": 0,
+  "metadata_step_conclusion": "success",
+  "statement_output_identical": true,
+  "original_and_dependencies_restored": true,
+  "full_statement_output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef",
+  "dependency_pins": {
+    "mathlib": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+    "plausible": "d9598f07b1bc701f1e3aae163d2681c1fd978793",
+    "LeanSearchClient": "ba67e212be1197b84c1f1f6299488a10a3002713",
+    "importGraph": "d8823026ac7ef130c253089d95685f9877b95323",
+    "proofwidgets": "a8acbfd87375ff4abe14ce09db5b7664d383bc7f",
+    "aesop": "18889deb9e83ea7420ef51c160d6f88552e744e3",
+    "Qq": "507746ab8f4b643ccdacb2ec4cdb5853fa9f8ab3",
+    "batteries": "d54dddc581e08be364c278052863524bff7a99a9",
+    "Cli": "ab3a82db9fea14cf0fd7f5a2de650f4b534640af"
+  },
+  "dependency_cache_provenance": {
+    "source_workflow_run": 35748541025,
+    "source_checkout_cache_miss": true,
+    "source_log_sha256": "f1fc022e69a37b91c2d26cea85bf09b5f9f92143bb3d99ffc793000d0b84249d",
+    "cache_saved_before_authored_compilation": true,
+    "all_pinned_dependency_revisions_checked_at_clone": true
+  },
+  "checks": {
+    "ci-build": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:53:03.615916+00:00",
+      "finished_utc": "2026-09-22T15:57:38.024009+00:00",
+      "output_sha256": "f3eec0d11c5ba3209ed6b00670f199116d859f5c41ca70790532b435dc899a18"
+    },
+    "ci-statements": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:57:38.114494+00:00",
+      "finished_utc": "2026-09-22T15:57:43.963962+00:00",
+      "output_sha256": "a1b6afd0afc43edfb9bac56f4203387a3d210767f1d7fd1de2809c3e0f5806ef"
+    },
+    "ci-license": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:57:53.306450+00:00",
+      "finished_utc": "2026-09-22T15:57:53.668720+00:00",
+      "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
+    },
+    "ci-comparator": {
+      "actual_exit": 0,
+      "started_utc": "2026-09-22T15:58:09.973658+00:00",
+      "finished_utc": "2026-09-22T16:02:30.254345+00:00",
+      "output_sha256": "75ebc1316da4d96a409a62ff1374b2430985d38b933f7c02f655971db9db9547"
+    }
+  },
+  "scope": "Independent hosted checkout freshly compiled every authored Lean module; only the recorded pinned dependency cache was reused. Complete statement output matched the reviewed local output, and the actual Comparator and both kernels passed."
+}

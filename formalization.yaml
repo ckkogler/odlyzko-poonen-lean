@@ -92,8 +92,10 @@ status:
     three-term expansion, and periodic half-power expansions to every fixed order.
     All selected mathematical targets are proved; the phase-retrieval application
     is outside the selected scope. Challenge states three main theorems and three
-    preliminary model lemmas. Verification of the revised comparison is in
-    progress; earlier successful checks retain their exact historical scope.
+    preliminary model lemmas. The complete default build, all statement and axiom
+    checks, strict comparison of six claims, NanoDa and Lean kernel replays,
+    metadata and license validation, and fresh authored checkout build passed.
+    Exact checked snapshots are recorded in verification/.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -142,9 +144,13 @@ review:
     The developing agent inspected definitions, finite-model indexing, quantifier
     order, constants, floors, real exponents and uniformity of asymptotic errors.
     The comparison now selects three main theorems and three preliminary model
-    lemmas. Verification of the revised sources is in progress. Historical
-    receipts retain their own exact scope. There is no separate human review,
-    registry acceptance, or remote CI result.
+    lemmas. Their actual full types and explicit definitions were reviewed, and
+    the strict Comparator and both required kernel replays accepted all six.
+    The fresh authored checkout reproduced the full statement output. Current
+    evidence identifies exact checked sources; historical receipts retain their
+    own scope. Recorded GitHub verification covers the compiler-portability
+    update and the same mathematical sources. There is no separate human review
+    or registry acceptance.
 alignment:
   namespace: OdlyzkoPoonen
   coverage_index: COVERAGE.md
