@@ -13,10 +13,9 @@ bounds, an explicit three-term reducibility expansion, and periodic half-power
 expansions to every fixed order. Phase-retrieval applications are
 outside the selected scope.
 
-Local submission checks passed: the complete build and axiom audit, strict
-comparison of 35 independently stated claims, NanoDa and Lean kernel replay,
-metadata and license validation, and a fresh build of all authored modules.
-Exact checked snapshots are recorded in [verification/](verification/).
+The Challenge states three main theorems and three preliminary lemmas for the
+finite uniform model. Verification of this compact statement surface is in
+progress; earlier checks are preserved with their exact historical scope.
 The repository has not been published or registered.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
@@ -65,10 +64,11 @@ The probability of a monic reciprocal divisor that is not a cyclotomic product
 is at most `C*exp(-c*n/(log n)^4)` for every `n>=3`, over the full sampled family.
 A uniform finite-cutoff version of the factorization theorem gives error at most
 `C*exp(-c*n/(log n)^4)+8*2^(-L/2)` for `n>=3` and `1<=L<=n`, with cyclotomic degree strictly
-less than `L`. These results are independently specified in
-[Challenge.lean](Challenge.lean).
+less than `L`. The factorization bounds are independently stated in
+[Challenge.lean](Challenge.lean); the reciprocal-divisor and finite-cutoff estimates
+are also proved in the library.
 
-The third main theorem bounds the probability of a binary polynomial `Q` of
+Theorem 1.3 bounds the probability of a binary polynomial `Q` of
 the same degree, distinct from `P` and its reciprocal, having the same
 coefficientwise autocorrelation modulo four:
 
@@ -92,6 +92,7 @@ All declarations below are in namespace `OdlyzkoPoonen`.
 
 | Result | Principal declaration | Module |
 | --- | --- | --- |
+| Theorem 1.1, combined statement | `irreducibility_and_reducibility_asymptotic` | `MainResults` |
 | Theorem 1.1, irreducibility limit | `odlyzko_poonen_irreducibility` | `Asymptotics/Reducibility` |
 | Theorem 1.1, excess over minus-one event | `binaryProbability_reducible_excess_isBigO` | `Asymptotics/Reducibility` |
 | Nonnegative excess with a uniform coefficient | `exists_reducible_probability_excess_bound` | `Asymptotics/Reducibility` |
@@ -100,7 +101,8 @@ All declarations below are in namespace `OdlyzkoPoonen`.
 | Uniform finite cutoff for the cyclotomic degree | `cyclotomic_irreducible_factorization_cutoff_probability` | `Reducibility/CyclotomicCutoffProbability` |
 | Proposition 3.3, strengthened reciprocal-divisor bound | `noncyclotomic_reciprocal_divisor_probability` | `Probability/NoncyclotomicReciprocalDivisor` |
 | Lemma 3.2, actual reciprocal integer-divisor tail | `binaryProbability_large_reciprocal_divisor_le_eight` | `Probability/ReciprocalDivisorTail` |
-| Theorem 1.3, both exact inequalities | `mod_four_companion_probability` | `ModFour/CompanionProbability` |
+| Theorem 1.3, final probability bound | `mod_four_companion_probability_le` | `ModFour/CompanionProbability` |
+| Companion degree-split estimate | `mod_four_companion_probability` | `ModFour/CompanionProbability` |
 | Proposition 2.1, independent factor-pair probability | `factor_pair_congruence_probability` | `ModFour/FactorProbability` |
 | (2.1), fresh-bit toggle | `autocorrelationDiscrepancy_togglePair` | `ModFour/ExposureToggle` |
 | (2.2), conditional fiber bound | `paired_discrepancies_zero_fiber_probability_le` | `ModFour/FiberEstimate` |
@@ -133,8 +135,7 @@ sufficiently large `n`. Its normalized internal event is a nonconstant monic rec
 *together with absence of a cyclotomic divisor of the original polynomial*.
 The cutoff proof permits every real `A>0` in `O_A(n^(-A))`.
 `hasLargeReciprocalIntegerDivisor_iff` proves equivalence with unrestricted
-reciprocal integer divisors of a monic polynomial. The independently
-compared auxiliary estimates use unrestricted witnesses explicitly. The
+reciprocal integer divisors of a monic polynomial. The auxiliary estimates in the library use unrestricted witnesses explicitly. The
 reciprocal-divisor tail in Lemma 3.2 is also stated directly for actual integer
 divisors, with coefficient eight.
 
@@ -200,13 +201,17 @@ A useful dependency order is:
 
 ## Independent statement and submission files
 
-[Challenge.lean](Challenge.lean) independently specifies 35 claims, with explicit
-definitions and explanations of the mathematical statements.
+[Challenge.lean](Challenge.lean) states three main theorems, preceded by explicit
+definitions and three preliminary lemmas identifying the finite probability
+model. Theorem 1.1 combines the irreducibility limit and leading reducibility
+asymptotic; Theorem 1.2 gives both cyclotomic factorization bounds; Theorem 1.3
+gives the final modulo-four companion bound. The comparator selects these six
+declarations. Further results remain proved and indexed in the library.
 It imports Mathlib only. [Solution.lean](Solution.lean) imports the proved library
 and excludes the Challenge, whose deliberate theorem placeholders are confined
 to that file. The default build checks both the library and Solution.
 
-[COVERAGE.md](COVERAGE.md) indexes all 1056 proof
+[COVERAGE.md](COVERAGE.md) indexes all 1057 proof
 declarations and 136 definitions or structures. [formalization.yaml](formalization.yaml) records
 attribution, source relationships, AI assistance, review status and scope.
 The mathematical work is attributed to Constantin Kogler. No public identifier,
@@ -227,21 +232,11 @@ lake build
 lake env lean Verification.lean
 ```
 
-[Verification.lean](Verification.lean) prints all 1056 proved declarations,
-136 definitions or structures, and the complete theorem axiom lists. The complete
-build and audit passed with only `propext`, `Classical.choice`, and `Quot.sound`.
-The actual strict Comparator accepted all 35 Challenge claims; both NanoDa and
-Lean's default kernel accepted their proofs. Metadata, license detection,
-Challenge import isolation, and preservation of all 182 original proof modules
-passed their checks.
-
-A clean committed checkout compiled all 287 authored modules afresh while the
-original project path was unavailable. It reused only the recorded dependency
-cache, with all nine dependency revisions and source trees checked. Its complete
-statement output matched the reviewed official output byte for byte. The
-original project and its dependency cache were restored afterward.
-[verification/](verification/) distinguishes current evidence from historical
-records and identifies the exact checked proof and configuration bytes.
+[Verification.lean](Verification.lean) prints all 1057 proved declarations,
+136 definitions or structures, and the complete theorem axiom lists. The
+revised comparison, build and audit are being checked. Earlier successful
+checks apply to their recorded sources; [verification/](verification/) separates
+those records from the current statement surface.
 
 To reproduce the final checks after resolving the pinned dependencies:
 

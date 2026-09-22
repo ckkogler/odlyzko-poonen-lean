@@ -140,6 +140,7 @@ set_option pp.proofs false
 #print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartWithDegree
 #print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPart
 #print OdlyzkoPoonen.HasIrreducibleNoncyclotomicPartBelow
+
 #print OdlyzkoPoonen.nat_affine_tendsto
 #print axioms OdlyzkoPoonen.nat_affine_tendsto
 #print OdlyzkoPoonen.nat_affine_rpow_isTheta
@@ -1162,6 +1163,8 @@ set_option pp.proofs false
 #print axioms OdlyzkoPoonen.option_symmetric_prod_lower
 #print OdlyzkoPoonen.prod_symmetric_eq_lower_sq
 #print axioms OdlyzkoPoonen.prod_symmetric_eq_lower_sq
+#print OdlyzkoPoonen.irreducibility_and_reducibility_asymptotic
+#print axioms OdlyzkoPoonen.irreducibility_and_reducibility_asymptotic
 #print OdlyzkoPoonen.companion_split_sum_eq_Icc
 #print axioms OdlyzkoPoonen.companion_split_sum_eq_Icc
 #print OdlyzkoPoonen.mod_four_companion_probability

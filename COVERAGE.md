@@ -1,58 +1,29 @@
 # Mathematical coverage
 
-The library contains 1056 proved declarations and 136 definitions or
-structures in 287 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
+The library contains 1057 proved declarations and 136 definitions or
+structures in 288 modules. All names are in `OdlyzkoPoonen`. Arbitrary-order
 periodic half-power expansions and the explicit coefficients through degree
 minus three halves, including their parity correction, are proved. The complete
-build, statement/axiom audit, strict comparison and both kernel replays passed.
-An independent checkout compiled all authored modules afresh and reproduced the
-full statement output. [Verification evidence](verification/README.md) identifies
-the checked snapshots and distinguishes them from historical records.
+verification of the revised Challenge is in progress. Historical checks retain
+their exact scope in [Verification evidence](verification/README.md).
 Phase-retrieval applications are outside the selected scope.
 
 ## Challenge claims
 
-[Challenge.lean](Challenge.lean) supplies explicit definitions and independent
-statements. [comparator.json](comparator.json) selects its 35 claims;
-[Solution.lean](Solution.lean) imports the proved library.
+[Challenge.lean](Challenge.lean) states three main theorems, preceded by the
+necessary definitions and three lemmas identifying the finite uniform model.
+[comparator.json](comparator.json) selects exactly these six claims;
+[Solution.lean](Solution.lean) imports the complete proved library. The additional
+results and supporting arguments remain indexed below.
 
 | Claim | Declaration and proof module |
 | --- | --- |
 | Model: the sampled family consists exactly of monic endpoint-one binary polynomials of degree m+1. | [`mem_binaryFamily_iff`](OdlyzkoPoonen/Polynomial/BinaryWords.lean) |
 | Model: precisely 2^m polynomials have m internal binary coefficients. | [`card_binaryFamily`](OdlyzkoPoonen/Polynomial/BinaryWords.lean) |
 | Model: fair independent internal bits give uniform counting on the polynomial family. | [`binaryProbability_eq_count`](OdlyzkoPoonen/Probability/BinaryModel.lean) |
-| Theorem 1.1: the probability of irreducibility over the rationals tends to one. | [`odlyzko_poonen_irreducibility`](OdlyzkoPoonen/Asymptotics/Reducibility.lean) |
-| Theorem 1.1: reducibility differs from the minus-one root event by O(1/n). | [`binaryProbability_reducible_excess_isBigO`](OdlyzkoPoonen/Asymptotics/Reducibility.lean) |
-| Theorem 1.1: one positive constant bounds that nonnegative difference by C/n for all sufficiently large degrees. | [`exists_reducible_probability_excess_bound`](OdlyzkoPoonen/Asymptotics/Reducibility.lean) |
-| Theorem 1.1: the reducibility probability is sqrt(2/(pi*n)) with O(1/n) error. | [`binaryProbability_reducible_asymptotic`](OdlyzkoPoonen/Asymptotics/Reducibility.lean) |
-| Theorem 1.3: the probability of a genuine modulo-four companion is bounded by the exact degree-split sum, itself at most 8*(3/4)^floor((n-1)/4). | [`mod_four_companion_probability`](OdlyzkoPoonen/ModFour/CompanionProbability.lean) |
-| Proposition 2.1: independent uniform degree-d and degree-e endpoint-one polynomials over F2 satisfy the joint nonreciprocity/congruence event with probability at most 2*(3/4)^floor((e-1)/2). | [`factor_pair_congruence_probability`](OdlyzkoPoonen/ModFour/FactorProbability.lean) |
-| Lemma 3.1: reversing either monic integer factor preserves binarity and autocorrelation; the two trivial outcomes occur exactly when the corresponding factor is reciprocal. Both factors have constant one. | [`binary_factor_reversal`](OdlyzkoPoonen/Polynomial/FactorReversal.lean) |
-| Estimate (3.1): the degree of the gcd of the reduction modulo two and its reciprocal has tail at most 8*2^(-L/2). This includes every natural cutoff L. | [`reciprocal_gcd_probability_le_eight`](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean) |
-| Auxiliary fixed-factor estimate: one absolute positive a and threshold work for every degree and every rationally irreducible noncyclotomic integer factor, with rate exp(-a*n/(log n)^4). No monicity assumption is needed. | [`exists_uniform_noncyclotomic_factor_bound`](OdlyzkoPoonen/Probability/NoncyclotomicFactor.lean) |
-| Auxiliary fixed-factor estimate, also with ordinary irreducibility in the integer polynomial ring, including all signs and constant cases. | [`exists_uniform_integer_irreducible_noncyclotomic_factor_bound`](OdlyzkoPoonen/Probability/NoncyclotomicFactor.lean) |
-| Auxiliary finite bound: a nonconstant reciprocal divisor with no cyclotomic divisor of the original polynomial has probability at most exp(4*L^2-a*n/(log n)^4)+8*2^(-L/2), uniformly in L. | [`exists_unrestricted_reciprocal_finite_bound_eight`](OdlyzkoPoonen/Asymptotics/ReciprocalBounds.lean) |
-| Auxiliary estimate: the same reciprocal/noncyclotomic event has probability O_A(n^(-A)) for every real A>0. | [`binaryProbability_unrestricted_reciprocal_noncyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/ReciprocalDivisorNormalization.lean) |
-| Estimate (3.2): reducibility without any cyclotomic divisor has probability O_A(n^(-A)) for every real A>0. | [`binaryProbability_reducible_noncyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/ReducibleNoncyclotomic.lean) |
-| Estimate (3.3): the probability of a cyclotomic factor of degree at least two is O(1/n). | [`binaryProbability_higher_cyclotomic_isBigO`](OdlyzkoPoonen/Asymptotics/HigherCyclotomic.lean) |
-| Exact odd-degree formula: for degree 2r+1 the minus-one root probability is choose(2r,r)/2^(2r), including degree one. | [`binaryProbability_minus_one_odd`](OdlyzkoPoonen/Probability/MinusOne.lean) |
-| Exact even-degree formula: for degree 2r the probability is choose(2r-1,r+1)/2^(2r-1), including the zero value at degree two. | [`binaryProbability_minus_one_even`](OdlyzkoPoonen/Probability/MinusOne.lean) |
-| Minus-one asymptotic: its probability is sqrt(2/(pi*n)) with the stronger O(n^(-3/2)) error. | [`binaryProbability_minus_one_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneAsymptotic.lean) |
-| Signed difference multiplicities are equivalent to reciprocal-product coefficients. | [`differenceMultiset_eq_iff_autocorrelation_eq`](OdlyzkoPoonen/Polynomial/DifferenceMultiset.lean) |
-| Reflection preserves every signed-difference multiplicity. | [`differenceMultiset_reflectedSet`](OdlyzkoPoonen/Polynomial/SetReflection.lean) |
-| Exactly 2^floor(n/2) endpoint-fixed subsets are invariant under reflection. | [`card_reflection_fixed_binarySetFamily`](OdlyzkoPoonen/Polynomial/SetReflection.lean) |
-| Finite lower and upper bounds for distinct signed difference multisets, including degree one. | [`differenceMultisetFamily_card_bounds`](OdlyzkoPoonen/Combinatorics/DifferenceMultisetCount.lean) |
-| The endpoint-fixed count is 2^(n-2) with error O(12^(n/4)), using a real exponent. | [`differenceMultisetFamily_asymptotic`](OdlyzkoPoonen/Asymptotics/DifferenceMultisets.lean) |
-| The free-upper-endpoint count is 2^(n-1) with the same exponential error rate. | [`anchoredDifferenceMultisetFamily_exponential_asymptotic`](OdlyzkoPoonen/Asymptotics/AnchoredDifferenceRate.lean) |
-| The free-upper-endpoint signed-difference count is 2^(n-1)+o(2^n). | [`anchoredDifferenceMultisetFamily_asymptotic`](OdlyzkoPoonen/Asymptotics/AnchoredDifferences.lean) |
-| A fixed finite collection of cyclotomic divisibility events approximates reducibility to every natural inverse power. | [`binaryProbability_reducible_finite_cyclotomic_approximation`](OdlyzkoPoonen/Asymptotics/FiniteCyclotomicApproximation.lean) |
-| The first correction to the minus-one root probability has coefficients -17/4 and 1/4 according to degree parity. | [`binaryProbability_minus_one_first_correction_asymptotic`](OdlyzkoPoonen/Asymptotics/MinusOneExpansion.lean) |
-| The reducibility probability has a half-power expansion to every fixed order, with coefficients depending only on the degree modulo a fixed period. | [`binaryProbability_reducible_periodic_expansion`](OdlyzkoPoonen/Asymptotics/ReducibilityExpansion.lean) |
-| The reducibility probability is A*n^(-1/2)+B*n^(-1)+A*(delta_n-2*B)*n^(-3/2)+O(n^(-2)), with A=sqrt(2/pi), B=4*(1+sqrt(3))/pi and delta_n=-17/4 for even n, 1/4 for odd n. | [`binaryProbability_reducible_three_term_expansion`](OdlyzkoPoonen/Asymptotics/ExplicitReducibilityExpansion.lean) |
-| Theorem 1.2: for every n>=3, the cyclotomic/irreducible factorization has probability at least 1-C*exp(-c*n/(log n)^4); the same factorization with cyclotomic degree at most sqrt(n) has probability at least 1-C*exp(-c*sqrt(n)), using the same absolute positive constants. | [`cyclotomic_irreducible_factorization_probability`](OdlyzkoPoonen/Reducibility/CyclotomicIrreducibleProbability.lean) |
-| Finite cutoff: cyclotomic degree below L, for 1<=L<=n, with logarithmic exponential error plus 8*2^(-L/2). | [`cyclotomic_irreducible_factorization_cutoff_probability`](OdlyzkoPoonen/Reducibility/CyclotomicCutoffProbability.lean) |
-| Proposition 3.3: for every n>=3, the probability of a monic reciprocal divisor that is not a cyclotomic product is at most C*exp(-c*n/(log n)^4), without restricting the sampled polynomial. | [`noncyclotomic_reciprocal_divisor_probability`](OdlyzkoPoonen/Probability/NoncyclotomicReciprocalDivisor.lean) |
-| Lemma 3.2: the probability of any monic reciprocal integer divisor of degree at least L is at most 8*2^(-L/2). | [`binaryProbability_large_reciprocal_divisor_le_eight`](OdlyzkoPoonen/Probability/ReciprocalDivisorTail.lean) |
+| Theorem 1.1: rational irreducibility tends to probability one, and reducibility is sqrt(2/(pi*n)) with O(1/n) error. | [`irreducibility_and_reducibility_asymptotic`](OdlyzkoPoonen/MainResults.lean) |
+| Theorem 1.2: both cyclotomic factorization probability bounds, with the same positive constants for every n>=3. | [`cyclotomic_irreducible_factorization_probability`](OdlyzkoPoonen/Reducibility/CyclotomicIrreducibleProbability.lean) |
+| Theorem 1.3: the probability of a genuine modulo-four reciprocal-product companion is at most 8*(3/4)^floor((n-1)/4), for every n>=1. | [`mod_four_companion_probability_le`](OdlyzkoPoonen/ModFour/CompanionProbability.lean) |
 
 ## Supporting arguments
 
@@ -105,7 +76,8 @@ powers, cyclotomic reciprocity, and the complete cyclotomic degree cutoff.
 
 ## Complete declaration index
 
-[Verification.lean](Verification.lean) prints all declarations and theorem axiom lists.
+[Verification.lean](Verification.lean) prints the declarations and the axiom
+lists of every theorem and lemma. File links identify the actual proofs.
 
 ### [OdlyzkoPoonen.Analysis.AffineHalfPowerExpansion](OdlyzkoPoonen/Analysis/AffineHalfPowerExpansion.lean)
 
@@ -756,6 +728,10 @@ Proved declarations: `option_symmetric_prod_lower`.
 ### [OdlyzkoPoonen.LinearAlgebra.SymmetricProducts](OdlyzkoPoonen/LinearAlgebra/SymmetricProducts.lean)
 
 Proved declarations: `prod_symmetric_eq_lower_sq`.
+
+### [OdlyzkoPoonen.MainResults](OdlyzkoPoonen/MainResults.lean)
+
+Proved declarations: `irreducibility_and_reducibility_asymptotic`.
 
 ### [OdlyzkoPoonen.ModFour.CompanionProbability](OdlyzkoPoonen/ModFour/CompanionProbability.lean)
 
