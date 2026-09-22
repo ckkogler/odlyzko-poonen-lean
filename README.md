@@ -18,7 +18,8 @@ finite uniform model. The complete build and axiom audit, strict comparison,
 NanoDa and Lean kernel replay, metadata and license checks, and fresh authored
 checkout build passed. Exact checked snapshots are recorded in
 [verification/](verification/).
-The repository has not been published or registered.
+The repository is [public on GitHub](https://github.com/ckkogler/odlyzko-poonen-lean).
+It has not been submitted to or registered with Palomar.
 
 Formalization author and responsible maintainer: Constantin Kogler. Original
 code and documentation use [0BSD](LICENSE). The mathematical work,

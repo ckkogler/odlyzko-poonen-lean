@@ -1,25 +1,25 @@
 {
-  "recorded_utc": "2026-09-22T16:16:41.886573+00:00",
+  "recorded_utc": "2026-09-22T16:23:09.376233+00:00",
   "scope": "Post-documentation metadata/license validation, complete authored-tree inspection, and exact-source revalidation of actual official and fresh-build evidence. No hosted registry execution claimed.",
   "checks": {
-    "r3-final-tree-01-metadata": {
+    "r3-final-tree-02-metadata": {
       "actual_exit": 0,
-      "started_utc": "2026-09-22T16:16:03.619484+00:00",
-      "finished_utc": "2026-09-22T16:16:15.451490+00:00",
+      "started_utc": "2026-09-22T16:23:06.992823+00:00",
+      "finished_utc": "2026-09-22T16:23:07.699318+00:00",
       "output_sha256": "789db9a599136a8d3b713e0b8ce21fab4d98299f7753c6505bab59a3d21175c7"
     },
-    "r3-final-tree-01-license": {
+    "r3-final-tree-02-license": {
       "actual_exit": 0,
-      "started_utc": "2026-09-22T16:16:19.449499+00:00",
-      "finished_utc": "2026-09-22T16:16:35.301492+00:00",
+      "started_utc": "2026-09-22T16:23:07.940187+00:00",
+      "finished_utc": "2026-09-22T16:23:09.009337+00:00",
       "output_sha256": "b0926ef3d9f1f7cc134876efd3438e4f6a7fc396ddf59a84ae248287d3920e50"
     }
   },
-  "reviewed_files_before_this_record": 338,
+  "reviewed_files_before_this_record": 339,
   "final_metadata_sha256": "234f1d5e7988b9c40b345e021b9b7586d17bf4f1f8cc885fcaffe3aeb98a5285",
-  "final_readme_sha256": "9fcde5eb6ee8e3903d4c64f357ea5f5536d3ca9397dbf51d559b81c4eeaf55d3",
+  "final_readme_sha256": "437d5e7855dcc25009b9479c259c077224b8227f497fafa0027b8991a0ffc0fb",
   "final_coverage_sha256": "1fbb2d6cc237281d3d601937e8371cdd8154abb7f9ad690b6a73989d16522ad1",
-  "final_policy_record_sha256": "78682de7719d0e47a45e45d2c1bfa8551fcdfd8885eeb988b7097400ee472f4a",
+  "final_policy_record_sha256": "32179bf70921c6d748aa2c44bd18ff3216ad43f47ede5b22075d8029fb490614",
   "exact_requested_title": true,
   "three_main_theorems_and_three_model_lemmas": true,
   "full_coverage_index_checked": true,
@@ -37,5 +37,6 @@
   "official_and_fresh_raw_evidence_revalidated": true,
   "original_and_dependencies_restored": true,
   "local_markdown_links_resolve": true,
-  "publication_or_registry_result_claimed": false
+  "public_github_repository": "https://github.com/ckkogler/odlyzko-poonen-lean",
+  "registry_submission_or_acceptance_claimed": false
 }

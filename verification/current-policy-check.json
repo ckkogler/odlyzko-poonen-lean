@@ -19,7 +19,7 @@
   "review_notes": [
     "Single root project, ordinary git-pinned Mathlib closure, no submodule or LFS inputs.",
     "Challenge imports Mathlib only and uses explicit definitions; isolated theorem placeholders are expected.",
-    "No human review or hosted CI/registry success is asserted.",
+    "No independent human review or registry acceptance is claimed. Actual hosted CI results are recorded separately in current-checks.json.",
     "The September 21 policy adds an explicit exact project/Mathlib toolchain match. Both are leanprover/lean4:v4.34.0-rc2; the submission validator now enforces this current requirement.",
     "September 22 recheck: submission instructions, policy, schema, toolchain support, repository allowlist and trusted verifier pins are byte-identical to the prior review. The registry runner changed its confinement and resource supervision to bubblewrap and a cgroup supervisor; this does not change the stated local proof checks. No execution of the hosted registry runner is claimed.",
     "The revised Challenge has 153 lines and 7541 bytes, within the preferred and hard limits; it states three main theorems and three preliminary model lemmas.",
