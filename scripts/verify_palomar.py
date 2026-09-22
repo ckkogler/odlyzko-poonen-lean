@@ -28,8 +28,8 @@ assert '/tmp/' not in str(prefix.resolve())
 certificates = [env.get('CURL_CA_BUNDLE', ''), '/etc/pki/tls/certs/ca-bundle.crt',
                 '/etc/ssl/certs/ca-certificates.crt']
 certificate = next(x for x in certificates if x and Path(x).is_file())
-env.update(LEAN_CC='/usr/bin/gcc', LIBRARY_PATH=str(prefix / 'lib'),
-           CURL_CA_BUNDLE=certificate, SSL_CERT_FILE=certificate, CARGO_HTTP_CAINFO=certificate)
+# Use Lean's bundled compiler by default; retain explicit caller overrides.
+env.update(CURL_CA_BUNDLE=certificate, SSL_CERT_FILE=certificate, CARGO_HTTP_CAINFO=certificate)
 local_go = Path.home() / '.local/share/lpselfsimilar-palomar/go-1.24.0/go/bin'
 local_rustup = Path.home() / '.local/share/lpselfsimilar-palomar/rustup'
 if local_rustup.is_dir():

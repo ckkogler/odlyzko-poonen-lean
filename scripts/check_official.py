@@ -26,8 +26,8 @@ for name in ('ELAN_TOOLCHAIN', 'LEAN_PATH', 'MATHLIB_CACHE_DIR'):
 certificate = next(p for p in (env.get('CURL_CA_BUNDLE', ''),
     '/etc/pki/tls/certs/ca-bundle.crt', '/etc/ssl/certs/ca-certificates.crt')
     if p and Path(p).is_file())
-env.update(LEAN_CC='/usr/bin/gcc', LIBRARY_PATH=str(prefix / 'lib'),
-           CURL_CA_BUNDLE=certificate, LEAN_NUM_THREADS='4')
+# Use Lean's bundled compiler by default; retain explicit caller overrides.
+env.update(CURL_CA_BUNDLE=certificate, LEAN_NUM_THREADS='4')
 env['PATH'] = str(prefix / 'bin') + ':' + str(Path.home() / '.elan/bin') + ':' + env.get('PATH', '')
 def snapshot():
     paths=list((root/'OdlyzkoPoonen').rglob('*.lean'))
