@@ -18,7 +18,7 @@ log_dir = Path(os.environ.get('ODLYZKO_VERIFICATION_LOG_DIR', str(root / 'logs/v
 base = log_dir / label
 base.parent.mkdir(parents=True, exist_ok=True)
 assert not base.with_suffix('.started').exists(), f'Preserve existing run: {label}'
-prefix = Path.home() / '.elan/toolchains/leanprover--lean4---v4.34.0-rc2'
+prefix = Path.home() / '.elan/toolchains/leanprover--lean4---v4.35.0-rc2'
 assert prefix.is_dir() and '/tmp/' not in str(prefix.resolve())
 env = os.environ.copy()
 for name in ('ELAN_TOOLCHAIN', 'LEAN_PATH', 'MATHLIB_CACHE_DIR'):
@@ -38,7 +38,7 @@ def snapshot():
 before=snapshot()
 base.with_suffix('.sources.json').write_text(json.dumps(before,indent=2)+'\n')
 actual_version=subprocess.check_output([str(prefix/'bin/lean'),'--version'],cwd=root,env=env,universal_newlines=True).strip()
-assert '4.34.0-rc2' in actual_version and '6a10ac8c22beadecabdbb0919c2b50214762f91d' in actual_version, actual_version
+assert '4.35.0-rc2' in actual_version and '11acb17ec6b07a8f9e9173e6845197929540936b' in actual_version, actual_version
 base.with_suffix('.environment.json').write_text(json.dumps(dict(
     toolchain_prefix=str(prefix),version=actual_version,
     settings={k:env.get(k) for k in ['LEAN_CC','LIBRARY_PATH','LEAN_NUM_THREADS','CURL_CA_BUNDLE','ELAN_TOOLCHAIN','LEAN_PATH','MATHLIB_CACHE_DIR']}

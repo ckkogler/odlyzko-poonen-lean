@@ -12,6 +12,10 @@ import json
 import os
 import platform
 import subprocess
+import sys
+
+if (Path(__file__).resolve().parent.parent / 'lean-toolchain').read_text().strip() == 'leanprover/lean4:v4.35.0-rc2':
+    sys.exit(subprocess.call([sys.executable, str(Path(__file__).with_name('verify_palomar_current.py')), *sys.argv[1:]]))
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--prepare-only', action='store_true')

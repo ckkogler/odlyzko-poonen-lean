@@ -78,7 +78,7 @@ for rel,digest in json.loads((root/'verification/proof-source-baseline.json').re
     assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==digest,rel
 for e in json.loads((root/'provenance/reused-source.json').read_text())['files']:
     assert hashlib.sha256((root/e['destination']).read_bytes()).hexdigest()==e['destination_sha256']
-assert (root/'lean-toolchain').read_text().strip()=='leanprover/lean4:v4.34.0-rc2'
+assert (root/'lean-toolchain').read_text().strip()=='leanprover/lean4:v4.35.0-rc2'
 mathlib_toolchain=root/'.lake/packages/mathlib/lean-toolchain'
 assert mathlib_toolchain.is_file(), 'Resolve the pinned Mathlib dependency before validation'
 assert mathlib_toolchain.read_text().strip()==(root/'lean-toolchain').read_text().strip(), 'Project and pinned Mathlib toolchains must match exactly'
