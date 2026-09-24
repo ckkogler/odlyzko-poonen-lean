@@ -25,17 +25,14 @@ classification:
   arxiv: [math.NT, math.PR]
   msc2020: [11C08, 60C05]
 sources:
-  - title: The Odlyzko–Poonen conjecture
+  - title: The Odlyzko–Poonen conjecture on irreducibility of random polynomials
     authors: [Constantin Kogler]
+    id: https://arxiv.org/abs/2609.26771
     type: paper
     location: Theorems 1.1–1.3, Propositions 2.1 and 3.3, Corollary 2.2, Lemmas 3.1–3.2, Remark 3.4 and their supporting arguments
     relationship: formalizes
     note: >-
-      The contribution statement credits GPT-6 Astra with the original proof
-      and Constantin Kogler with rewriting and checking the mathematical proof
-      and taking responsibility for it. No public identifier was supplied, and
-      no independent novelty assessment is claimed. This does not establish
-      independent review of the Lean statements or proofs.
+      This is the paper we formalize.
     license: Source work is not relicensed by the software license
   - title: Zeros of polynomials with 0,1 coefficients
     authors: [A. M. Odlyzko, B. Poonen]

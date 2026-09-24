@@ -14,13 +14,7 @@ of rational irreducibility. Their paper is *Zeros of polynomials with 0,1
 coefficients*, L’Enseignement Mathématique (2) 39 (1993), 317–348.
 
 The work being formalized, *The Odlyzko–Poonen conjecture*, is by Constantin
-Kogler. Its contribution statement credits GPT-6 Astra with the original proof
-and Kogler with rewriting and checking the mathematical proof and taking
-responsibility for it. That statement does not establish independent review
-of the Lean declarations or proofs. No public identifier was supplied.
-Odlyzko and Poonen are the historical conjecture authors; they are not credited
-as authors of this work or formalization. This repository makes no independent
-novelty or priority assessment.
+Kogler.
 
 ## Exact correspondence with the Lean model
 
