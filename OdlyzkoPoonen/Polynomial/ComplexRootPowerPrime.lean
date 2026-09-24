@@ -20,8 +20,7 @@ lemma exists_prime_separating_complex_roots_of_log_lt {P : ℚ[X]}
       Set.InjOn (fun x : ℂ ↦ x ^ p) (P.rootSet ℂ) := by
   -- The splitting-field algebra and the canonical rational algebra coincide.
   have : Normal ℚ P.SplittingField := by
-    convert (Polynomial.SplittingField.instNormal P) using 1
-    exact Subsingleton.elim _ _
+    convert (Polynomial.SplittingField.instNormal P) using 1 <;> exact Subsingleton.elim _ _
   obtain ⟨p, hp, hnp, hpn, hinj⟩ := exists_prime_separating_root_powers_of_log_lt
     (K := P.SplittingField) hmonic hirr hconst (SplittingField.splits P) hgrowth hlog
   refine ⟨p, hp, hnp, hpn, ?_⟩

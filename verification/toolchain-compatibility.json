@@ -27,9 +27,21 @@
       "before_sha256": "dd6bfbb069e9a23fc84e40d4566697bddc8707faf5e8bd97aa95b9a85c2229b0",
       "after_sha256": "32833fe03101557589fd733c147dec30d04e5f2a77abd133e23de969c340f3cf"
     },
+    "OdlyzkoPoonen/Polynomial/ComplexConjugatePowers.lean": {
+      "before_sha256": "121da4b542cc209f0d999d096981ff47b87093d590becf50e2ffbae79e63d0cd",
+      "after_sha256": "0e753042dd40bfffe5277e95283e99481ce796458bc7957ea6606c3fb0a03ed3"
+    },
+    "OdlyzkoPoonen/Polynomial/ComplexRootPowerPrime.lean": {
+      "before_sha256": "6e7d4b4019f06847ed5c65ba56dab87bfc0cfcfc88c710ff1393be6f9468c142",
+      "after_sha256": "77cc6b61a0c68b4e59e1d1e8e2945c561a171b1304935531107c6e121464adee"
+    },
     "OdlyzkoPoonen/Polynomial/GaloisRoots.lean": {
       "before_sha256": "291768bf6d058666c1f5fbceb02fe8554424aa71550f2aa29bbdf79235d538c7",
       "after_sha256": "d5d278c854179ad4312d9f2aecca18268f1002722bcb63af2ac487eb35c51617"
+    },
+    "OdlyzkoPoonen/Polynomial/RootPowerBadPrimes.lean": {
+      "before_sha256": "f64dff65be3f0c6be3d3230481d84729ca4010871a2866f9fc3f90e88e045ccb",
+      "after_sha256": "b2619b16e0d0628ec4aab86b8154bc1a322332476091af14b914d84853e88481"
     },
     "OdlyzkoPoonen/Probability/FiniteProduct.lean": {
       "before_sha256": "4bbde874793fac5e681fd29a86b74f1081759a858449d67ea501addb9248daa2",

@@ -53,8 +53,7 @@ lemma prod_bad_complex_root_power_primes_le {P : ℚ[X]} (hmonic : P.Monic)
     (hbad : ∀ p ∈ t, ¬ Set.InjOn (fun x : ℂ ↦ x ^ p) (P.rootSet ℂ)) :
     (∏ p ∈ t, p) ≤ 2 * P.natDegree ^ 4 := by
   have : Normal ℚ P.SplittingField := by
-    convert (Polynomial.SplittingField.instNormal P) using 1
-    exact Subsingleton.elim _ _
+    convert (Polynomial.SplittingField.instNormal P) using 1 <;> exact Subsingleton.elim _ _
   apply prod_bad_root_power_primes_le (K := P.SplittingField) hmonic hirr hconst
     (rootSet_nonempty_of_splits_of_irreducible hmonic hirr (SplittingField.splits P)) t hprime
   intro p hp hinj

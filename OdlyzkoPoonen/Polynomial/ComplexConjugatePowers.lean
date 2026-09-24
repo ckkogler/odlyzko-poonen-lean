@@ -21,8 +21,7 @@ lemma eq_exponents_of_noncyclotomic_complex_root_powers {J : ℤ[X]}
     (he : a ^ r = b ^ s) : r = s := by
   let P : ℚ[X] := J.map (Int.castRingHom ℚ)
   have : Normal ℚ P.SplittingField := by
-    convert (Polynomial.SplittingField.instNormal P) using 1
-    exact Subsingleton.elim _ _
+    convert (Polynomial.SplittingField.instNormal P) using 1 <;> exact Subsingleton.elim _ _
   have hmap : P.map (algebraMap ℚ ℂ) = J.map (Int.castRingHom ℂ) := by
     dsimp [P]
     rw [Polynomial.map_map]
