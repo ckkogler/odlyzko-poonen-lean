@@ -7,6 +7,8 @@ import Mathlib.Tactic
 /-!
 # The Odlyzko–Poonen conjecture on irreducibility of random polynomials
 
+This is a formalization of the paper https://arxiv.org/abs/2609.26771
+
 For degree n>=1, choose uniformly among the 2^(n-1) monic integer
 polynomials with constant coefficient one and intermediate coefficients in {0,1}.
 We state three main theorems: the irreducibility limit and leading reducibility

@@ -1,6 +1,8 @@
 # Odlyzko–Poonen
 
-A Lean formalization of irreducibility and sharp reducibility estimates for
+This repository is a LEAN formalization of all results of the paper https://arxiv.org/abs/2609.26771.
+
+Indeed, this is a formalization of irreducibility and sharp reducibility estimates for
 uniformly random monic binary integer polynomials with constant coefficient one.
 The library proves the irreducibility, cyclotomic factorization, companion,
 counting, and asymptotic results described below, together with their supporting
@@ -10,23 +12,17 @@ The development proves a cyclotomic factorization theorem with quantitative
 probability bounds, a square-root bound for the cyclotomic degree, and the strengthened
 reciprocal-divisor estimate. It also proves signed difference-multiset counting
 bounds, an explicit three-term reducibility expansion, and periodic half-power
-expansions to every fixed order. Phase-retrieval applications are
-outside the selected scope.
+expansions to every fixed order. 
 
-The Challenge states three main theorems and three preliminary lemmas for the
+The Challenge file states three main theorems and three preliminary lemmas for the
 finite uniform model. The complete build and axiom audit, strict comparison,
 NanoDa and Lean kernel replay, metadata and license checks, and fresh authored
 checkout build passed. Exact checked snapshots are recorded in
 [verification/](verification/).
 The repository is [public on GitHub](https://github.com/ckkogler/odlyzko-poonen-lean).
-It has not been submitted to or registered with Palomar.
 
-Formalization author and responsible maintainer: Constantin Kogler. Original
-code and documentation use [0BSD](LICENSE). The mathematical work,
-*The Odlyzko–Poonen conjecture*, is by Constantin Kogler; its contribution
-statement credits GPT-6 Astra with the original proof and Kogler with rewriting
-and checking the mathematical proof. Lean development uses AI assistance;
-no independent human review of the formalization is claimed. Contained proof reuse is recorded in
+Code written by GPT-6 Astra and responsible maintainer is Constantin Kogler. Original
+code and documentation use [0BSD](LICENSE). No independent human review of the formalization is claimed. Contained proof reuse is recorded in
 [provenance/reused-source.json](provenance/reused-source.json).
 
 ## The mathematical statements
