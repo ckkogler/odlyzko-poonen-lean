@@ -29,7 +29,7 @@ lemma norm_det_le_factorial_mul_prod {n : ℕ} (A : Matrix (Fin n) (Fin n) ℂ)
         rcases Int.units_eq_one_or (Equiv.Perm.sign σ) with hs | hs <;> simp [hs]
       rw [norm_mul, hs, one_mul, norm_prod]
       calc
-        _ ≤ ∏ i, b (σ i) := Finset.prod_le_prod (fun i _ ↦ norm_nonneg _) (fun i _ ↦ hA _ _)
+        _ ≤ ∏ i, b (σ i) := Finset.prod_le_prod₀ (fun i _ ↦ norm_nonneg _) (fun i _ ↦ hA _ _)
         _ = _ := Equiv.prod_comp σ b
     _ = _ := by simp [Fintype.card_perm]
 

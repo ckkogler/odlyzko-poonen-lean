@@ -21,7 +21,7 @@ lemma root_ne_zero_of_constant_ne_zero {F K : Type*} [Field F] [Field K]
   rw [hx0] at he
   apply hP
   apply (algebraMap F K).injective
-  rw [map_zero, coeff_zero_eq_aeval_zero']
+  rw [map_zero (algebraMap F K), coeff_zero_eq_aeval_zero']
   exact he
 
 lemma exists_algEquiv_map_root {F K : Type*} [Field F] [Field K]

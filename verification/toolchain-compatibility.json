@@ -1,0 +1,39 @@
+{
+  "base_commit": "d37999209baa47881adc5da6b53d13840470f8d8",
+  "toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "mathlib_commit": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "sources": {
+    "OdlyzkoPoonen/Analysis/CosineProductExpansion.lean": {
+      "before_sha256": "5895f6e2f1ec5ad91dea33e45742b83347cd896f87204c49b68ec8109c290228",
+      "after_sha256": "8c1963b253b5f519888e2c1d870ecdf72200e25225ea2bf94862890ee34e65f2"
+    },
+    "OdlyzkoPoonen/Analysis/CosineSquareBound.lean": {
+      "before_sha256": "e94485736af6e1c9b546c46b4545cc79f2e41fdf8b330641f1b90c8391dcebdd",
+      "after_sha256": "85d1025adf392e3f60b65a0cc5c5801de188eeb1505a0b97fe275da4f3f0bfff"
+    },
+    "OdlyzkoPoonen/Asymptotics/CentralBinomial.lean": {
+      "before_sha256": "938dcacbe4040ea8112df31574f7b5a8bb7a2dfaa42ffb13ea8e1e43b68ad5ae",
+      "after_sha256": "d27ff14b6bb65b9dbe8096517a324744fb1dce259f27b26dad5d00273cbfad17"
+    },
+    "OdlyzkoPoonen/LinearAlgebra/DeterminantNormBound.lean": {
+      "before_sha256": "fe8cf6d6942558f5e211b38969db0cf50dede28af6b028d0c5110db5733ec369",
+      "after_sha256": "f567d4ce433429b62f093377acf5e88078c54318bb3afa9a02ea2a3b2eaa2128"
+    },
+    "OdlyzkoPoonen/LinearAlgebra/RootPowerDeterminantLowerBound.lean": {
+      "before_sha256": "8503178f17df201a590aea590f6202d6214286c9a859f368f52384d6f9f4c0b0",
+      "after_sha256": "1bf5707794627b80861aab2d4a153605cb4b1e104dc8b942481860c0abd34fd1"
+    },
+    "OdlyzkoPoonen/LinearAlgebra/SymmetricProductBounds.lean": {
+      "before_sha256": "dd6bfbb069e9a23fc84e40d4566697bddc8707faf5e8bd97aa95b9a85c2229b0",
+      "after_sha256": "32833fe03101557589fd733c147dec30d04e5f2a77abd133e23de969c340f3cf"
+    },
+    "OdlyzkoPoonen/Polynomial/GaloisRoots.lean": {
+      "before_sha256": "291768bf6d058666c1f5fbceb02fe8554424aa71550f2aa29bbdf79235d538c7",
+      "after_sha256": "d5d278c854179ad4312d9f2aecca18268f1002722bcb63af2ac487eb35c51617"
+    },
+    "OdlyzkoPoonen/Probability/FiniteProduct.lean": {
+      "before_sha256": "4bbde874793fac5e681fd29a86b74f1081759a858449d67ea501addb9248daa2",
+      "after_sha256": "6ab54f6c6e933ccefc8230a19693eea47ac822b0bcb9a2efac1328500b20bc25"
+    }
+  }
+}

@@ -68,9 +68,7 @@ lemma centralBinomialMass_sq_upper_aux (n : ℕ) :
   have hn : 0 < 2 * (n : ℝ) + 2 := by positivity
   have h : Real.pi * (2 * (n : ℝ) + 1) ^ 2 * centralBinomialMass n ^ 2 /
       (2 * (2 * (n : ℝ) + 2)) ≤ 1 := by
-    convert hmul using 1
-    · rfl
-    · field_simp
+    convert hmul using 1 <;> field_simp <;> ring
   have hh := (div_le_one (by positivity : 0 < 2 * (2 * (n : ℝ) + 2))).mp h
   nlinarith
 

@@ -72,7 +72,7 @@ lemma root_power_determinant_lower_bound {ι : Type*} [Fintype ι]
   have hprod : (∏ i, (p i : ℝ) ^ J.natDegree) ≤
       ∏ i, ‖resultant ((f (some i)).map (Int.castRingHom ℂ))
         ((f none).map (Int.castRingHom ℂ))‖ :=
-    Finset.prod_le_prod (fun i _ ↦ by positivity) (fun i _ ↦ hpbound i)
+    Finset.prod_le_prod₀ (fun i _ ↦ by positivity) (fun i _ ↦ hpbound i)
   have hpow := pow_le_pow_left₀ (Finset.prod_nonneg (fun i _ ↦ by positivity)) hprod (2 * k)
   rw [Finset.prod_pow, ← pow_mul] at hpow
   have he : J.natDegree * (2 * k) = 2 * J.natDegree * k := by ring

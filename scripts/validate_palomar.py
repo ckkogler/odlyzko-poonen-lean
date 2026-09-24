@@ -74,8 +74,16 @@ assert set(cfg['theorem_names'])<=set(re.findall(r'^#print axioms (\S+)',(root/'
 for pkg in json.loads((root/'lake-manifest.json').read_text())['packages']:
     assert pkg['type']=='git' and re.fullmatch('[0-9a-f]{40}',pkg['rev'])
     assert re.fullmatch(r'https://github.com/[^/?#]+/[^/?#]+(?:\.git)?',pkg['url'])
+compatibility=json.loads((root/'verification/toolchain-compatibility.json').read_text())
+assert compatibility['toolchain']==(root/'lean-toolchain').read_text().strip()
+for rel,change in compatibility['sources'].items():
+    assert re.fullmatch(r'OdlyzkoPoonen/[A-Za-z0-9_/]+\.lean',rel),rel
+    assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==change['after_sha256'],rel
 for rel,digest in json.loads((root/'verification/proof-source-baseline.json').read_text())['sources'].items():
-    assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==digest,rel
+    change=compatibility['sources'].get(rel)
+    if change:
+        assert change['before_sha256']==digest,rel
+    assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==(change['after_sha256'] if change else digest),rel
 for e in json.loads((root/'provenance/reused-source.json').read_text())['files']:
     assert hashlib.sha256((root/e['destination']).read_bytes()).hexdigest()==e['destination_sha256']
 assert (root/'lean-toolchain').read_text().strip()=='leanprover/lean4:v4.35.0-rc2'

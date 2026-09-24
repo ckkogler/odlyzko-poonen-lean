@@ -34,7 +34,7 @@ lemma uniformProbability_pi_eq_le {ι : Type*} [Fintype ι] {α β : ι → Type
     (y : ∀ i, β i) :
     uniformProbability (fun w : ∀ i, α i ↦ ∀ i, f i (w i) = y i) ≤ ∏ i, c i := by
   rw [uniformProbability_pi (fun i a ↦ f i a = y i)]
-  exact Finset.prod_le_prod (fun _ _ ↦ uniformProbability_nonneg _)
+  exact Finset.prod_le_prod₀ (fun _ _ ↦ uniformProbability_nonneg _)
     (fun i _ ↦ hc i (y i))
 
 lemma uniformProbability_fiber_unique_le {ι γ : Type*} [Fintype ι]

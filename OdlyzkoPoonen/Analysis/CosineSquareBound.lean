@@ -31,7 +31,7 @@ lemma prod_cosine_half_sq_le_gaussian {ι : Type*} [Fintype ι]
       Real.exp (-(∑ i, x i ^ 2) / Real.pi ^ 2) := by
   calc
     _ ≤ ∏ i, Real.exp (-(x i ^ 2 / Real.pi ^ 2)) :=
-      Finset.prod_le_prod (fun _ _ ↦ sq_nonneg _) (fun i _ ↦ cosine_half_sq_le_gaussian (hx i))
+      Finset.prod_le_prod₀ (fun _ _ ↦ sq_nonneg _) (fun i _ ↦ cosine_half_sq_le_gaussian (hx i))
     _ = _ := by
       rw [← Real.exp_sum, Finset.sum_neg_distrib, ← Finset.sum_div, neg_div]
 
@@ -43,7 +43,7 @@ theorem prod_cosine_half_sq_le_selected_gaussian {ι κ : Type*} [Fintype ι] [F
   classical
   calc
     _ ≤ ∏ j ∈ Finset.univ.image e, Real.cos (x j / 2) ^ 2 := by
-      apply Finset.prod_le_prod_of_subset_of_le_one (Finset.subset_univ _)
+      apply Finset.prod_le_prod_of_subset_of_le_one₀ (Finset.subset_univ _)
       · intro j _
         exact sq_nonneg _
       · intro j _ _

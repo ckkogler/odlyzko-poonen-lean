@@ -25,7 +25,7 @@ lemma abs_prod_sub_prod_le_sum {ι : Type*} (s : Finset ι) (f g : ι → ℝ)
       (fun j hj ↦ hg j (Finset.mem_insert_of_mem hj))
     have hpg : |∏ j ∈ s, g j| ≤ 1 := by
       rw [Finset.abs_prod]
-      exact Finset.prod_le_one (fun _ _ ↦ abs_nonneg _) (fun j hj ↦ hg j (Finset.mem_insert_of_mem hj))
+      exact Finset.prod_le_one₀ (fun _ _ ↦ abs_nonneg _) (fun j hj ↦ hg j (Finset.mem_insert_of_mem hj))
     calc
       _ = |f i * ((∏ j ∈ s, f j) - ∏ j ∈ s, g j) +
           (f i - g i) * ∏ j ∈ s, g j| := by congr 1; ring

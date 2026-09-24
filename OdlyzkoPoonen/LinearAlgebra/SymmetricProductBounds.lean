@@ -34,8 +34,8 @@ lemma option_symmetric_prod_lower {ι : Type*} [Fintype ι]
       cases u with
       | none => exact hc i
       | some j => exact hA _ _
-  have h : (∏ t, ∏ u, B t u) ≤ ∏ t, ∏ u, A t u := Finset.prod_le_prod (fun t _ ↦ Finset.prod_nonneg (fun u _ ↦ hB0 t u))
-    (fun t _ ↦ Finset.prod_le_prod (fun u _ ↦ hB0 t u) (fun u _ ↦ hBA t u))
+  have h : (∏ t, ∏ u, B t u) ≤ ∏ t, ∏ u, A t u := Finset.prod_le_prod₀ (fun t _ ↦ Finset.prod_nonneg (fun u _ ↦ hB0 t u))
+    (fun t _ ↦ Finset.prod_le_prod₀ (fun u _ ↦ hB0 t u) (fun u _ ↦ hBA t u))
   have he : (∏ t, ∏ u, B t u) = (∏ i, c i) ^ 2 := by
     simp [Fintype.prod_option, B, pow_two]
   rwa [he] at h
